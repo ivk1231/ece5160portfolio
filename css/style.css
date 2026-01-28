@@ -159,6 +159,20 @@ ul {
     fill: var(--text-primary);
 }
 
+.nav-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+    background: var(--bg-card);
+}
+
 .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -282,6 +296,54 @@ ul {
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.1em;
+}
+
+/* ---- Philosophy Section ---- */
+.philosophy-section {
+    padding: var(--spacing-xl) 0;
+}
+
+.philosophy-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.philosophy-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+}
+
+.philosophy-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.philosophy-quote {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin: 0;
+    padding-left: var(--spacing-md);
+    border-left: 3px solid var(--accent-blue);
+}
+
+.philosophy-quote strong {
+    color: var(--accent-green);
+    font-weight: 600;
 }
 
 /* ---- Status Dashboard ---- */
