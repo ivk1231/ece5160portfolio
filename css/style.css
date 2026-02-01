@@ -682,6 +682,17 @@ ul {
 .lab-body img {
     border-radius: var(--radius-md);
     margin: var(--spacing-md) 0;
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+}
+
+.lab-body video {
+    border-radius: var(--radius-md);
+    margin: var(--spacing-md) 0;
+    max-width: 400px;
+    width: 100%;
+    height: auto;
 }
 
 .lab-body ul,

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Lab 1: The Artemis Board & Bluetooth - ECE 5160 Fast Robots by Immanuel Varghese Koshy.">
+    <title>Lab 1: The Artemis Board & Bluetooth | ECE 5160</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../index.html" class="logo">Immanuel Koshy</a>
+            <nav class="nav">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+                <a href="https://immanuel-portfolio.netlify.app" target="_blank" rel="noopener noreferrer"
+                    class="btn-primary">
+                    Main Portfolio
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="lab-page">
+        <div class="container">
+            <!-- Back Navigation -->
+            <a href="../index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+                </svg>
+                Back to Home
+            </a>
+
+            <!-- Lab Header -->
+            <header class="lab-header">
+                <h1 class="lab-page-title">Lab 1: The Artemis Board & Bluetooth</h1>
+                <p class="lab-page-meta">Week 1 | January 2026</p>
+            </header>
+
+            <!-- Lab Content -->
+            <article class="lab-body">
+                <h2>Objective</h2>
+                <p>
+                    The objective of this lab was to set up the SparkFun RedBoard Artemis Nano, establish the software
+                    toolchain (Arduino IDE & Python/Jupyter), and implement a robust Bluetooth Low Energy (BLE)
+                    communication framework. This foundation allows for wireless debugging, telemetry streaming, and
+                    data logging, which are critical for the Fast Robots course.
+                </p>
+
+                <h2>1. Prelab & Setup</h2>
+                <p>
+                    I installed the Arduino IDE and the SparkFun Apollo3 board definitions. I also set up a Python
+                    virtual environment (<code>FastRobots_ble</code>) to manage dependencies like <code>bleak</code> and
+                    <code>numpy</code>.
+                </p>
+                <p>
+                    <strong>MAC Address:</strong> <code>C0:81:F5:26:32:64</code><br>
+                    <strong>UUID:</strong> <code>9A48ECBA-2E92-082F-C079-9E75AAE428B1</code>
+                </p>
+                <img src="../asset/lab1/lab1badvertise%20bluetooth.png" alt="Advertising Bluetooth">
+                <p><em>Figure 1a: Serial monitor showing the Artemis board advertising its MAC address.</em></p>
+                <img src="../asset/lab1/connetcedtoboard.png" alt="Connected to Board" style="margin-top: 20px;">
+                <p><em>Figure 1b: Jupyter Notebook showing successful connection to the Artemis board.</em></p>
+
+                <h2>2. Lab 1A: The Artemis Board</h2>
+                <p>
+                    Before moving to wireless communication, I verified the board functionalities including the LED,
+                    Serial communication, and onboard sensors.
+                </p>
+
+                <h3>Blink & Serial</h3>
+                <p>I programmed the board to blink the LED and tested bi-directional serial communication.</p>
+                <video autoplay loop muted playsinline controls>
+                    <source src="../asset/lab1/blink.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p><em>Figure 2: The Artemis board running the Blink sketch.</em></p>
+
+                <img src="../asset/lab1/lab1aserial.png" alt="Serial Monitor Output">
+                <p><em>Figure 3: Serial communication test.</em></p>
+
+                <h3>Temperature & Microphone</h3>
+                <p>
+                    I tested the onboard temperature sensor and the Pulse Density Microphone (PDM). The PDM example
+                    demonstrated how the board processes audio frequency data.
+                </p>
+                <img src="../asset/lab1/lab1a_tempreading.png" alt="Temperature Reading">
+                <p><em>Figure 4: Output from the onboard temperature sensor.</em></p>
+
+                <h3>Additional Task: Acoustic Tuner (5000-Level)</h3>
+                <p>
+                    I combined the microphone input with a frequency analysis algorithm to create a simplified
+                    electronic tuner. The system detects the dominant frequency and prints the corresponding musical
+                    note to the serial monitor.
+                </p>
+                <img src="../asset/lab1/tuner.png" alt="Tuner Output">
+                <p><strong>Serial Output:</strong></p>
+                <pre><code>09:01:30.900 -> Note detected: A (440 Hz)
+09:01:37.884 -> Note detected: E (659 Hz)
+09:01:38.047 -> Note detected: A (440 Hz)</code></pre>
+                <p><em>Figure 5: The tuner successfully distinguishing between A (440 Hz) and E (659 Hz).</em></p>
+
+                <h2>3. Lab 1B: Bluetooth Communication</h2>
+                <p>The core of this lab was building a Python-based command structure to control the robot wirelessly.
+                </p>
+
+                <h3>Task 1: The PING Command</h3>
+                <p>I implemented the <code>PING</code> command to verify basic connectivity. When the computer sends a
+                    PING request, the robot replies with "PONG".</p>
+
+                <p><strong>Arduino Code Snippet:</strong></p>
+                <pre><code>case PING:
+    tx_estring_value.clear();
+    tx_estring_value.append("PONG");
+    tx_characteristic_string.writeValue(tx_estring_value.c_str());
+    Serial.print("Sent back: ");
+    Serial.println(tx_estring_value.c_str());
+    break;</code></pre>
+                <img src="../asset/lab1/pong+integer.png" alt="PONG and Integer Test">
+                <p><em>Figure 6: Serial output showing the PONG reply and integers.</em></p>
+
+                <h3>Task 2: Sending Three Floats</h3>
+                <p>I implemented the <code>SEND_THREE_FLOATS</code> command to verify that the robot could extract
+                    numerical values from the command string.</p>
+
+                <p><strong>Arduino Code Snippet:</strong></p>
+                <pre><code>case SEND_THREE_FLOATS:
+    float f1, f2, f3;
+    if (robot_cmd.get_next_value(f1) && 
+        robot_cmd.get_next_value(f2) && 
+        robot_cmd.get_next_value(f3)) {
+        Serial.print("Three Floats: ");
+        Serial.print(f1);
+        Serial.print(", ");
+        Serial.print(f2);
+        Serial.print(", ");
+        Serial.println(f3);
+    }
+    break;</code></pre>
+                <img src="../asset/lab1/3floats.png" alt="Three Floats Test">
+                <p><em>Figure 7: Arduino serial output showing receipt of three floats.</em></p>
+
+                <h3>Task 3: The GET_TIME_MILLIS Command</h3>
+                <p>To enable time-based telemetry, I added a new command <code>GET_TIME_MILLIS</code> to
+                    <code>cmd_types.py</code> and the Arduino sketch. This command captures the current system time
+                    using <code>millis()</code> and sends it as a formatted string (e.g., "T:12345").
+                </p>
+
+                <p><strong>Arduino Code Snippet:</strong></p>
+                <pre><code>case GET_TIME_MILLIS:
+    String msg = "T:" + String(millis());
+    tx_characteristic_string.writeValue(msg.c_str());
+    break;</code></pre>
+                <img src="../asset/lab1/getmillis.png" alt="Get Millis">
+                <p><em>Figure 8: Serial monitor responding to GET_TIME_MILLIS command.</em></p>
+
+                <h3>Task 4: Notification Handler</h3>
+                <p>Instead of manually reading the characteristic, I set up a notification handler in Python. This
+                    allows the computer to automatically process the "T:" timestamp strings whenever the robot sends
+                    them.</p>
+
+                <p><strong>Python Notification Handler:</strong></p>
+                <pre><code>def my_time_handler(uuid, byte_array):
+    string_data = ble.bytearray_to_string(byte_array)
+    if string_data.startswith("T:"):
+        print(f"Robot Time: {string_data}")
+        
+ble.start_notify(ble.uuid['RX_STRING'], my_time_handler)</code></pre>
+
+                <img src="../asset/lab1/task3,4%20jup.png" alt="Task 3,4 Jupyter">
+                <p><em>Figure 9: Receiving timestamp notifications via the handler.</em></p>
+
+                <h3>Task 5: Data Transfer Rate </h3>
+                <p>
+                    I tested the data transfer rate by sending a short burst of timestamps from the Artemis to the
+                    computer. I configured the Artemis to send 5 messages back-to-back and measured the time interval.
+                </p>
+                <img src="../asset/lab1/task5jupo.png" alt="Task 5 Jupyter">
+                <p><em>Figure 10: Streaming data rate test output.</em></p>
+                <p><strong>Results:</strong></p>
+                <ul>
+                    <li><strong>Messages Received:</strong> 5</li>
+                    <li><strong>Total Time:</strong> ~0.15 seconds (Estimate based on ~30ms/packet)</li>
+                    <li><strong>Data Rate:</strong> ~33 messages/second</li>
+                </ul>
+                <p>
+                    <em>Discussion:</em> This method yielded a data transfer rate of roughly 30 Hz. While effective for
+                    simple debugging, this polling/streaming method is unreliable for high-speed control. Without a
+                    delay() or buffering, the Bluetooth stack can easily get overwhelmed, leading to dropped packets if
+                    the loop runs faster than the connection interval.
+                </p>
+
+                <h3>Task 6 & 7: Data Logging & Offline Retrieval</h3>
+                <p>
+                    To overcome the bandwidth limitations and packet loss observed in the streaming test (Task 5), I
+                    implemented a "Store and Forward" architecture. Instead of transmitting data immediately, the
+                    Artemis logs sensor readings into on-board RAM and transmits them in bulk only after the experiment
+                    is complete.
+                </p>
+
+                <p><strong>Implementation Details:</strong></p>
+                <ul>
+                    <li><strong>Global Arrays:</strong> I defined two global arrays, <code>time_data</code> and
+                        <code>temp_data</code>, to ensure they are accessible by both the recording loop and the
+                        transmission commands.
+                    </li>
+                    <li><strong>Safety Logic:</strong> To prevent memory corruption, the <code>write_data</code> loop
+                        includes a conditional check (<code>arr_counter < ARR_SIZE</code>). This ensures the robot stops
+                        recording automatically when the buffer is full, rather than overwriting existing data or
+                        crashing the stack.</li>
+                </ul>
+
+                <p><strong>Commands:</strong></p>
+                <ul>
+                    <li><code>SEND_TIME_DATA</code> (Task 6): Iterates through the <code>time_data</code> array and
+                        sends timestamps to the computer.</li>
+                    <li><code>GET_TEMP_READINGS</code> (Task 7): Iterates through both arrays concurrently. It
+                        constructs a single string packet containing both the time and temperature (e.g.,
+                        <code>T:1200|C:72</code>) for each data point.
+                    </li>
+                </ul>
+
+                <p><strong>Python Parsing:</strong> The Python notification handler receives these strings, splits them
+                    by the delimiter, and populates two parallel lists (<code>times</code> and <code>temps</code>) for
+                    analysis.</p>
+
+                <p><strong>Arduino Code Snippet (Logging Logic):</strong></p>
+                <pre><code>// Global Arrays (Allocating memory)
+#define ARR_SIZE 1000
+long time_data[ARR_SIZE];
+int temp_data[ARR_SIZE];
+
+void write_data() {
+    if (is_logging && arr_counter < ARR_SIZE) {
+        time_data[arr_counter] = millis();
+        temp_data[arr_counter] = (int)getTempDegF();
+        arr_counter++;
+    }
+}</code></pre>
+                <img src="../asset/lab1/task6,7jup.png" alt="Task 6,7 Jupyter">
+                <p><em>Figure 11: Retrieving bulk-logged data from the Artemis RAM.</em></p>
+
+                <p><strong>Memory Analysis:</strong></p>
+                <p>The Artemis board has <strong>384 kB</strong> of RAM.</p>
+                <ul>
+                    <li>Each data point consists of <code>Time</code> (4 bytes) + <code>Temp</code> (4 bytes) =
+                        <strong>8 bytes</strong>.
+                    </li>
+                    <li><strong>Theoretical Max:</strong> 384,000 / 8 = 48,000 data points.</li>
+                    <li><strong>Practical Limit:</strong> After accounting for the operating system and program
+                        overhead, we can safely store roughly <strong>25,000 data points</strong>. At a sampling rate of
+                        100Hz, this allows for over 4 minutes of continuous, high-speed logging without running out of
+                        memory.</li>
+                </ul>
+
+                <h2>4. 5000-Level Tasks: Performance Analysis</h2>
+                <p>
+                    I conducted an experiment to analyze the overhead and effective data rate of the Bluetooth
+                    connection.
+                </p>
+
+                <h3>Part 1: Effective Data Rate & Overhead</h3>
+                <p>I measured the Round Trip Time (RTT) for sending packets of different sizes.</p>
+                <p><strong>Experiment 1: Data Size Sweep</strong></p>
+                <ul>
+                    <li><strong>5 Bytes:</strong> ~43 B/s</li>
+                    <li><strong>120 Bytes:</strong> ~800-900 B/s (Interpolated)</li>
+                    <li><strong>512 Bytes:</strong> ~3632 B/s</li>
+                </ul>
+                <img src="../asset/lab1/finaltask1.png" alt="Effective Data Rate Graph">
+                <p><em>Figure 12: Effective data rate sweep from 5 to 512 bytes.</em></p>
+
+                <p><strong>Analysis:</strong></p>
+                <p>
+                    The graph above highlights the massive overhead associated with Bluetooth packets. It takes almost
+                    the same amount of time (~120ms) to send a 5-byte message as it does a 120-byte message. By bundling
+                    data into larger packets, we amortize this fixed time cost, increasing the throughput by over
+                    <strong>25x</strong>.
+                </p>
+
+                <h3>Part 2: The "MTU Limit" Discovery</h3>
+                <p>
+                    I performed a sweep of requested packet sizes from 5 bytes to 500 bytes. Initially, my results
+                    showed a linear increase in data rate (Figure 12), which seemed weird.
+                </p>
+                <img src="../asset/lab1/burstmillis.png" alt="Burst Millis Test">
+                <p><em>Figure 13: Initial "weird" data rate calculation assuming requested size equaled received
+                        size.</em></p>
+
+                <p><strong>The Issue:</strong> The calculation assumed that if I requested 500 bytes, the robot sent 500
+                    bytes. In reality, the Arduino library was truncating the message to fit the buffer.</p>
+                <p><strong>The Correction:</strong> I modified the Python script to measure the <em>actual</em> bytes
+                    received. The corrected graph (Figure 14) reveals the physical limit of the connection.</p>
+                <img src="../asset/lab1/finaltask2.png" alt="True Effective Data Rate">
+                <p><em>Figure 14: True effective data rate vs. requested size, showing the MTU limit.</em></p>
+
+                <p><strong>Conclusion:</strong> The data rate plateaus when requesting ~150 bytes. This indicates that
+                    the <strong>Maximum Transmission Unit (MTU)</strong> for this connection (minus headers) is
+                    approximately <strong>146 bytes</strong>. Requesting larger packets does not increase speed; it
+                    simply results in truncated messages.</p>
+
+                <h3>Part 3: Reliability</h3>
+                <p>
+                    When streaming data at maximum speed (without delays), the computer failed to receive all messages.
+                    This confirms that Bluetooth is not a lossless pipe; without flow control or buffering (Method 2),
+                    packet loss is inevitable during high-speed operations.
+                </p>
+
+                <h2>AI Usage</h2>
+                <p>
+                    AI was used in the HTML side of the website construction as well as to debug Jupyter errors and
+                    quickly understand how to use Jupyter Notebook.
+                </p>
+
+                <h2>Discussion</h2>
+                <p>This lab established the communication infrastructure for the semester.</p>
+                <ol>
+                    <li><strong>Notification Handler:</strong> I learned that <code>start_notify</code> is non-blocking,
+                        which is essential for receiving data without freezing the Python script.</li>
+                    <li><strong>Strings vs. Binaries:</strong> While sending strings (e.g., "T:100|C:50") is easier to
+                        debug, it is less efficient than sending raw byte arrays.</li>
+                    <li><strong>Challenges:</strong> The graph in the 5000-level task was confusing at first. Debugging
+                        it required realizing that <code>MAX_MSG_SIZE</code> on the Arduino side was silently capping my
+                        data, highlighting the importance of verifying inputs/outputs at both ends of a wireless link.
+                    </li>
+                </ol>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-text">© 2026 Immanuel Varghese Koshy. Built for ECE 5160.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
