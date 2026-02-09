@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 2: The IMU - ECE 5160 Fast Robots by Immanuel Varghese Koshy.">
+    <title>Lab 2: The IMU | ECE 5160</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .angle-test-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .angle-test-row .angle-item {
+            flex: 1;
+            min-width: 220px;
+            max-width: 280px;
+            text-align: center;
+        }
+
+        .angle-test-row img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .angle-test-row img:hover {
+            transform: scale(1.05);
+        }
+
+        .angle-test-row p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 1.5rem auto;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+
+        .sampling-comparison {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .sampling-comparison .sample-item {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .sampling-comparison img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../index.html" class="logo">Immanuel Koshy</a>
+            <nav class="nav">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+                <a href="https://immanuel-portfolio.netlify.app" target="_blank" rel="noopener noreferrer"
+                    class="btn-primary">
+                    Main Portfolio
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="lab-page">
+        <div class="container">
+            <!-- Back Navigation -->
+            <a href="../index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+                </svg>
+                Back to Home
+            </a>
+
+            <!-- Lab Header -->
+            <header class="lab-header">
+                <h1 class="lab-page-title">Lab 2: The IMU</h1>
+                <p class="lab-page-meta">Week 2 | February 2026</p>
+            </header>
+
+            <!-- Lab Content -->
+            <article class="lab-body">
+                <h2>1. IMU Setup & Configuration</h2>
+                <p>
+                    For this lab, I connected the Artemis Nano to the SparkFun 9DoF IMU (ICM-20948) using the Qwiic
+                    connector. The IMU communicates via I2C.
+                </p>
+
+                <h3>IMU Blink Demo</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/lHWzALXbNag" title="IMU Blink Video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <p><em>Video 1: Artemis board with IMU showing LED blink on successful connection.</em></p>
+
+                <h3>AD0_VAL Definition</h3>
+                <p>
+                    In the setup code, <code>AD0_VAL</code> represents the last bit of the I2C address. The SparkFun
+                    breakout board defaults this value to 1. If the ADR jumper on the board were closed via solder,
+                    this would change to 0. For my setup, leaving it at 1 established a successful connection.
+                </p>
+
+                <h2>2. Accelerometer</h2>
+                <p>
+                    The accelerometer measures acceleration forces, including gravity. By analyzing the static force
+                    of gravity on the X, Y, and Z axes, we can calculate the pitch and roll angles.
+                </p>
+
+                <h3>Equations & Code Implementation</h3>
+                <p>I implemented the following equations in C++ to convert raw accelerometer data into degrees:</p>
+                <pre><code>// Calculate Pitch and Roll from Accelerometer
+float pitch_a = atan2(myICM.accX(), myICM.accZ()) * 180.0 / M_PI;
+float roll_a  = atan2(myICM.accY(), myICM.accZ()) * 180.0 / M_PI;</code></pre>
+
+                <h3>Accuracy Test</h3>
+                <p>To verify the accuracy, I held the IMU against the flat edges of a table to achieve -90°, 0°, and 90°
+                    readings.</p>
+
+                <h4>Pitch Tests</h4>
+                <div class="angle-test-row">
+                    <div class="angle-item">
+                        <img src="../Lab2/-90pitch.png" alt="-90° Pitch">
+                        <p>-90° Pitch</p>
+                    </div>
+                    <div class="angle-item">
+                        <img src="../Lab2/0.png" alt="0° (Flat)">
+                        <p>0° (Flat)</p>
+                    </div>
+                    <div class="angle-item">
+                        <img src="../Lab2/90pitch.png" alt="90° Pitch">
+                        <p>90° Pitch</p>
+                    </div>
+                </div>
+
+                <h4>Roll Tests</h4>
+                <div class="angle-test-row">
+                    <div class="angle-item">
+                        <img src="../Lab2/-90roll.png" alt="-90° Roll">
+                        <p>-90° Roll</p>
+                    </div>
+                    <div class="angle-item">
+                        <img src="../Lab2/0.png" alt="0° (Flat)">
+                        <p>0° (Flat)</p>
+                    </div>
+                    <div class="angle-item">
+                        <img src="../Lab2/90roll.png" alt="90° Roll">
+                        <p>90° Roll</p>
+                    </div>
+                </div>
+
+                <p><strong>Accuracy Discussion:</strong></p>
+                <p>
+                    The accelerometer was surprisingly accurate right out of the box. The readings at the extremes
+                    (-90°/90°) were within ~1 degree of the expected values. Because the noise levels were low and
+                    the range was accurate, I determined that a two-point calibration was not strictly necessary
+                    for basic driving tasks, though it could be implemented to perfect the zero-offset.
+                </p>
+
+                <h3>Noise & Frequency Analysis</h3>
+                <p>
+                    While the accelerometer provides absolute angles, it is susceptible to mechanical noise (vibration).
+                    I recorded data while vibrating the table to simulate a running car motor and performed a Fourier
+                    Transform (FFT) in Python.
+                </p>
+                <img src="../Lab2/ss1.png" alt="FFT Analysis">
+                <p><em>Figure 2: Time domain vibration (top) and FFT Analysis (bottom).</em></p>
+
+                <p><strong>Analysis:</strong></p>
+                <p>
+                    Looking at the FFT graph, there is a massive spike at 0Hz (DC bias/Gravity). However, significant
+                    noise appears in the frequency spectrum starting around 10Hz and extending up to 140Hz. Since the
+                    car's physical turning movements are relatively slow (typically &lt;5Hz), everything above 10Hz
+                    can be considered noise. Based on this, I chose a cutoff frequency of roughly 5-10Hz.
+                </p>
+
+                <h3>Low Pass Filter (LPF)</h3>
+                <p>I implemented a digital Low Pass Filter on the Artemis using the formula:</p>
+                <pre><code>y[n] = (alpha)*x[n] + (1-alpha)*y[n-1]</code></pre>
+
+                <p><strong>Code Implementation:</strong></p>
+                <pre><code>// Alpha = 0.1 means we trust the new reading 10% and the old value 90%
+// This effectively smooths out quick jitters.
+#define ALPHA 0.1
+pitch_filtered = (ALPHA * pitch_raw) + ((1.0 - ALPHA) * pitch_filtered);</code></pre>
+
+                <p>With an alpha value of roughly 0.1, the filter successfully removed the "fuzz" from the signal.</p>
+                <img src="../Lab2/lowpass.png" alt="Low Pass Filter Result">
+                <p><em>Figure 3: The Red line (Filtered) cuts through the noise of the Blue line (Raw).</em></p>
+
+                <h2>3. Gyroscope</h2>
+                <p>
+                    The gyroscope measures angular velocity (degrees per second). To get the angle, we must integrate
+                    velocity over time:
+                </p>
+                <pre><code>angle = angle + (gyro_rate * dt)</code></pre>
+
+                <h3>Pitch, Roll, and Yaw</h3>
+                <p>
+                    Unlike the accelerometer, the gyroscope can measure Yaw (rotation around Z). However, as seen
+                    in the tests below, the gyroscope suffers from drift.
+                </p>
+
+                <p><strong>Code Implementation:</strong></p>
+                <pre><code>// Calculate dt (change in time)
+float dt = (micros() - last_time) / 1000000.0;
+last_time = micros();
+
+// Integrate Angular Velocity
+pitch_g = pitch_g + myICM.gyrY() * dt;
+roll_g  = roll_g + myICM.gyrX() * dt;
+yaw_g   = yaw_g + myICM.gyrZ() * dt;</code></pre>
+
+                <p><strong>Observations:</strong></p>
+                <ul>
+                    <li><strong>Drift:</strong> The Gyro captures the shape of the movement perfectly (very smooth),
+                        but it slowly drifts away from the Accelerometer over time. This is because small errors in
+                        the integration accumulate.</li>
+                    <li><strong>Sampling Frequency:</strong> When the sampling rate is low, the integration becomes
+                        inaccurate because it misses the "curve" of fast movements, resulting in jagged, blocky output.
+                    </li>
+                </ul>
+
+                <h3>Sampling Rate Comparison</h3>
+                <div class="sampling-comparison">
+                    <div class="sample-item">
+                        <img src="../Lab2/gyrohighsamplingrate.png" alt="High Sampling Rate">
+                        <p><em>High Sampling Rate: Smooth, accurate integration</em></p>
+                    </div>
+                    <div class="sample-item">
+                        <img src="../Lab2/gyrolowsampling.png" alt="Low Sampling Rate">
+                        <p><em>Low Sampling Rate: Jagged, blocky output</em></p>
+                    </div>
+                </div>
+                <p><em>Figure 4: Comparison of gyroscope integration at different sampling rates.</em></p>
+
+                <h2>4. Complementary Filter</h2>
+                <p>
+                    To solve the "Noise vs. Drift" problem, I implemented a complementary filter. This fuses the two
+                    sensors: it trusts the Gyroscope for short-term changes (high pass) and the Accelerometer for
+                    long-term stability (low pass).
+                </p>
+                <pre><code>angle = (alpha)*(angle + gyro*dt) + (1-alpha)*(accel)</code></pre>
+
+                <img src="../Lab2/complementaryfilter.png" alt="Complementary Filter">
+                <p><em>Figure 5: Complementary Filter (Red) tracking the true movement.</em></p>
+
+                <p><strong>Code Implementation:</strong></p>
+                <pre><code>// Alpha is usually high (e.g., 0.9) to trust the gyro more for smoothness
+pitch_comp = (pitch_comp + myICM.gyrY() * dt) * alpha + pitch_acc * (1.0 - alpha);
+roll_comp  = (roll_comp + myICM.gyrX() * dt) * alpha + roll_acc * (1.0 - alpha);</code></pre>
+
+                <p><strong>Discussion:</strong></p>
+                <p>
+                    The result (Red line) is the best of both worlds. It ignores the high-frequency vibrations seen
+                    in the Accelerometer (Blue) but snaps back to gravity when the Gyroscope (Green) tries to drift
+                    away. This stable signal is what I will use for PID control.
+                </p>
+
+                <h2>5. Sample Data & Bluetooth</h2>
+                <p>
+                    To capture high-speed data for analysis, we cannot rely on real-time printing. Instead, I collected
+                    data in arrays on the Artemis and sent it in batches over BLE.
+                </p>
+
+                <h3>Data Storage Strategy</h3>
+                <ul>
+                    <li><strong>Arrays:</strong> I chose to use separate arrays (<code>float pitch[]</code>,
+                        <code>float roll[]</code>, etc.) rather than a large 2D array or array of structs. This kept
+                        the C++ implementation simple and modular.
+                    </li>
+                    <li><strong>Data Type:</strong> I used <code>float</code> (4 bytes) instead of <code>double</code>
+                        (8 bytes) or <code>String</code>. The IMU precision does not require 64-bit doubles, and using
+                        floats saves 50% of the RAM.</li>
+                    <li><strong>Memory:</strong>
+                        <ul>
+                            <li>Each sample is ~16 bytes (Time, Pitch, Roll, Yaw).</li>
+                            <li>The Artemis has ~96KB of usable RAM.</li>
+                            <li>I allocated space for 2000 samples (~32KB), which is roughly 1/3rd of the available
+                                RAM, leaving plenty of headroom.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>5 Seconds of Data</h3>
+                <p>
+                    By optimizing the main loop (removing blocking delays), I achieved a sampling rate of approximately
+                    300Hz. The plot below shows over 5 seconds of data captured on the board and transmitted to Python.
+                    The motion used during this test was a mix of up, down, left, and down movements to demonstrate
+                    the IMU's ability to track complex motion patterns.
+                </p>
+                <img src="../Lab2/Bluetooth5second.png" alt="BLE Data Transfer">
+                <p><em>Figure 6: Python log showing reception of packets over 5 seconds.</em></p>
+
+                <p><strong>Code Implementation (Data Collection Loop):</strong></p>
+                <pre><code>if (is_imu_logging && imu_counter < IMU_ARR_SIZE) {
+    if (myICM.dataReady()) {
+        // ... (Calculate Pitch/Roll/Yaw) ...
+        
+        // Store in arrays
+        imu_time_data[imu_counter] = millis();
+        pitch_data[imu_counter] = pitch_g;
+        roll_data[imu_counter]  = roll_g;
+        yaw_data[imu_counter]   = yaw_g;
+        
+        imu_counter++;
+    }
+}</code></pre>
+
+                <h2>6. Stunts</h2>
+                <p>Finally, I took the RC car for a spin to see how the car reacted to aggressive driving.</p>
+
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Qsk4Nk3NKvo" title="RC Car Driving Demo"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <p><em>Video 2: Driving the RC car.</em></p>
+
+                <p><strong>Observations:</strong></p>
+                <p>
+                    Very hard to drive with one hand + high tendency to slip and move in the 3rd axis. :)
+                </p>
+
+                <h2>AI Usage</h2>
+                <p>
+                    AI was used in the HTML side of the website construction.
+                </p>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-text">© 2026 Immanuel Varghese Koshy. Built for ECE 5160.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
