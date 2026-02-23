@@ -1,0 +1,6193 @@
+
+--- Dual ToF Initialization Start ---
+Sensor 1 found at default 0x29.
+Sensor 1 successfully moved to: 0x30
+Sensor 2 found at default 0x29.
+--- Initialization Complete! Starting Loop ---
+Time(us):576584
+Time(us):581517
+Time(us):586450
+Time(us):591384
+Time(us):596321
+Time(us):601250
+Time(us):606179
+Time(us):611114
+Time(us):616050	S2_Dist(mm):24
+Time(us):623979	S1_Dist(mm):67
+Time(us):631742
+Time(us):636673
+Time(us):641608
+Time(us):646540
+Time(us):651472
+Time(us):656408
+Time(us):661340
+Time(us):666272
+Time(us):671206
+Time(us):676142
+Time(us):681074
+Time(us):686006
+Time(us):690940
+Time(us):695870
+Time(us):700801
+Time(us):705732
+Time(us):710662
+Time(us):715596	S1_Dist(mm):64	S2_Dist(mm):26
+Time(us):726365
+Time(us):731295
+Time(us):736229
+Time(us):741161
+Time(us):746091
+Time(us):751027
+Time(us):755959
+Time(us):760891
+Time(us):765823
+Time(us):770755
+Time(us):775689
+Time(us):780622
+Time(us):785553
+Time(us):790486
+Time(us):795422
+Time(us):800356
+Time(us):805288
+Time(us):810222	S1_Dist(mm):67
+Time(us):817988	S2_Dist(mm):22
+Time(us):825925
+Time(us):830857
+Time(us):835788
+Time(us):840720
+Time(us):845650
+Time(us):850582
+Time(us):855518
+Time(us):860451
+Time(us):865385
+Time(us):870322
+Time(us):875250
+Time(us):880180
+Time(us):885115
+Time(us):890051
+Time(us):894982
+Time(us):899918
+Time(us):904850
+Time(us):909782	S1_Dist(mm):65
+Time(us):917545
+Time(us):922478	S2_Dist(mm):26
+Time(us):930417
+Time(us):935349
+Time(us):940280
+Time(us):945214
+Time(us):950147
+Time(us):955076
+Time(us):960005
+Time(us):964940
+Time(us):969870
+Time(us):974801
+Time(us):979732
+Time(us):984662
+Time(us):989596
+Time(us):994536
+Time(us):999465
+Time(us):1004401	S1_Dist(mm):62
+Time(us):1012252
+Time(us):1017268
+Time(us):1022287	S2_Dist(mm):26
+Time(us):1030310
+Time(us):1035331
+Time(us):1040348
+Time(us):1045366
+Time(us):1050385
+Time(us):1055406
+Time(us):1060427
+Time(us):1065445
+Time(us):1070462
+Time(us):1075480
+Time(us):1080501
+Time(us):1085522
+Time(us):1090542
+Time(us):1095558
+Time(us):1100577	S1_Dist(mm):66
+Time(us):1108434
+Time(us):1113452
+Time(us):1118471
+Time(us):1123491	S2_Dist(mm):25
+Time(us):1131515
+Time(us):1136537
+Time(us):1141550
+Time(us):1146570
+Time(us):1151592
+Time(us):1156614
+Time(us):1161633
+Time(us):1166652
+Time(us):1171670
+Time(us):1176693
+Time(us):1181716
+Time(us):1186735
+Time(us):1191754
+Time(us):1196774	S1_Dist(mm):64
+Time(us):1204624
+Time(us):1209643
+Time(us):1214661
+Time(us):1219683
+Time(us):1224705	S2_Dist(mm):25
+Time(us):1232726
+Time(us):1237746
+Time(us):1242765
+Time(us):1247785
+Time(us):1252804
+Time(us):1257823
+Time(us):1262842
+Time(us):1267861
+Time(us):1272880
+Time(us):1277899
+Time(us):1282922
+Time(us):1287945
+Time(us):1292961
+Time(us):1297978	S1_Dist(mm):66
+Time(us):1305825
+Time(us):1310844
+Time(us):1315864
+Time(us):1320884
+Time(us):1325903	S2_Dist(mm):25
+Time(us):1333925
+Time(us):1338947
+Time(us):1343964
+Time(us):1348980
+Time(us):1353998
+Time(us):1359019
+Time(us):1364040
+Time(us):1369056
+Time(us):1374071
+Time(us):1379086
+Time(us):1384106
+Time(us):1389127
+Time(us):1394148	S1_Dist(mm):63
+Time(us):1402000
+Time(us):1407020
+Time(us):1412041
+Time(us):1417058
+Time(us):1422074
+Time(us):1427091	S2_Dist(mm):24
+Time(us):1435113
+Time(us):1440134
+Time(us):1445150
+Time(us):1450166
+Time(us):1455181
+Time(us):1460202
+Time(us):1465223
+Time(us):1470242
+Time(us):1475259
+Time(us):1480275
+Time(us):1485291
+Time(us):1490307	S1_Dist(mm):64
+Time(us):1498157
+Time(us):1503174
+Time(us):1508190
+Time(us):1513210
+Time(us):1518231
+Time(us):1523249
+Time(us):1528266	S2_Dist(mm):23
+Time(us):1536287
+Time(us):1541303
+Time(us):1546324
+Time(us):1551343
+Time(us):1556362
+Time(us):1561380
+Time(us):1566402
+Time(us):1571423
+Time(us):1576441
+Time(us):1581459
+Time(us):1586476	S1_Dist(mm):64
+Time(us):1594334
+Time(us):1599351
+Time(us):1604370
+Time(us):1609389
+Time(us):1614410
+Time(us):1619431
+Time(us):1624449
+Time(us):1629467	S2_Dist(mm):23
+Time(us):1637486
+Time(us):1642508
+Time(us):1647530
+Time(us):1652547
+Time(us):1657566
+Time(us):1662588
+Time(us):1667610
+Time(us):1672628
+Time(us):1677646
+Time(us):1682664	S1_Dist(mm):65
+Time(us):1690515
+Time(us):1695538
+Time(us):1700552
+Time(us):1705572
+Time(us):1710593
+Time(us):1715614
+Time(us):1720633
+Time(us):1725652
+Time(us):1730671	S2_Dist(mm):24
+Time(us):1738696
+Time(us):1743718
+Time(us):1748738
+Time(us):1753757
+Time(us):1758776
+Time(us):1763795
+Time(us):1768815
+Time(us):1773834
+Time(us):1778853	S1_Dist(mm):65
+Time(us):1786708
+Time(us):1791727
+Time(us):1796745
+Time(us):1801763
+Time(us):1806781
+Time(us):1811800
+Time(us):1816818
+Time(us):1821836
+Time(us):1826855	S2_Dist(mm):26
+Time(us):1834874
+Time(us):1839893
+Time(us):1844915
+Time(us):1849938
+Time(us):1854954
+Time(us):1859971
+Time(us):1864987
+Time(us):1870003
+Time(us):1875024	S1_Dist(mm):62
+Time(us):1882876
+Time(us):1887896
+Time(us):1892918
+Time(us):1897941
+Time(us):1902957
+Time(us):1907974
+Time(us):1912990
+Time(us):1918007
+Time(us):1923027
+Time(us):1928048	S2_Dist(mm):27
+Time(us):1936065
+Time(us):1941081
+Time(us):1946096
+Time(us):1951116
+Time(us):1956137
+Time(us):1961153
+Time(us):1966168
+Time(us):1971184	S1_Dist(mm):63
+Time(us):1979034
+Time(us):1984054
+Time(us):1989070
+Time(us):1994085
+Time(us):1999105
+Time(us):2004126
+Time(us):2009147
+Time(us):2014164
+Time(us):2019180
+Time(us):2024200
+Time(us):2029221	S2_Dist(mm):26
+Time(us):2037245
+Time(us):2042262
+Time(us):2047278
+Time(us):2052294
+Time(us):2057310
+Time(us):2062330
+Time(us):2067346	S1_Dist(mm):64
+Time(us):2075195
+Time(us):2080217
+Time(us):2085239
+Time(us):2090256
+Time(us):2095272
+Time(us):2100288
+Time(us):2105304
+Time(us):2110325
+Time(us):2115342
+Time(us):2120360
+Time(us):2125379
+Time(us):2130400	S2_Dist(mm):27
+Time(us):2138423
+Time(us):2143439
+Time(us):2148457
+Time(us):2153476
+Time(us):2158497
+Time(us):2163520	S1_Dist(mm):63
+Time(us):2171370
+Time(us):2176389
+Time(us):2181410
+Time(us):2186432
+Time(us):2191449
+Time(us):2196467
+Time(us):2201485
+Time(us):2206506
+Time(us):2211528
+Time(us):2216545
+Time(us):2221564
+Time(us):2226582
+Time(us):2231604	S2_Dist(mm):25
+Time(us):2239629
+Time(us):2244646
+Time(us):2249664
+Time(us):2254686
+Time(us):2259709
+Time(us):2264727	S1_Dist(mm):64
+Time(us):2272576
+Time(us):2277598
+Time(us):2282619
+Time(us):2287638
+Time(us):2292656
+Time(us):2297675
+Time(us):2302698
+Time(us):2307719
+Time(us):2312737
+Time(us):2317756
+Time(us):2322774
+Time(us):2327792
+Time(us):2332811	S2_Dist(mm):25
+Time(us):2340831
+Time(us):2345849
+Time(us):2350867
+Time(us):2355885
+Time(us):2360904	S1_Dist(mm):64
+Time(us):2368757
+Time(us):2373777
+Time(us):2378796
+Time(us):2383815
+Time(us):2388834
+Time(us):2393853
+Time(us):2398872
+Time(us):2403892
+Time(us):2408911
+Time(us):2413933
+Time(us):2418950
+Time(us):2423966
+Time(us):2428984
+Time(us):2434000	S2_Dist(mm):27
+Time(us):2442021
+Time(us):2447041
+Time(us):2452057
+Time(us):2457072	S1_Dist(mm):63
+Time(us):2464926
+Time(us):2469947
+Time(us):2474964
+Time(us):2479980
+Time(us):2484998
+Time(us):2490019
+Time(us):2495040
+Time(us):2500055
+Time(us):2505071
+Time(us):2510086
+Time(us):2515106
+Time(us):2520127
+Time(us):2525148
+Time(us):2530165
+Time(us):2535181	S2_Dist(mm):25
+Time(us):2543203
+Time(us):2548224
+Time(us):2553242	S1_Dist(mm):64
+Time(us):2561091
+Time(us):2566111
+Time(us):2571131
+Time(us):2576148
+Time(us):2581163
+Time(us):2586180
+Time(us):2591200
+Time(us):2596221
+Time(us):2601243
+Time(us):2606260
+Time(us):2611277
+Time(us):2616293
+Time(us):2621309
+Time(us):2626332
+Time(us):2631350
+Time(us):2636368	S2_Dist(mm):25
+Time(us):2644390
+Time(us):2649411	S1_Dist(mm):63
+Time(us):2657267
+Time(us):2662284
+Time(us):2667300
+Time(us):2672320
+Time(us):2677338
+Time(us):2682356
+Time(us):2687375
+Time(us):2692393
+Time(us):2697414
+Time(us):2702435
+Time(us):2707453
+Time(us):2712472
+Time(us):2717490
+Time(us):2722511
+Time(us):2727537
+Time(us):2732549
+Time(us):2737568	S2_Dist(mm):26
+Time(us):2745592	S1_Dist(mm):66
+Time(us):2753448
+Time(us):2758466
+Time(us):2763483
+Time(us):2768506
+Time(us):2773529
+Time(us):2778546
+Time(us):2783565
+Time(us):2788588
+Time(us):2793610
+Time(us):2798628
+Time(us):2803647
+Time(us):2808666
+Time(us):2813688
+Time(us):2818710
+Time(us):2823729
+Time(us):2828749
+Time(us):2833768
+Time(us):2838787	S2_Dist(mm):30
+Time(us):2846813	S1_Dist(mm):65
+Time(us):2854663
+Time(us):2859685
+Time(us):2864708
+Time(us):2869727
+Time(us):2874747
+Time(us):2879766
+Time(us):2884785
+Time(us):2889804
+Time(us):2894823
+Time(us):2899842
+Time(us):2904860
+Time(us):2909879
+Time(us):2914899
+Time(us):2919921
+Time(us):2924944
+Time(us):2929960
+Time(us):2934977
+Time(us):2939993	S1_Dist(mm):63	S2_Dist(mm):26
+Time(us):2950845
+Time(us):2955864
+Time(us):2960883
+Time(us):2965902
+Time(us):2970924
+Time(us):2975947
+Time(us):2980963
+Time(us):2985980
+Time(us):2990996
+Time(us):2996016
+Time(us):3001037
+Time(us):3006054
+Time(us):3011070
+Time(us):3016085
+Time(us):3021105
+Time(us):3026125
+Time(us):3031146
+Time(us):3036163	S1_Dist(mm):64	S2_Dist(mm):27
+Time(us):3047014
+Time(us):3052035
+Time(us):3057053
+Time(us):3062068
+Time(us):3067083
+Time(us):3072099
+Time(us):3077119
+Time(us):3082139
+Time(us):3087156
+Time(us):3092173
+Time(us):3097188
+Time(us):3102208
+Time(us):3107229
+Time(us):3112247
+Time(us):3117263
+Time(us):3122282
+Time(us):3127298
+Time(us):3132322	S1_Dist(mm):65
+Time(us):3140169	S2_Dist(mm):26
+Time(us):3148187
+Time(us):3153207
+Time(us):3158229
+Time(us):3163247
+Time(us):3168263
+Time(us):3173279
+Time(us):3178298
+Time(us):3183318
+Time(us):3188339
+Time(us):3193357
+Time(us):3198376
+Time(us):3203394
+Time(us):3208415
+Time(us):3213436
+Time(us):3218454
+Time(us):3223471
+Time(us):3228492	S1_Dist(mm):65
+Time(us):3236345
+Time(us):3241364	S2_Dist(mm):22
+Time(us):3249385
+Time(us):3254407
+Time(us):3259428
+Time(us):3264446
+Time(us):3269463
+Time(us):3274484
+Time(us):3279505
+Time(us):3284527
+Time(us):3289544
+Time(us):3294563
+Time(us):3299582
+Time(us):3304604
+Time(us):3309623
+Time(us):3314642
+Time(us):3319660
+Time(us):3324682	S1_Dist(mm):64
+Time(us):3332538
+Time(us):3337550
+Time(us):3342569	S2_Dist(mm):25
+Time(us):3350593
+Time(us):3355615
+Time(us):3360633
+Time(us):3365652
+Time(us):3370670
+Time(us):3375693
+Time(us):3380716
+Time(us):3385735
+Time(us):3390754
+Time(us):3395773
+Time(us):3400792
+Time(us):3405812
+Time(us):3410831
+Time(us):3415850
+Time(us):3420870	S1_Dist(mm):65
+Time(us):3428722
+Time(us):3433741
+Time(us):3438761
+Time(us):3443780	S2_Dist(mm):28
+Time(us):3451806
+Time(us):3456825
+Time(us):3461844
+Time(us):3466864
+Time(us):3471883
+Time(us):3476903
+Time(us):3481925
+Time(us):3486948
+Time(us):3491964
+Time(us):3496981
+Time(us):3501997
+Time(us):3507017
+Time(us):3512038
+Time(us):3517055
+Time(us):3522071	S1_Dist(mm):62
+Time(us):3529924
+Time(us):3534946
+Time(us):3539962
+Time(us):3544979	S2_Dist(mm):27
+Time(us):3552995
+Time(us):3558016
+Time(us):3563037
+Time(us):3568052
+Time(us):3573068
+Time(us):3578083
+Time(us):3583098
+Time(us):3588118
+Time(us):3593139
+Time(us):3598155
+Time(us):3603172
+Time(us):3608188
+Time(us):3613208
+Time(us):3618230	S1_Dist(mm):74
+Time(us):3626081
+Time(us):3631096
+Time(us):3636116
+Time(us):3641137
+Time(us):3646153	S2_Dist(mm):59
+Time(us):3654170
+Time(us):3659187
+Time(us):3664207
+Time(us):3669228
+Time(us):3674246
+Time(us):3679263
+Time(us):3684279
+Time(us):3689295
+Time(us):3694316
+Time(us):3699337
+Time(us):3704355
+Time(us):3709374
+Time(us):3714392	S1_Dist(mm):33
+Time(us):3722244
+Time(us):3727261
+Time(us):3732277
+Time(us):3737293
+Time(us):3742309
+Time(us):3747330	S2_Dist(mm):17
+Time(us):3755347
+Time(us):3760368
+Time(us):3765386
+Time(us):3770408
+Time(us):3775428
+Time(us):3780446
+Time(us):3785464
+Time(us):3790482
+Time(us):3795504
+Time(us):3800526
+Time(us):3805543
+Time(us):3810562	S1_Dist(mm):1
+Time(us):3818337
+Time(us):3823354
+Time(us):3828373
+Time(us):3833392
+Time(us):3838413
+Time(us):3843434
+Time(us):3848452	S2_Dist(mm):11
+Time(us):3856473
+Time(us):3861490
+Time(us):3866511
+Time(us):3871531
+Time(us):3876549
+Time(us):3881568
+Time(us):3886590
+Time(us):3891611
+Time(us):3896630
+Time(us):3901649
+Time(us):3906667	S1_Dist(mm):4
+Time(us):3914438
+Time(us):3919456
+Time(us):3924475
+Time(us):3929495
+Time(us):3934516
+Time(us):3939540
+Time(us):3944551
+Time(us):3949570	S2_Dist(mm):14
+Time(us):3957594
+Time(us):3962616
+Time(us):3967634
+Time(us):3972653
+Time(us):3977671
+Time(us):3982694
+Time(us):3987716
+Time(us):3992736
+Time(us):3997755
+Time(us):4002775	S1_Dist(mm):3
+Time(us):4010544
+Time(us):4015563
+Time(us):4020582
+Time(us):4025604
+Time(us):4030624
+Time(us):4035641
+Time(us):4040659
+Time(us):4045678
+Time(us):4050701	S2_Dist(mm):10
+Time(us):4058720
+Time(us):4063740
+Time(us):4068759
+Time(us):4073778
+Time(us):4078798
+Time(us):4083818
+Time(us):4088837
+Time(us):4093857
+Time(us):4098876	S1_Dist(mm):3
+Time(us):4106645
+Time(us):4111663
+Time(us):4116685
+Time(us):4121708
+Time(us):4126727
+Time(us):4131747
+Time(us):4136766
+Time(us):4141786
+Time(us):4146806
+Time(us):4151826	S2_Dist(mm):12
+Time(us):4159847
+Time(us):4164866
+Time(us):4169885
+Time(us):4174904
+Time(us):4179926
+Time(us):4184948
+Time(us):4189964
+Time(us):4194982	S1_Dist(mm):4
+Time(us):4202747
+Time(us):4207766
+Time(us):4212786
+Time(us):4217806
+Time(us):4222824
+Time(us):4227844
+Time(us):4232863
+Time(us):4237882
+Time(us):4242901
+Time(us):4247923
+Time(us):4252946	S2_Dist(mm):14
+Time(us):4260962
+Time(us):4265978
+Time(us):4270996
+Time(us):4276016
+Time(us):4281037
+Time(us):4286053
+Time(us):4291068	S1_Dist(mm):4
+Time(us):4298839
+Time(us):4303858
+Time(us):4308877
+Time(us):4313897
+Time(us):4318919
+Time(us):4323942
+Time(us):4328958
+Time(us):4333975
+Time(us):4338991
+Time(us):4344011
+Time(us):4349031
+Time(us):4354051	S2_Dist(mm):19
+Time(us):4362070
+Time(us):4367086
+Time(us):4372106
+Time(us):4377127
+Time(us):4382147
+Time(us):4387164
+Time(us):4392180	S1_Dist(mm):14
+Time(us):4400031
+Time(us):4405051
+Time(us):4410066
+Time(us):4415081
+Time(us):4420096
+Time(us):4425116
+Time(us):4430137
+Time(us):4435153
+Time(us):4440169
+Time(us):4445185
+Time(us):4450206
+Time(us):4455227	S2_Dist(mm):23
+Time(us):4463244
+Time(us):4468266
+Time(us):4473282
+Time(us):4478298
+Time(us):4483318
+Time(us):4488339	S1_Dist(mm):6
+Time(us):4496109
+Time(us):4501130
+Time(us):4506148
+Time(us):4511165
+Time(us):4516180
+Time(us):4521201
+Time(us):4526222
+Time(us):4531243
+Time(us):4536258
+Time(us):4541275
+Time(us):4546291
+Time(us):4551308
+Time(us):4556328	S2_Dist(mm):36
+Time(us):4564347
+Time(us):4569366
+Time(us):4574384
+Time(us):4579406
+Time(us):4584427	S1_Dist(mm):2
+Time(us):4592195
+Time(us):4597215
+Time(us):4602238
+Time(us):4607255
+Time(us):4612271
+Time(us):4617287
+Time(us):4622303
+Time(us):4627208	S1_Dist(mm):0
+Time(us):4636025	S1_Dist(mm):0
+Time(us):4644839	S1_Dist(mm):0
+Time(us):4653653	S1_Dist(mm):0	S2_Dist(mm):30
+Time(us):4665001	S1_Dist(mm):0
+Time(us):4673815	S1_Dist(mm):0
+Time(us):4682629	S1_Dist(mm):0
+Time(us):4691439	S1_Dist(mm):0
+Time(us):4700252	S1_Dist(mm):0
+Time(us):4709056	S1_Dist(mm):0
+Time(us):4717868	S1_Dist(mm):0
+Time(us):4726684	S1_Dist(mm):0
+Time(us):4735498	S1_Dist(mm):0
+Time(us):4744317	S1_Dist(mm):0
+Time(us):4753128	S1_Dist(mm):0	S2_Dist(mm):11
+Time(us):4764483	S1_Dist(mm):0
+Time(us):4773296	S1_Dist(mm):0
+Time(us):4782106	S1_Dist(mm):0
+Time(us):4790919	S1_Dist(mm):0
+Time(us):4799737	S1_Dist(mm):0
+Time(us):4808550	S1_Dist(mm):0
+Time(us):4817366	S1_Dist(mm):0
+Time(us):4826174	S1_Dist(mm):0
+Time(us):4834991	S1_Dist(mm):0
+Time(us):4843801	S1_Dist(mm):0
+Time(us):4852624	S1_Dist(mm):0	S2_Dist(mm):70
+Time(us):4863970	S1_Dist(mm):0
+Time(us):4872784	S1_Dist(mm):0
+Time(us):4881603	S1_Dist(mm):0
+Time(us):4890419	S1_Dist(mm):0
+Time(us):4899230	S1_Dist(mm):0
+Time(us):4908044	S1_Dist(mm):0
+Time(us):4916854	S1_Dist(mm):0
+Time(us):4925671	S1_Dist(mm):0
+Time(us):4934490	S1_Dist(mm):0
+Time(us):4943303	S1_Dist(mm):0
+Time(us):4952112	S1_Dist(mm):0	S2_Dist(mm):15
+Time(us):4963468	S1_Dist(mm):0
+Time(us):4972290	S1_Dist(mm):0
+Time(us):4981101	S1_Dist(mm):0
+Time(us):4989911	S1_Dist(mm):0
+Time(us):4998731	S1_Dist(mm):0
+Time(us):5007549	S1_Dist(mm):0
+Time(us):5016364	S1_Dist(mm):0
+Time(us):5025170	S1_Dist(mm):0
+Time(us):5033990	S1_Dist(mm):0
+Time(us):5042798	S1_Dist(mm):0
+Time(us):5051617	S1_Dist(mm):0
+Time(us):5060431	S1_Dist(mm):0	S2_Dist(mm):17
+Time(us):5071778	S1_Dist(mm):0
+Time(us):5080592	S1_Dist(mm):0
+Time(us):5089407	S1_Dist(mm):0
+Time(us):5098224	S1_Dist(mm):0
+Time(us):5107036	S1_Dist(mm):0
+Time(us):5115849	S1_Dist(mm):0
+Time(us):5124668	S1_Dist(mm):0
+Time(us):5133488	S1_Dist(mm):0
+Time(us):5142302	S1_Dist(mm):0
+Time(us):5151111	S1_Dist(mm):0
+Time(us):5159925	S1_Dist(mm):0	S2_Dist(mm):15
+Time(us):5171281	S1_Dist(mm):0
+Time(us):5180091	S1_Dist(mm):0
+Time(us):5188905	S1_Dist(mm):0
+Time(us):5197724	S1_Dist(mm):0
+Time(us):5206541	S1_Dist(mm):0
+Time(us):5215356	S1_Dist(mm):0
+Time(us):5224166	S1_Dist(mm):0
+Time(us):5232985	S1_Dist(mm):0
+Time(us):5241794	S1_Dist(mm):0
+Time(us):5250612	S1_Dist(mm):0
+Time(us):5259425	S1_Dist(mm):0	S2_Dist(mm):16
+Time(us):5270770	S1_Dist(mm):0
+Time(us):5279580	S1_Dist(mm):0
+Time(us):5288392	S1_Dist(mm):0
+Time(us):5297201	S1_Dist(mm):0
+Time(us):5306019	S1_Dist(mm):0
+Time(us):5314834	S1_Dist(mm):0
+Time(us):5323650	S1_Dist(mm):0
+Time(us):5332463	S1_Dist(mm):0
+Time(us):5341284	S1_Dist(mm):0
+Time(us):5350093	S1_Dist(mm):0
+Time(us):5358906	S1_Dist(mm):0	S2_Dist(mm):19
+Time(us):5370263	S1_Dist(mm):0
+Time(us):5379076	S1_Dist(mm):0
+Time(us):5387890	S1_Dist(mm):0
+Time(us):5396708	S1_Dist(mm):0
+Time(us):5405522	S1_Dist(mm):0
+Time(us):5414336	S1_Dist(mm):0
+Time(us):5423147	S1_Dist(mm):0
+Time(us):5431970	S1_Dist(mm):0
+Time(us):5440783	S1_Dist(mm):0
+Time(us):5449597	S1_Dist(mm):0
+Time(us):5458411	S1_Dist(mm):0	S2_Dist(mm):15
+Time(us):5469762	S1_Dist(mm):0
+Time(us):5478575	S1_Dist(mm):0
+Time(us):5487387	S1_Dist(mm):0
+Time(us):5496199	S1_Dist(mm):0
+Time(us):5505016	S1_Dist(mm):0
+Time(us):5513830	S1_Dist(mm):0
+Time(us):5522647	S1_Dist(mm):0
+Time(us):5531463	S1_Dist(mm):0
+Time(us):5540285	S1_Dist(mm):0
+Time(us):5549096	S1_Dist(mm):0
+Time(us):5557909	S1_Dist(mm):0	S2_Dist(mm):15
+Time(us):5569266	S1_Dist(mm):0
+Time(us):5578077	S1_Dist(mm):0
+Time(us):5586892	S1_Dist(mm):0
+Time(us):5595702	S1_Dist(mm):0
+Time(us):5604514	S1_Dist(mm):0
+Time(us):5613331	S1_Dist(mm):0
+Time(us):5622141	S1_Dist(mm):0
+Time(us):5630960	S1_Dist(mm):0
+Time(us):5639774	S1_Dist(mm):0
+Time(us):5648590	S1_Dist(mm):0
+Time(us):5657404	S1_Dist(mm):0
+Time(us):5666214	S1_Dist(mm):0	S2_Dist(mm):15
+Time(us):5677566	S1_Dist(mm):0
+Time(us):5686376	S1_Dist(mm):0
+Time(us):5695186	S1_Dist(mm):0
+Time(us):5704002	S1_Dist(mm):0
+Time(us):5712816	S1_Dist(mm):0
+Time(us):5721628	S1_Dist(mm):0
+Time(us):5730438	S1_Dist(mm):0
+Time(us):5739249	S1_Dist(mm):0
+Time(us):5748057	S1_Dist(mm):0
+Time(us):5756870	S1_Dist(mm):0
+Time(us):5765684	S1_Dist(mm):0	S2_Dist(mm):12
+Time(us):5777030	S1_Dist(mm):0
+Time(us):5785844	S1_Dist(mm):0
+Time(us):5794662	S1_Dist(mm):0
+Time(us):5803477	S1_Dist(mm):0
+Time(us):5812294	S1_Dist(mm):0
+Time(us):5821104	S1_Dist(mm):0
+Time(us):5829919	S1_Dist(mm):0
+Time(us):5838739	S1_Dist(mm):0
+Time(us):5847551	S1_Dist(mm):0
+Time(us):5856365	S1_Dist(mm):0
+Time(us):5865172	S1_Dist(mm):0	S2_Dist(mm):10
+Time(us):5876530	S1_Dist(mm):0
+Time(us):5885343	S1_Dist(mm):0
+Time(us):5894152	S1_Dist(mm):0
+Time(us):5902970	S1_Dist(mm):0
+Time(us):5911783	S1_Dist(mm):0
+Time(us):5920602	S1_Dist(mm):0
+Time(us):5929415	S1_Dist(mm):0
+Time(us):5938230	S1_Dist(mm):0
+Time(us):5947043	S1_Dist(mm):0
+Time(us):5955855	S1_Dist(mm):0
+Time(us):5964672	S1_Dist(mm):0	S2_Dist(mm):12
+Time(us):5976024	S1_Dist(mm):0
+Time(us):5984837	S1_Dist(mm):0
+Time(us):5993653	S1_Dist(mm):0
+Time(us):6002464	S1_Dist(mm):0
+Time(us):6011285	S1_Dist(mm):0
+Time(us):6020095	S1_Dist(mm):0
+Time(us):6028909	S1_Dist(mm):0
+Time(us):6037729	S1_Dist(mm):0
+Time(us):6046547	S1_Dist(mm):0
+Time(us):6055360	S1_Dist(mm):0
+Time(us):6064171	S1_Dist(mm):0	S2_Dist(mm):10
+Time(us):6075526	S1_Dist(mm):0
+Time(us):6084340	S1_Dist(mm):0
+Time(us):6093149	S1_Dist(mm):0
+Time(us):6101969	S1_Dist(mm):0
+Time(us):6110783	S1_Dist(mm):0
+Time(us):6119596	S1_Dist(mm):0
+Time(us):6128412	S1_Dist(mm):0
+Time(us):6137226	S1_Dist(mm):0
+Time(us):6146037	S1_Dist(mm):0
+Time(us):6154849	S1_Dist(mm):0
+Time(us):6163667	S1_Dist(mm):0	S2_Dist(mm):10
+Time(us):6175018	S1_Dist(mm):0
+Time(us):6183832	S1_Dist(mm):0
+Time(us):6192649	S1_Dist(mm):0
+Time(us):6201461	S1_Dist(mm):0
+Time(us):6210284	S1_Dist(mm):0
+Time(us):6219093	S1_Dist(mm):0
+Time(us):6227908	S1_Dist(mm):0
+Time(us):6236726	S1_Dist(mm):0
+Time(us):6245544	S1_Dist(mm):0
+Time(us):6254361	S1_Dist(mm):0
+Time(us):6263172	S1_Dist(mm):0
+Time(us):6271988	S1_Dist(mm):0	S2_Dist(mm):11
+Time(us):6283336	S1_Dist(mm):0
+Time(us):6292148	S1_Dist(mm):0
+Time(us):6300970	S1_Dist(mm):0
+Time(us):6309783	S1_Dist(mm):0
+Time(us):6318596	S1_Dist(mm):0
+Time(us):6327410	S1_Dist(mm):0
+Time(us):6336225	S1_Dist(mm):0
+Time(us):6345038	S1_Dist(mm):0
+Time(us):6353851	S1_Dist(mm):0
+Time(us):6362669	S1_Dist(mm):0
+Time(us):6371488	S1_Dist(mm):0	S2_Dist(mm):19
+Time(us):6382839	S1_Dist(mm):0
+Time(us):6391652	S1_Dist(mm):0
+Time(us):6400468	S1_Dist(mm):0
+Time(us):6409289	S1_Dist(mm):0
+Time(us):6418100	S1_Dist(mm):0
+Time(us):6426910	S1_Dist(mm):0
+Time(us):6435731	S1_Dist(mm):0
+Time(us):6444547	S1_Dist(mm):0
+Time(us):6453364	S1_Dist(mm):0
+Time(us):6462171	S1_Dist(mm):0
+Time(us):6470987	S1_Dist(mm):0	S2_Dist(mm):23
+Time(us):6482334	S1_Dist(mm):0
+Time(us):6491144	S1_Dist(mm):0
+Time(us):6499968	S1_Dist(mm):0
+Time(us):6508783	S1_Dist(mm):0
+Time(us):6517596	S1_Dist(mm):0
+Time(us):6526412	S1_Dist(mm):0
+Time(us):6535228	S1_Dist(mm):0
+Time(us):6544041	S1_Dist(mm):0
+Time(us):6552851	S1_Dist(mm):0
+Time(us):6561671	S1_Dist(mm):0
+Time(us):6570491	S1_Dist(mm):0	S2_Dist(mm):23
+Time(us):6581843	S1_Dist(mm):0
+Time(us):6590660	S1_Dist(mm):0
+Time(us):6599476	S1_Dist(mm):0
+Time(us):6608292	S1_Dist(mm):0
+Time(us):6617103	S1_Dist(mm):0
+Time(us):6625913	S1_Dist(mm):0
+Time(us):6634733	S1_Dist(mm):0
+Time(us):6643550	S1_Dist(mm):0
+Time(us):6652366	S1_Dist(mm):0
+Time(us):6661172	S1_Dist(mm):0
+Time(us):6669990	S1_Dist(mm):0	S2_Dist(mm):19
+Time(us):6681338	S1_Dist(mm):0
+Time(us):6690147	S1_Dist(mm):0
+Time(us):6698968	S1_Dist(mm):0
+Time(us):6707781	S1_Dist(mm):0
+Time(us):6716595	S1_Dist(mm):0
+Time(us):6725409	S1_Dist(mm):0
+Time(us):6734224	S1_Dist(mm):0
+Time(us):6743037	S1_Dist(mm):0
+Time(us):6751851	S1_Dist(mm):0
+Time(us):6760669	S1_Dist(mm):0
+Time(us):6769486	S1_Dist(mm):0	S2_Dist(mm):25
+Time(us):6780838	S1_Dist(mm):0
+Time(us):6789652	S1_Dist(mm):0
+Time(us):6798465	S1_Dist(mm):0
+Time(us):6807285	S1_Dist(mm):0
+Time(us):6816097	S1_Dist(mm):0
+Time(us):6824911	S1_Dist(mm):0
+Time(us):6833728	S1_Dist(mm):0
+Time(us):6842546	S1_Dist(mm):0
+Time(us):6851361	S1_Dist(mm):0
+Time(us):6860170	S1_Dist(mm):0
+Time(us):6868988	S1_Dist(mm):0
+Time(us):6877799	S1_Dist(mm):0	S2_Dist(mm):28
+Time(us):6889155	S1_Dist(mm):0
+Time(us):6897971	S1_Dist(mm):0
+Time(us):6906785	S1_Dist(mm):0
+Time(us):6915602	S1_Dist(mm):0
+Time(us):6924416	S1_Dist(mm):0
+Time(us):6933230	S1_Dist(mm):0
+Time(us):6942043	S1_Dist(mm):0
+Time(us):6950854	S1_Dist(mm):0
+Time(us):6959673	S1_Dist(mm):0
+Time(us):6968491	S1_Dist(mm):0
+Time(us):6977305	S1_Dist(mm):0	S2_Dist(mm):23
+Time(us):6988650	S1_Dist(mm):0
+Time(us):6997460	S1_Dist(mm):0
+Time(us):7006282	S1_Dist(mm):0
+Time(us):7015093	S1_Dist(mm):0
+Time(us):7023908	S1_Dist(mm):0
+Time(us):7032727	S1_Dist(mm):0
+Time(us):7041546	S1_Dist(mm):0
+Time(us):7050360	S1_Dist(mm):0
+Time(us):7059170	S1_Dist(mm):0
+Time(us):7067989	S1_Dist(mm):0
+Time(us):7076799	S1_Dist(mm):0	S2_Dist(mm):23
+Time(us):7088155	S1_Dist(mm):0
+Time(us):7096973	S1_Dist(mm):0
+Time(us):7105787	S1_Dist(mm):0
+Time(us):7114605	S1_Dist(mm):0
+Time(us):7123420	S1_Dist(mm):0
+Time(us):7132231	S1_Dist(mm):0
+Time(us):7141044	S1_Dist(mm):0
+Time(us):7149854	S1_Dist(mm):0
+Time(us):7158673	S1_Dist(mm):0
+Time(us):7167491	S1_Dist(mm):0
+Time(us):7176303	S1_Dist(mm):0	S2_Dist(mm):19
+Time(us):7187650	S1_Dist(mm):0
+Time(us):7196462	S1_Dist(mm):0
+Time(us):7205283	S1_Dist(mm):0
+Time(us):7214094	S1_Dist(mm):0
+Time(us):7222907	S1_Dist(mm):0
+Time(us):7231725	S1_Dist(mm):0
+Time(us):7240542	S1_Dist(mm):0
+Time(us):7249357	S1_Dist(mm):0
+Time(us):7258168	S1_Dist(mm):0
+Time(us):7266986	S1_Dist(mm):0
+Time(us):7275797	S1_Dist(mm):0	S2_Dist(mm):18
+Time(us):7287152	S1_Dist(mm):0
+Time(us):7295969	S1_Dist(mm):0
+Time(us):7304783	S1_Dist(mm):0
+Time(us):7313594	S1_Dist(mm):0
+Time(us):7322409	S1_Dist(mm):0
+Time(us):7331225	S1_Dist(mm):0
+Time(us):7340038	S1_Dist(mm):0
+Time(us):7348850	S1_Dist(mm):0
+Time(us):7357670	S1_Dist(mm):0
+Time(us):7366489	S1_Dist(mm):0
+Time(us):7375304	S1_Dist(mm):0	S2_Dist(mm):18
+Time(us):7386647	S1_Dist(mm):0
+Time(us):7395463	S1_Dist(mm):0
+Time(us):7404285	S1_Dist(mm):0
+Time(us):7413097	S1_Dist(mm):0
+Time(us):7421909	S1_Dist(mm):0
+Time(us):7430727	S1_Dist(mm):0
+Time(us):7439544	S1_Dist(mm):0
+Time(us):7448358	S1_Dist(mm):0
+Time(us):7457169	S1_Dist(mm):0
+Time(us):7465986	S1_Dist(mm):0
+Time(us):7474797	S1_Dist(mm):0
+Time(us):7483614	S1_Dist(mm):0	S2_Dist(mm):19
+Time(us):7494965	S1_Dist(mm):0
+Time(us):7503778	S1_Dist(mm):0
+Time(us):7512592	S1_Dist(mm):0
+Time(us):7521406	S1_Dist(mm):0
+Time(us):7530217	S1_Dist(mm):0
+Time(us):7539030	S1_Dist(mm):0
+Time(us):7547843	S1_Dist(mm):0
+Time(us):7556663	S1_Dist(mm):0
+Time(us):7565478	S1_Dist(mm):0
+Time(us):7574294	S1_Dist(mm):0
+Time(us):7583105	S1_Dist(mm):0	S2_Dist(mm):21
+Time(us):7594457	S1_Dist(mm):0
+Time(us):7603274	S1_Dist(mm):0
+Time(us):7612083	S1_Dist(mm):0
+Time(us):7620896	S1_Dist(mm):0
+Time(us):7629717	S1_Dist(mm):0
+Time(us):7638530	S1_Dist(mm):0
+Time(us):7647341	S1_Dist(mm):0
+Time(us):7656152	S1_Dist(mm):0
+Time(us):7664968	S1_Dist(mm):0
+Time(us):7673781	S1_Dist(mm):0
+Time(us):7682597	S1_Dist(mm):0	S2_Dist(mm):23
+Time(us):7693945	S1_Dist(mm):0
+Time(us):7702762	S1_Dist(mm):0
+Time(us):7711575	S1_Dist(mm):0
+Time(us):7720386	S1_Dist(mm):0
+Time(us):7729196	S1_Dist(mm):0
+Time(us):7738016	S1_Dist(mm):0
+Time(us):7746829	S1_Dist(mm):0
+Time(us):7755647	S1_Dist(mm):0
+Time(us):7764463	S1_Dist(mm):0
+Time(us):7773284	S1_Dist(mm):0
+Time(us):7782093	S1_Dist(mm):0	S2_Dist(mm):38
+Time(us):7793446	S1_Dist(mm):0
+Time(us):7802265	S1_Dist(mm):0
+Time(us):7811077	S1_Dist(mm):0
+Time(us):7819891	S1_Dist(mm):0
+Time(us):7828709	S1_Dist(mm):0
+Time(us):7837523	S1_Dist(mm):0
+Time(us):7846338	S1_Dist(mm):0
+Time(us):7855150	S1_Dist(mm):0
+Time(us):7863969	S1_Dist(mm):0
+Time(us):7872782	S1_Dist(mm):0
+Time(us):7881596	S1_Dist(mm):0	S2_Dist(mm):44
+Time(us):7892943	S1_Dist(mm):0
+Time(us):7901762	S1_Dist(mm):0
+Time(us):7910575	S1_Dist(mm):0
+Time(us):7919386	S1_Dist(mm):0
+Time(us):7928196	S1_Dist(mm):0
+Time(us):7937008	S1_Dist(mm):0
+Time(us):7945821	S1_Dist(mm):0
+Time(us):7954638	S1_Dist(mm):0
+Time(us):7963453	S1_Dist(mm):0
+Time(us):7972271	S1_Dist(mm):0
+Time(us):7981081	S1_Dist(mm):0	S2_Dist(mm):49
+Time(us):7992431	S1_Dist(mm):0
+Time(us):8001243	S1_Dist(mm):0
+Time(us):8010055	S1_Dist(mm):0
+Time(us):8018869	S1_Dist(mm):0
+Time(us):8027683	S1_Dist(mm):0
+Time(us):8036497	S1_Dist(mm):0
+Time(us):8045310	S1_Dist(mm):0
+Time(us):8054116	S1_Dist(mm):0
+Time(us):8062931	S1_Dist(mm):0
+Time(us):8071750	S1_Dist(mm):0
+Time(us):8080566	S1_Dist(mm):0
+Time(us):8089378	S1_Dist(mm):0	S2_Dist(mm):51
+Time(us):8100725	S1_Dist(mm):0
+Time(us):8109541	S1_Dist(mm):0
+Time(us):8118356	S1_Dist(mm):0
+Time(us):8127168	S1_Dist(mm):0
+Time(us):8135986	S1_Dist(mm):0
+Time(us):8144797	S1_Dist(mm):0
+Time(us):8153616	S1_Dist(mm):0
+Time(us):8162429	S1_Dist(mm):0
+Time(us):8171241	S1_Dist(mm):0
+Time(us):8180052	S1_Dist(mm):0
+Time(us):8188865	S1_Dist(mm):0	S2_Dist(mm):46
+Time(us):8200217	S1_Dist(mm):0
+Time(us):8209029	S1_Dist(mm):0
+Time(us):8217842	S1_Dist(mm):0
+Time(us):8226661	S1_Dist(mm):0
+Time(us):8235477	S1_Dist(mm):0
+Time(us):8244294	S1_Dist(mm):0
+Time(us):8253106	S1_Dist(mm):0
+Time(us):8261922	S1_Dist(mm):0
+Time(us):8270741	S1_Dist(mm):0
+Time(us):8279555	S1_Dist(mm):0
+Time(us):8288370	S1_Dist(mm):0	S2_Dist(mm):43
+Time(us):8299715	S1_Dist(mm):0
+Time(us):8308530	S1_Dist(mm):0
+Time(us):8317345	S1_Dist(mm):0
+Time(us):8326156	S1_Dist(mm):0
+Time(us):8334975	S1_Dist(mm):0
+Time(us):8343789	S1_Dist(mm):0
+Time(us):8352608	S1_Dist(mm):0
+Time(us):8361424	S1_Dist(mm):0
+Time(us):8370234	S1_Dist(mm):0
+Time(us):8379045	S1_Dist(mm):0
+Time(us):8387854	S1_Dist(mm):0	S2_Dist(mm):45
+Time(us):8399209	S1_Dist(mm):0
+Time(us):8408026	S1_Dist(mm):0
+Time(us):8416840	S1_Dist(mm):0
+Time(us):8425654	S1_Dist(mm):0
+Time(us):8434467	S1_Dist(mm):0
+Time(us):8443286	S1_Dist(mm):0
+Time(us):8452098	S1_Dist(mm):0
+Time(us):8460912	S1_Dist(mm):0
+Time(us):8469731	S1_Dist(mm):0
+Time(us):8478548	S1_Dist(mm):0
+Time(us):8487364	S1_Dist(mm):0	S2_Dist(mm):33
+Time(us):8498708	S1_Dist(mm):0
+Time(us):8507519	S1_Dist(mm):0
+Time(us):8516332	S1_Dist(mm):0
+Time(us):8525143	S1_Dist(mm):0
+Time(us):8533960	S1_Dist(mm):0
+Time(us):8542774	S1_Dist(mm):0
+Time(us):8551590	S1_Dist(mm):0
+Time(us):8560406	S1_Dist(mm):0
+Time(us):8569218	S1_Dist(mm):0
+Time(us):8578028	S1_Dist(mm):0
+Time(us):8586841	S1_Dist(mm):0	S2_Dist(mm):31
+Time(us):8598192	S1_Dist(mm):0
+Time(us):8607007	S1_Dist(mm):0
+Time(us):8615821	S1_Dist(mm):0
+Time(us):8624638	S1_Dist(mm):0
+Time(us):8633451	S1_Dist(mm):0
+Time(us):8642268	S1_Dist(mm):0
+Time(us):8651080	S1_Dist(mm):0
+Time(us):8659897	S1_Dist(mm):0
+Time(us):8668716	S1_Dist(mm):0
+Time(us):8677530	S1_Dist(mm):0
+Time(us):8686342	S1_Dist(mm):0
+Time(us):8695153	S1_Dist(mm):0	S2_Dist(mm):21
+Time(us):8706511	S1_Dist(mm):0
+Time(us):8715327	S1_Dist(mm):0
+Time(us):8724137	S1_Dist(mm):0
+Time(us):8732956	S1_Dist(mm):0
+Time(us):8741770	S1_Dist(mm):0
+Time(us):8750580	S1_Dist(mm):0
+Time(us):8759395	S1_Dist(mm):0
+Time(us):8768206	S1_Dist(mm):0
+Time(us):8777024	S1_Dist(mm):0
+Time(us):8785837	S1_Dist(mm):0
+Time(us):8794653	S1_Dist(mm):0	S2_Dist(mm):17
+Time(us):8806000	S1_Dist(mm):0
+Time(us):8814813	S1_Dist(mm):0
+Time(us):8823627	S1_Dist(mm):0
+Time(us):8832439	S1_Dist(mm):0
+Time(us):8841251	S1_Dist(mm):0
+Time(us):8850057	S1_Dist(mm):0
+Time(us):8858870	S1_Dist(mm):0
+Time(us):8867686	S1_Dist(mm):0
+Time(us):8876499	S1_Dist(mm):0
+Time(us):8885316	S1_Dist(mm):0
+Time(us):8894125	S1_Dist(mm):0	S2_Dist(mm):11
+Time(us):8905483	S1_Dist(mm):0
+Time(us):8914296	S1_Dist(mm):0
+Time(us):8923105	S1_Dist(mm):0
+Time(us):8931915	S1_Dist(mm):0
+Time(us):8940733	S1_Dist(mm):0
+Time(us):8949812	S1_Dist(mm):0
+Time(us):8960034	S1_Dist(mm):0
+Time(us):8970354	S1_Dist(mm):0
+Time(us):8980668	S1_Dist(mm):0
+Time(us):8990985	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):9004215	S1_Dist(mm):0
+Time(us):9014529	S1_Dist(mm):0
+Time(us):9024840	S1_Dist(mm):0
+Time(us):9035155	S1_Dist(mm):0
+Time(us):9045470	S1_Dist(mm):0
+Time(us):9055782	S1_Dist(mm):0
+Time(us):9066097	S1_Dist(mm):0
+Time(us):9076412	S1_Dist(mm):0
+Time(us):9086726	S1_Dist(mm):0
+Time(us):9097041	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):9110277	S1_Dist(mm):0
+Time(us):9120589	S1_Dist(mm):0
+Time(us):9130899	S1_Dist(mm):0
+Time(us):9141222	S1_Dist(mm):0
+Time(us):9151539	S1_Dist(mm):0
+Time(us):9161847	S1_Dist(mm):0
+Time(us):9172160	S1_Dist(mm):0
+Time(us):9182480	S1_Dist(mm):0
+Time(us):9192792	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):9206026	S1_Dist(mm):0
+Time(us):9216344	S1_Dist(mm):0
+Time(us):9226658	S1_Dist(mm):0
+Time(us):9236973	S1_Dist(mm):0
+Time(us):9247283	S1_Dist(mm):0
+Time(us):9257592	S1_Dist(mm):0
+Time(us):9267903	S1_Dist(mm):0
+Time(us):9278224	S1_Dist(mm):0
+Time(us):9288541	S1_Dist(mm):0
+Time(us):9298849	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):9312078	S1_Dist(mm):0
+Time(us):9322397	S1_Dist(mm):0
+Time(us):9332718	S1_Dist(mm):0
+Time(us):9343035	S1_Dist(mm):0
+Time(us):9353354	S1_Dist(mm):0
+Time(us):9363668	S1_Dist(mm):0
+Time(us):9373986	S1_Dist(mm):0
+Time(us):9384299	S1_Dist(mm):0
+Time(us):9394610	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):9407835	S1_Dist(mm):0
+Time(us):9418146	S1_Dist(mm):0
+Time(us):9428461	S1_Dist(mm):0
+Time(us):9438775	S1_Dist(mm):0
+Time(us):9449089	S1_Dist(mm):0
+Time(us):9459410	S1_Dist(mm):0
+Time(us):9469726	S1_Dist(mm):0
+Time(us):9480043	S1_Dist(mm):0
+Time(us):9490362	S1_Dist(mm):0
+Time(us):9500675	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):9513911	S1_Dist(mm):0
+Time(us):9524227	S1_Dist(mm):0
+Time(us):9534542	S1_Dist(mm):0
+Time(us):9544854	S1_Dist(mm):0
+Time(us):9555167	S1_Dist(mm):0
+Time(us):9565487	S1_Dist(mm):0
+Time(us):9575804	S1_Dist(mm):0
+Time(us):9586127	S1_Dist(mm):0
+Time(us):9596445	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):9609677	S1_Dist(mm):0
+Time(us):9619994	S1_Dist(mm):0
+Time(us):9630310	S1_Dist(mm):0
+Time(us):9640622	S1_Dist(mm):0
+Time(us):9650936	S1_Dist(mm):0
+Time(us):9661245	S1_Dist(mm):0
+Time(us):9671552	S1_Dist(mm):0
+Time(us):9681864	S1_Dist(mm):0
+Time(us):9692180	S1_Dist(mm):0
+Time(us):9702498	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):9715730	S1_Dist(mm):0
+Time(us):9726042	S1_Dist(mm):0
+Time(us):9736362	S1_Dist(mm):0
+Time(us):9746677	S1_Dist(mm):0
+Time(us):9756996	S1_Dist(mm):0
+Time(us):9767309	S1_Dist(mm):0
+Time(us):9777622	S1_Dist(mm):0
+Time(us):9787936	S1_Dist(mm):0
+Time(us):9798244	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):9811466	S1_Dist(mm):0
+Time(us):9821780	S1_Dist(mm):0
+Time(us):9832096	S1_Dist(mm):0
+Time(us):9842412	S1_Dist(mm):0
+Time(us):9852725	S1_Dist(mm):0
+Time(us):9863041	S1_Dist(mm):0
+Time(us):9873360	S1_Dist(mm):0
+Time(us):9883675	S1_Dist(mm):0
+Time(us):9893992	S1_Dist(mm):0
+Time(us):9904307	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):9917540	S1_Dist(mm):0
+Time(us):9927854	S1_Dist(mm):0
+Time(us):9938168	S1_Dist(mm):0
+Time(us):9948487	S1_Dist(mm):0
+Time(us):9958805	S1_Dist(mm):0
+Time(us):9969124	S1_Dist(mm):0
+Time(us):9979442	S1_Dist(mm):0
+Time(us):9989758	S1_Dist(mm):0
+Time(us):10000075	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):10013394	S1_Dist(mm):0
+Time(us):10023793	S1_Dist(mm):0
+Time(us):10034192	S1_Dist(mm):0
+Time(us):10044592	S1_Dist(mm):0
+Time(us):10054994	S1_Dist(mm):0
+Time(us):10065399	S1_Dist(mm):0
+Time(us):10075804	S1_Dist(mm):0
+Time(us):10086208	S1_Dist(mm):0
+Time(us):10096605	S1_Dist(mm):0
+Time(us):10107002	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):10120323	S1_Dist(mm):0
+Time(us):10130725	S1_Dist(mm):0
+Time(us):10141133	S1_Dist(mm):0
+Time(us):10151537	S1_Dist(mm):0
+Time(us):10161931	S1_Dist(mm):0
+Time(us):10172338	S1_Dist(mm):0
+Time(us):10182736	S1_Dist(mm):0
+Time(us):10193141	S1_Dist(mm):0
+Time(us):10203542	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):10216852	S1_Dist(mm):0
+Time(us):10227247	S1_Dist(mm):0
+Time(us):10237647	S1_Dist(mm):0
+Time(us):10248048	S1_Dist(mm):0
+Time(us):10258453	S1_Dist(mm):0
+Time(us):10268850	S1_Dist(mm):0
+Time(us):10279246	S1_Dist(mm):0
+Time(us):10289643	S1_Dist(mm):0
+Time(us):10300042	S1_Dist(mm):0
+Time(us):10310448	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):10323761	S1_Dist(mm):0
+Time(us):10334161	S1_Dist(mm):0
+Time(us):10344556	S1_Dist(mm):0
+Time(us):10354956	S1_Dist(mm):0
+Time(us):10365361	S1_Dist(mm):0
+Time(us):10375764	S1_Dist(mm):0
+Time(us):10386163	S1_Dist(mm):0
+Time(us):10396559	S1_Dist(mm):0
+Time(us):10406959	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):10420276	S1_Dist(mm):0
+Time(us):10430676	S1_Dist(mm):0
+Time(us):10441079	S1_Dist(mm):0
+Time(us):10451483	S1_Dist(mm):0
+Time(us):10461878	S1_Dist(mm):0
+Time(us):10472275	S1_Dist(mm):0
+Time(us):10482677	S1_Dist(mm):0
+Time(us):10493081	S1_Dist(mm):0
+Time(us):10503486	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):10516796	S1_Dist(mm):0
+Time(us):10527201	S1_Dist(mm):0
+Time(us):10537598	S1_Dist(mm):0
+Time(us):10547995	S1_Dist(mm):0
+Time(us):10558403	S1_Dist(mm):0
+Time(us):10568808	S1_Dist(mm):0
+Time(us):10579217	S1_Dist(mm):0
+Time(us):10589618	S1_Dist(mm):0
+Time(us):10600018	S1_Dist(mm):0
+Time(us):10610419	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):10623732	S1_Dist(mm):0
+Time(us):10634138	S1_Dist(mm):0
+Time(us):10644543	S1_Dist(mm):0
+Time(us):10654937	S1_Dist(mm):0
+Time(us):10665338	S1_Dist(mm):0
+Time(us):10675737	S1_Dist(mm):0
+Time(us):10686143	S1_Dist(mm):0
+Time(us):10696542	S1_Dist(mm):0
+Time(us):10706936	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):10720255	S1_Dist(mm):0
+Time(us):10730650	S1_Dist(mm):0
+Time(us):10741049	S1_Dist(mm):0
+Time(us):10751454	S1_Dist(mm):0
+Time(us):10761854	S1_Dist(mm):0
+Time(us):10772250	S1_Dist(mm):0
+Time(us):10782648	S1_Dist(mm):0
+Time(us):10793050	S1_Dist(mm):0
+Time(us):10803454	S1_Dist(mm):0
+Time(us):10813852	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):10827167	S1_Dist(mm):0
+Time(us):10837560	S1_Dist(mm):0
+Time(us):10847960	S1_Dist(mm):0
+Time(us):10858364	S1_Dist(mm):0
+Time(us):10868765	S1_Dist(mm):0
+Time(us):10879166	S1_Dist(mm):0
+Time(us):10889562	S1_Dist(mm):0
+Time(us):10899963	S1_Dist(mm):0
+Time(us):10910364	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):10923683	S1_Dist(mm):0
+Time(us):10934088	S1_Dist(mm):0
+Time(us):10944492	S1_Dist(mm):0
+Time(us):10954891	S1_Dist(mm):0
+Time(us):10965288	S1_Dist(mm):0
+Time(us):10975687	S1_Dist(mm):0
+Time(us):10986088	S1_Dist(mm):0
+Time(us):10996491	S1_Dist(mm):0
+Time(us):11006885	S1_Dist(mm):0
+Time(us):11017281	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):11030598	S1_Dist(mm):0
+Time(us):11040998	S1_Dist(mm):0
+Time(us):11051403	S1_Dist(mm):0
+Time(us):11061807	S1_Dist(mm):0
+Time(us):11072217	S1_Dist(mm):0
+Time(us):11082620	S1_Dist(mm):0
+Time(us):11093025	S1_Dist(mm):0
+Time(us):11103426	S1_Dist(mm):0
+Time(us):11113825	S1_Dist(mm):0	S2_Dist(mm):0
+Time(us):11127144	S1_Dist(mm):0
+Time(us):11137543	S1_Dist(mm):0
+Time(us):11147941	S1_Dist(mm):0
+Time(us):11158346	S1_Dist(mm):�--- Dual ToF Initialization Start ---
+Sensor 1 found at default 0x29.
+Sensor 1 successfully moved to: 0x30
+Sensor 2 found at default 0x29.
+--- Initialization Complete! Starting Loop ---
+Time(us):574580
+Time(us):579515
+Time(us):584447
+Time(us):589381
+Time(us):594318
+Time(us):599248
+Time(us):604177
+Time(us):609113
+Time(us):614049	S2_Dist(mm):27
+Time(us):621981	S1_Dist(mm):118
+Time(us):629833
+Time(us):634765
+Time(us):639700
+Time(us):644630
+Time(us):649560
+Time(us):654496
+Time(us):659432
+Time(us):664364
+Time(us):669295
+Time(us):674228
+Time(us):679160
+Time(us):684091
+Time(us):689024
+Time(us):693957
+Time(us):698889
+Time(us):703821
+Time(us):708753
+Time(us):713687	S1_Dist(mm):115	S2_Dist(mm):25
+Time(us):724548
+Time(us):729478
+Time(us):734414
+Time(us):739345
+Time(us):744277
+Time(us):749211
+Time(us):754147
+Time(us):759079
+Time(us):764015
+Time(us):768950
+Time(us):773881
+Time(us):778813
+Time(us):783744
+Time(us):788675
+Time(us):793611
+Time(us):798542
+Time(us):803475
+Time(us):808412
+Time(us):813345	S1_Dist(mm):117	S2_Dist(mm):25
+Time(us):824195
+Time(us):829131
+Time(us):834063
+Time(us):838996
+Time(us):843930
+Time(us):848861
+Time(us):853791
+Time(us):858722
+Time(us):863652
+Time(us):868583
+Time(us):873521
+Time(us):878453
+Time(us):883385
+Time(us):888322
+Time(us):893254
+Time(us):898184
+Time(us):903119
+Time(us):908053
+Time(us):912985	S1_Dist(mm):115
+Time(us):920841	S2_Dist(mm):26
+Time(us):928779
+Time(us):933714
+Time(us):938645
+Time(us):943575
+Time(us):948511
+Time(us):953444
+Time(us):958377
+Time(us):963310
+Time(us):968243
+Time(us):973173
+Time(us):978108
+Time(us):983044
+Time(us):987976
+Time(us):992906
+Time(us):997837
+Time(us):1002768
+Time(us):1007786
+Time(us):1012804	S1_Dist(mm):116
+Time(us):1020743	S2_Dist(mm):25
+Time(us):1028764
+Time(us):1033783
+Time(us):1038802
+Time(us):1043822
+Time(us):1048841
+Time(us):1053861
+Time(us):1058880
+Time(us):1063899
+Time(us):1068922
+Time(us):1073944
+Time(us):1078960
+Time(us):1083977
+Time(us):1088993
+Time(us):1094014
+Time(us):1099034
+Time(us):1104054
+Time(us):1109070
+Time(us):1114087	S1_Dist(mm):117
+Time(us):1122026	S2_Dist(mm):27
+Time(us):1130048
+Time(us):1135064
+Time(us):1140079
+Time(us):1145095
+Time(us):1150115
+Time(us):1155136
+Time(us):1160152
+Time(us):1165168
+Time(us):1170184
+Time(us):1175204
+Time(us):1180226
+Time(us):1185244
+Time(us):1190260
+Time(us):1195276
+Time(us):1200292
+Time(us):1205308
+Time(us):1210331	S1_Dist(mm):119
+Time(us):1218266
+Time(us):1223282	S2_Dist(mm):27
+Time(us):1231305
+Time(us):1236326
+Time(us):1241343
+Time(us):1246362
+Time(us):1251380
+Time(us):1256402
+Time(us):1261423
+Time(us):1266440
+Time(us):1271458
+Time(us):1276479
+Time(us):1281501
+Time(us):1286522
+Time(us):1291542
+Time(us):1296558
+Time(us):1301577
+Time(us):1306599
+Time(us):1311620	S1_Dist(mm):119
+Time(us):1319560
+Time(us):1324579	S2_Dist(mm):27
+Time(us):1332603
+Time(us):1337624
+Time(us):1342642
+Time(us):1347659
+Time(us):1352677
+Time(us):1357700
+Time(us):1362718
+Time(us):1367736
+Time(us):1372755
+Time(us):1377773
+Time(us):1382791
+Time(us):1387810
+Time(us):1392828
+Time(us):1397846
+Time(us):1402865
+Time(us):1407883
+Time(us):1412901	S1_Dist(mm):125
+Time(us):1420845
+Time(us):1425865	S2_Dist(mm):26
+Time(us):1433885
+Time(us):1438904
+Time(us):1443926
+Time(us):1448949
+Time(us):1453965
+Time(us):1458982
+Time(us):1463998
+Time(us):1469019
+Time(us):1474039
+Time(us):1479057
+Time(us):1484073
+Time(us):1489088
+Time(us):1494108
+Time(us):1499130
+Time(us):1504148
+Time(us):1509165	S1_Dist(mm):127
+Time(us):1517104
+Time(us):1522125
+Time(us):1527146	S2_Dist(mm):27
+Time(us):1535164
+Time(us):1540181
+Time(us):1545201
+Time(us):1550222
+Time(us):1555243
+Time(us):1560259
+Time(us):1565276
+Time(us):1570292
+Time(us):1575308
+Time(us):1580329
+Time(us):1585346
+Time(us):1590364
+Time(us):1595382
+Time(us):1600404
+Time(us):1605425
+Time(us):1610443	S1_Dist(mm):125
+Time(us):1618381
+Time(us):1623403	S2_Dist(mm):26
+Time(us):1631427
+Time(us):1636443
+Time(us):1641461
+Time(us):1646480
+Time(us):1651500
+Time(us):1656522
+Time(us):1661542
+Time(us):1666558
+Time(us):1671578
+Time(us):1676600
+Time(us):1681623
+Time(us):1686642
+Time(us):1691661
+Time(us):1696683
+Time(us):1701705
+Time(us):1706724	S1_Dist(mm):125
+Time(us):1714664
+Time(us):1719686
+Time(us):1724709	S2_Dist(mm):26
+Time(us):1732731
+Time(us):1737750
+Time(us):1742770
+Time(us):1747790
+Time(us):1752809
+Time(us):1757829
+Time(us):1762848
+Time(us):1767868
+Time(us):1772888
+Time(us):1777908
+Time(us):1782930
+Time(us):1787950
+Time(us):1792966
+Time(us):1797983
+Time(us):1802999
+Time(us):1808020	S1_Dist(mm):127
+Time(us):1815958
+Time(us):1820974
+Time(us):1825991	S2_Dist(mm):26
+Time(us):1834014
+Time(us):1839034
+Time(us):1844053
+Time(us):1849068
+Time(us):1854083
+Time(us):1859098
+Time(us):1864119
+Time(us):1869139
+Time(us):1874155
+Time(us):1879172
+Time(us):1884188
+Time(us):1889208
+Time(us):1894229
+Time(us):1899247
+Time(us):1904266
+Time(us):1909282	S1_Dist(mm):127
+Time(us):1917221
+Time(us):1922242
+Time(us):1927262	S2_Dist(mm):26
+Time(us):1935283
+Time(us):1940299
+Time(us):1945319
+Time(us):1950339
+Time(us):1955358
+Time(us):1960376
+Time(us):1965395
+Time(us):1970416
+Time(us):1975437
+Time(us):1980455
+Time(us):1985472
+Time(us):1990491
+Time(us):1995514
+Time(us):2000537
+Time(us):2005549	S1_Dist(mm):128
+Time(us):2013490
+Time(us):2018514
+Time(us):2023537
+Time(us):2028551	S2_Dist(mm):27
+Time(us):2036574
+Time(us):2041594
+Time(us):2046617
+Time(us):2051634
+Time(us):2056652
+Time(us):2061671
+Time(us):2066694
+Time(us):2071716
+Time(us):2076736
+Time(us):2081755
+Time(us):2086775
+Time(us):2091794
+Time(us):2096814
+Time(us):2101833
+Time(us):2106852	S1_Dist(mm):131
+Time(us):2114792
+Time(us):2119812
+Time(us):2124831
+Time(us):2129851	S2_Dist(mm):26
+Time(us):2137872
+Time(us):2142891
+Time(us):2147911
+Time(us):2152933
+Time(us):2157949
+Time(us):2162965
+Time(us):2167983
+Time(us):2172999
+Time(us):2178019
+Time(us):2183039
+Time(us):2188056
+Time(us):2193072
+Time(us):2198087
+Time(us):2203107	S1_Dist(mm):132
+Time(us):2211047
+Time(us):2216062
+Time(us):2221077
+Time(us):2226092
+Time(us):2231112	S2_Dist(mm):25
+Time(us):2239135
+Time(us):2244151
+Time(us):2249167
+Time(us):2254183
+Time(us):2259204
+Time(us):2264225
+Time(us):2269243
+Time(us):2274259
+Time(us):2279275
+Time(us):2284294
+Time(us):2289318
+Time(us):2294339
+Time(us):2299356
+Time(us):2304375	S1_Dist(mm):136
+Time(us):2312310
+Time(us):2317330
+Time(us):2322347
+Time(us):2327366
+Time(us):2332384	S2_Dist(mm):26
+Time(us):2340408
+Time(us):2345429
+Time(us):2350447
+Time(us):2355465
+Time(us):2360484
+Time(us):2365505
+Time(us):2370528
+Time(us):2375544
+Time(us):2380563
+Time(us):2385582
+Time(us):2390604
+Time(us):2395623
+Time(us):2400642
+Time(us):2405661	S1_Dist(mm):139
+Time(us):2413604
+Time(us):2418624
+Time(us):2423643
+Time(us):2428662
+Time(us):2433684	S2_Dist(mm):26
+Time(us):2441709
+Time(us):2446728
+Time(us):2451747
+Time(us):2456767
+Time(us):2461787
+Time(us):2466806
+Time(us):2471826
+Time(us):2476846
+Time(us):2481866
+Time(us):2486886
+Time(us):2491906
+Time(us):2496928
+Time(us):2501951	S1_Dist(mm):138
+Time(us):2509887
+Time(us):2514907
+Time(us):2519929
+Time(us):2524952
+Time(us):2529968
+Time(us):2534986	S2_Dist(mm):27
+Time(us):2543002
+Time(us):2548023
+Time(us):2553044
+Time(us):2558060
+Time(us):2563077
+Time(us):2568092
+Time(us):2573113
+Time(us):2578133
+Time(us):2583149
+Time(us):2588165
+Time(us):2593181
+Time(us):2598202
+Time(us):2603223	S1_Dist(mm):142
+Time(us):2611161
+Time(us):2616177
+Time(us):2621193
+Time(us):2626214
+Time(us):2631236
+Time(us):2636253	S2_Dist(mm):26
+Time(us):2644274
+Time(us):2649290
+Time(us):2654306
+Time(us):2659327
+Time(us):2664344
+Time(us):2669362
+Time(us):2674381
+Time(us):2679402
+Time(us):2684423
+Time(us):2689441
+Time(us):2694458
+Time(us):2699477	S1_Dist(mm):145
+Time(us):2707421
+Time(us):2712439
+Time(us):2717457
+Time(us):2722477
+Time(us):2727499
+Time(us):2732519
+Time(us):2737542	S2_Dist(mm):25
+Time(us):2745558
+Time(us):2750574
+Time(us):2755597
+Time(us):2760620
+Time(us):2765638
+Time(us):2770655
+Time(us):2775674
+Time(us):2780697
+Time(us):2785719
+Time(us):2790739
+Time(us):2795758
+Time(us):2800778	S1_Dist(mm):154
+Time(us):2808719
+Time(us):2813737
+Time(us):2818756
+Time(us):2823774
+Time(us):2828792
+Time(us):2833811
+Time(us):2838829	S2_Dist(mm):26
+Time(us):2846849
+Time(us):2851867
+Time(us):2856885
+Time(us):2861904
+Time(us):2866926
+Time(us):2871948
+Time(us):2876965
+Time(us):2881981
+Time(us):2886999
+Time(us):2892020
+Time(us):2897041
+Time(us):2902057	S1_Dist(mm):105
+Time(us):2909996
+Time(us):2915016
+Time(us):2920037
+Time(us):2925053
+Time(us):2930069
+Time(us):2935085
+Time(us):2940105	S2_Dist(mm):26
+Time(us):2948128
+Time(us):2953149
+Time(us):2958166
+Time(us):2963182
+Time(us):2968202
+Time(us):2973223
+Time(us):2978243
+Time(us):2983260
+Time(us):2988276
+Time(us):2993293
+Time(us):2998309	S1_Dist(mm):96
+Time(us):3006157
+Time(us):3011174
+Time(us):3016189
+Time(us):3021209
+Time(us):3026231
+Time(us):3031250
+Time(us):3036267	S2_Dist(mm):26
+Time(us):3044288
+Time(us):3049304
+Time(us):3054324
+Time(us):3059341
+Time(us):3064360
+Time(us):3069378
+Time(us):3074397
+Time(us):3079418
+Time(us):3084436
+Time(us):3089454
+Time(us):3094472
+Time(us):3099489	S1_Dist(mm):97
+Time(us):3107344
+Time(us):3112362
+Time(us):3117381
+Time(us):3122402
+Time(us):3127424
+Time(us):3132441
+Time(us):3137459	S2_Dist(mm):26
+Time(us):3145481
+Time(us):3150503
+Time(us):3155526
+Time(us):3160545
+Time(us):3165564
+Time(us):3170583
+Time(us):3175605
+Time(us):3180624
+Time(us):3185643
+Time(us):3190661
+Time(us):3195684	S1_Dist(mm):99
+Time(us):3203539
+Time(us):3208553
+Time(us):3213572
+Time(us):3218594
+Time(us):3223617
+Time(us):3228634
+Time(us):3233653
+Time(us):3238671	S2_Dist(mm):29
+Time(us):3246696
+Time(us):3251719
+Time(us):3256737
+Time(us):3261755
+Time(us):3266773
+Time(us):3271792
+Time(us):3276810
+Time(us):3281828
+Time(us):3286847
+Time(us):3291865
+Time(us):3296883	S1_Dist(mm):102
+Time(us):3304822
+Time(us):3309841
+Time(us):3314861
+Time(us):3319881
+Time(us):3324900
+Time(us):3329922
+Time(us):3334944
+Time(us):3339960	S2_Dist(mm):27
+Time(us):3347979
+Time(us):3352995
+Time(us):3358015
+Time(us):3363036
+Time(us):3368053
+Time(us):3373068
+Time(us):3378084
+Time(us):3383099
+Time(us):3388119
+Time(us):3393139
+Time(us):3398156	S1_Dist(mm):96
+Time(us):3406007
+Time(us):3411028
+Time(us):3416048
+Time(us):3421063
+Time(us):3426078
+Time(us):3431094
+Time(us):3436113
+Time(us):3441134	S2_Dist(mm):26
+Time(us):3449152
+Time(us):3454168
+Time(us):3459184
+Time(us):3464205
+Time(us):3469226
+Time(us):3474244
+Time(us):3479260
+Time(us):3484276
+Time(us):3489292
+Time(us):3494308	S1_Dist(mm):107
+Time(us):3502244
+Time(us):3507261
+Time(us):3512280
+Time(us):3517296
+Time(us):3522317
+Time(us):3527338
+Time(us):3532356
+Time(us):3537374
+Time(us):3542393	S2_Dist(mm):26
+Time(us):3550417
+Time(us):3555437
+Time(us):3560455
+Time(us):3565472
+Time(us):3570489
+Time(us):3575510
+Time(us):3580530
+Time(us):3585549
+Time(us):3590568
+Time(us):3595590	S1_Dist(mm):130
+Time(us):3603541
+Time(us):3608554
+Time(us):3613573
+Time(us):3618596
+Time(us):3623618
+Time(us):3628637
+Time(us):3633656
+Time(us):3638675
+Time(us):3643697	S2_Dist(mm):26
+Time(us):3651721
+Time(us):3656740
+Time(us):3661760
+Time(us):3666779
+Time(us):3671799
+Time(us):3676818
+Time(us):3681837
+Time(us):3686857
+Time(us):3691877
+Time(us):3696896	S1_Dist(mm):130
+Time(us):3704839
+Time(us):3709858
+Time(us):3714877
+Time(us):3719897
+Time(us):3724919
+Time(us):3729942
+Time(us):3734958
+Time(us):3739975
+Time(us):3744991	S2_Dist(mm):26
+Time(us):3753013
+Time(us):3758034
+Time(us):3763053
+Time(us):3768070
+Time(us):3773085
+Time(us):3778106
+Time(us):3783126
+Time(us):3788146
+Time(us):3793163	S1_Dist(mm):134
+Time(us):3801098
+Time(us):3806118
+Time(us):3811139
+Time(us):3816156
+Time(us):3821173
+Time(us):3826188
+Time(us):3831209
+Time(us):3836230
+Time(us):3841248
+Time(us):3846264	S2_Dist(mm):27
+Time(us):3854288
+Time(us):3859304
+Time(us):3864325
+Time(us):3869341
+Time(us):3874360
+Time(us):3879378
+Time(us):3884397
+Time(us):3889418
+Time(us):3894436	S1_Dist(mm):135
+Time(us):3902373
+Time(us):3907391
+Time(us):3912412
+Time(us):3917433
+Time(us):3922451
+Time(us):3927469
+Time(us):3932488
+Time(us):3937511
+Time(us):3942531
+Time(us):3947548	S2_Dist(mm):25
+Time(us):3955571
+Time(us):3960592
+Time(us):3965613
+Time(us):3970632
+Time(us):3975651
+Time(us):3980670
+Time(us):3985693
+Time(us):3990715	S1_Dist(mm):133
+Time(us):3998654
+Time(us):4003673
+Time(us):4008695
+Time(us):4013718
+Time(us):4018737
+Time(us):4023756
+Time(us):4028776
+Time(us):4033796
+Time(us):4038815
+Time(us):4043835
+Time(us):4048854	S2_Dist(mm):25
+Time(us):4056875
+Time(us):4061894
+Time(us):4066916
+Time(us):4071939
+Time(us):4076955
+Time(us):4081972
+Time(us):4086988
+Time(us):4092005	S1_Dist(mm):132
+Time(us):4099946
+Time(us):4104962
+Time(us):4109978
+Time(us):4114994
+Time(us):4120015
+Time(us):4125035
+Time(us):4130052
+Time(us):4135069
+Time(us):4140085
+Time(us):4145105
+Time(us):4150126	S2_Dist(mm):27
+Time(us):4158149
+Time(us):4163165
+Time(us):4168181
+Time(us):4173201
+Time(us):4178223
+Time(us):4183242
+Time(us):4188259
+Time(us):4193275	S1_Dist(mm):139
+Time(us):4201217
+Time(us):4206239
+Time(us):4211256
+Time(us):4216272
+Time(us):4221288
+Time(us):4226304
+Time(us):4231325
+Time(us):4236342
+Time(us):4241360
+Time(us):4246379
+Time(us):4251397	S2_Dist(mm):27
+Time(us):4259421
+Time(us):4264438
+Time(us):4269456
+Time(us):4274475
+Time(us):4279496
+Time(us):4284518
+Time(us):4289541	S1_Dist(mm):139
+Time(us):4297476
+Time(us):4302497
+Time(us):4307519
+Time(us):4312542
+Time(us):4317555
+Time(us):4322574
+Time(us):4327596
+Time(us):4332618
+Time(us):4337636
+Time(us):4342655
+Time(us):4347673
+Time(us):4352696	S2_Dist(mm):25
+Time(us):4360721
+Time(us):4365739
+Time(us):4370758
+Time(us):4375778
+Time(us):4380798
+Time(us):4385817
+Time(us):4390837	S1_Dist(mm):140
+Time(us):4398776
+Time(us):4403796
+Time(us):4408815
+Time(us):4413834
+Time(us):4418853
+Time(us):4423872
+Time(us):4428891
+Time(us):4433911
+Time(us):4438933
+Time(us):4443950
+Time(us):4448966
+Time(us):4453983	S2_Dist(mm):28
+Time(us):4461999
+Time(us):4467020
+Time(us):4472041
+Time(us):4477057
+Time(us):4482072
+Time(us):4487087	S1_Dist(mm):141
+Time(us):4495026
+Time(us):4500047
+Time(us):4505062
+Time(us):4510077
+Time(us):4515092
+Time(us):4520112
+Time(us):4525133
+Time(us):4530150
+Time(us):4535166
+Time(us):4540181
+Time(us):4545202
+Time(us):4550223
+Time(us):4555243	S2_Dist(mm):27
+Time(us):4563265
+Time(us):4568284
+Time(us):4573303
+Time(us):4578324
+Time(us):4583341
+Time(us):4588360	S1_Dist(mm):138
+Time(us):4596295
+Time(us):4601317
+Time(us):4606338
+Time(us):4611355
+Time(us):4616374
+Time(us):4621393
+Time(us):4626414
+Time(us):4631434
+Time(us):4636452
+Time(us):4641471
+Time(us):4646490
+Time(us):4651512	S2_Dist(mm):27
+Time(us):4659538
+Time(us):4664549
+Time(us):4669569
+Time(us):4674590
+Time(us):4679612
+Time(us):4684630
+Time(us):4689649	S1_Dist(mm):137
+Time(us):4697592
+Time(us):4702614
+Time(us):4707634
+Time(us):4712653
+Time(us):4717671
+Time(us):4722694
+Time(us):4727717
+Time(us):4732737
+Time(us):4737757
+Time(us):4742776
+Time(us):4747796
+Time(us):4752815	S2_Dist(mm):26
+Time(us):4760836
+Time(us):4765855
+Time(us):4770874
+Time(us):4775894
+Time(us):4780916
+Time(us):4785939	S1_Dist(mm):137
+Time(us):4793875
+Time(us):4798895
+Time(us):4803917
+Time(us):4808941
+Time(us):4813957
+Time(us):4818974
+Time(us):4823990
+Time(us):4829007
+Time(us):4834028
+Time(us):4839049
+Time(us):4844065
+Time(us):4849080
+Time(us):4854096	S2_Dist(mm):26
+Time(us):4862117
+Time(us):4867138
+Time(us):4872154
+Time(us):4877170
+Time(us):4882186
+Time(us):4887206	S1_Dist(mm):139
+Time(us):4895144
+Time(us):4900161
+Time(us):4905176
+Time(us):4910192
+Time(us):4915213
+Time(us):4920234
+Time(us):4925251
+Time(us):4930267
+Time(us):4935283
+Time(us):4940300
+Time(us):4945321
+Time(us):4950341
+Time(us):4955359	S2_Dist(mm):27
+Time(us):4963380
+Time(us):4968402
+Time(us):4973423
+Time(us):4978441
+Time(us):4983459	S1_Dist(mm):137
+Time(us):4991400
+Time(us):4996421
+Time(us):5001439
+Time(us):5006457
+Time(us):5011474
+Time(us):5016498
+Time(us):5021519
+Time(us):5026540
+Time(us):5031553
+Time(us):5036572
+Time(us):5041595
+Time(us):5046617
+Time(us):5051636
+Time(us):5056655	S2_Dist(mm):27
+Time(us):5064676
+Time(us):5069698
+Time(us):5074719
+Time(us):5079737
+Time(us):5084756	S1_Dist(mm):140
+Time(us):5092697
+Time(us):5097720
+Time(us):5102738
+Time(us):5107758
+Time(us):5112777
+Time(us):5117797
+Time(us):5122816
+Time(us):5127835
+Time(us):5132854
+Time(us):5137874
+Time(us):5142893
+Time(us):5147916
+Time(us):5152938
+Time(us):5157954	S2_Dist(mm):27
+Time(us):5165973
+Time(us):5170990
+Time(us):5176011
+Time(us):5181031
+Time(us):5186051	S1_Dist(mm):138
+Time(us):5193990
+Time(us):5199010
+Time(us):5204031
+Time(us):5209051
+Time(us):5214066
+Time(us):5219081
+Time(us):5224097
+Time(us):5229116
+Time(us):5234137
+Time(us):5239154
+Time(us):5244169
+Time(us):5249185
+Time(us):5254206
+Time(us):5259227	S2_Dist(mm):28
+Time(us):5267246
+Time(us):5272263
+Time(us):5277279
+Time(us):5282295	S1_Dist(mm):140
+Time(us):5290233
+Time(us):5295250
+Time(us):5300267
+Time(us):5305284
+Time(us):5310300
+Time(us):5315321
+Time(us):5320341
+Time(us):5325359
+Time(us):5330378
+Time(us):5335397
+Time(us):5340418
+Time(us):5345436
+Time(us):5350454
+Time(us):5355471
+Time(us):5360490	S2_Dist(mm):27
+Time(us):5368513
+Time(us):5373531
+Time(us):5378548
+Time(us):5383567	S1_Dist(mm):138
+Time(us):5391514
+Time(us):5396537
+Time(us):5401550
+Time(us):5406569
+Time(us):5411592
+Time(us):5416614
+Time(us):5421633
+Time(us):5426652
+Time(us):5431671
+Time(us):5436694
+Time(us):5441717
+Time(us):5446737
+Time(us):5451757
+Time(us):5456776
+Time(us):5461795	S2_Dist(mm):27
+Time(us):5469817
+Time(us):5474836
+Time(us):5479856	S1_Dist(mm):140
+Time(us):5487795
+Time(us):5492815
+Time(us):5497835
+Time(us):5502855
+Time(us):5507874
+Time(us):5512894
+Time(us):5517916
+Time(us):5522940
+Time(us):5527956
+Time(us):5532973
+Time(us):5537989
+Time(us):5543006
+Time(us):5548027
+Time(us):5553048
+Time(us):5558064
+Time(us):5563080	S2_Dist(mm):26
+Time(us):5571096
+Time(us):5576117
+Time(us):5581138	S1_Dist(mm):139
+Time(us):5589073
+Time(us):5594088
+Time(us):5599109
+Time(us):5604130
+Time(us):5609148
+Time(us):5614165
+Time(us):5619181
+Time(us):5624201
+Time(us):5629222
+Time(us):5634243
+Time(us):5639259
+Time(us):5644275
+Time(us):5649292
+Time(us):5654308
+Time(us):5659329
+Time(us):5664346	S2_Dist(mm):27
+Time(us):5672365
+Time(us):5677386
+Time(us):5682407	S1_Dist(mm):141
+Time(us):5690350
+Time(us):5695369
+Time(us):5700388
+Time(us):5705408
+Time(us):5710429
+Time(us):5715447
+Time(us):5720465
+Time(us):5725482
+Time(us):5730502
+Time(us):5735525
+Time(us):5740540
+Time(us):5745560
+Time(us):5750579
+Time(us):5755601
+Time(us):5760622
+Time(us):5765640	S2_Dist(mm):28
+Time(us):5773661
+Time(us):5778683	S1_Dist(mm):142
+Time(us):5786623
+Time(us):5791642
+Time(us):5796661
+Time(us):5801684
+Time(us):5806706
+Time(us):5811726
+Time(us):5816746
+Time(us):5821766
+Time(us):5826785
+Time(us):5831805
+Time(us):5836824
+Time(us):5841843
+Time(us):5846862
+Time(us):5851882
+Time(us):5856902
+Time(us):5861924
+Time(us):5866947	S2_Dist(mm):27
+Time(us):5874963
+Time(us):5879979	S1_Dist(mm):142
+Time(us):5887917
+Time(us):5892939
+Time(us):5897956
+Time(us):5902972
+Time(us):5907989
+Time(us):5913005
+Time(us):5918026
+Time(us):5923046
+Time(us):5928062
+Time(us):5933078
+Time(us):5938094
+Time(us):5943114
+Time(us):5948134
+Time(us):5953151
+Time(us):5958166
+Time(us):5963182
+Time(us):5968203	S2_Dist(mm):29
+Time(us):5976226	S1_Dist(mm):129
+Time(us):5984163
+Time(us):5989180
+Time(us):5994200
+Time(us):5999222
+Time(us):6004243
+Time(us):6009259
+Time(us):6014275
+Time(us):6019291
+Time(us):6024307
+Time(us):6029331
+Time(us):6034348
+Time(us):6039366
+Time(us):6044385
+Time(us):6049407
+Time(us):6054427
+Time(us):6059445
+Time(us):6064463
+Time(us):6069482	S2_Dist(mm):30
+Time(us):6077504	S1_Dist(mm):122
+Time(us):6085446
+Time(us):6090464
+Time(us):6095482
+Time(us):6100502
+Time(us):6105523
+Time(us):6110540
+Time(us):6115559
+Time(us):6120579
+Time(us):6125601
+Time(us):6130623
+Time(us):6135642
+Time(us):6140661
+Time(us):6145683
+Time(us):6150706
+Time(us):6155725
+Time(us):6160745
+Time(us):6165765
+Time(us):6170784	S2_Dist(mm):29
+Time(us):6178811	S1_Dist(mm):94
+Time(us):6186661
+Time(us):6191683
+Time(us):6196705
+Time(us):6201724
+Time(us):6206744
+Time(us):6211764
+Time(us):6216783
+Time(us):6221803
+Time(us):6226823
+Time(us):6231843
+Time(us):6236863
+Time(us):6241882
+Time(us):6246901
+Time(us):6251923
+Time(us):6256946
+Time(us):6261962
+Time(us):6266980	S2_Dist(mm):29
+Time(us):6274998	S1_Dist(mm):96
+Time(us):6282849
+Time(us):6287868
+Time(us):6292887
+Time(us):6297907
+Time(us):6302929
+Time(us):6307952
+Time(us):6312968
+Time(us):6317985
+Time(us):6323001
+Time(us):6328022
+Time(us):6333042
+Time(us):6338060
+Time(us):6343076
+Time(us):6348091
+Time(us):6353111
+Time(us):6358132
+Time(us):6363149
+Time(us):6368165	S2_Dist(mm):31
+Time(us):6376181	S1_Dist(mm):93
+Time(us):6384033
+Time(us):6389053
+Time(us):6394068
+Time(us):6399084
+Time(us):6404099
+Time(us):6409119
+Time(us):6414140
+Time(us):6419155
+Time(us):6424171
+Time(us):6429187
+Time(us):6434208
+Time(us):6439229
+Time(us):6444247
+Time(us):6449264
+Time(us):6454280
+Time(us):6459296
+Time(us):6464317
+Time(us):6469338	S2_Dist(mm):31
+Time(us):6477359	S1_Dist(mm):96
+Time(us):6485212
+Time(us):6490233
+Time(us):6495250
+Time(us):6500267
+Time(us):6505284
+Time(us):6510300
+Time(us):6515321
+Time(us):6520341
+Time(us):6525360
+Time(us):6530378
+Time(us):6535397
+Time(us):6540418
+Time(us):6545437
+Time(us):6550455
+Time(us):6555472
+Time(us):6560491
+Time(us):6565513
+Time(us):6570532	S2_Dist(mm):33
+Time(us):6578553	S1_Dist(mm):95
+Time(us):6586402
+Time(us):6591424
+Time(us):6596442
+Time(us):6601460
+Time(us):6606479
+Time(us):6611499
+Time(us):6616519
+Time(us):6621542
+Time(us):6626555
+Time(us):6631575
+Time(us):6636597
+Time(us):6641620
+Time(us):6646639
+Time(us):6651658
+Time(us):6656677
+Time(us):6661701
+Time(us):6666719
+Time(us):6671738	S1_Dist(mm):96	S2_Dist(mm):33
+Time(us):6682594
+Time(us):6687614
+Time(us):6692633
+Time(us):6697652
+Time(us):6702671
+Time(us):6707694
+Time(us):6712716
+Time(us):6717736
+Time(us):6722756
+Time(us):6727775
+Time(us):6732795
+Time(us):6737815
+Time(us):6742834
+Time(us):6747854
+Time(us):6752874
+Time(us):6757893
+Time(us):6762916
+Time(us):6767939
+Time(us):6772955	S1_Dist(mm):94	S2_Dist(mm):35
+Time(us):6783811
+Time(us):6788829
+Time(us):6793849
+Time(us):6798869
+Time(us):6803889
+Time(us):6808908
+Time(us):6813930
+Time(us):6818950
+Time(us):6823966
+Time(us):6828983
+Time(us):6833999
+Time(us):6839019
+Time(us):6844040
+Time(us):6849057
+Time(us):6854073
+Time(us):6859091
+Time(us):6864112
+Time(us):6869133
+Time(us):6874150	S1_Dist(mm):97	S2_Dist(mm):34
+Time(us):6885001
+Time(us):6890021
+Time(us):6895042
+Time(us):6900058
+Time(us):6905073
+Time(us):6910088
+Time(us):6915108
+Time(us):6920130
+Time(us):6925148
+Time(us):6930165
+Time(us):6935181
+Time(us):6940201
+Time(us):6945223
+Time(us):6950243
+Time(us):6955260
+Time(us):6960276
+Time(us):6965292
+Time(us):6970309	S1_Dist(mm):97
+Time(us):6978156	S2_Dist(mm):34
+Time(us):6986174
+Time(us):6991191
+Time(us):6996211
+Time(us):7001233
+Time(us):7006250
+Time(us):7011267
+Time(us):7016283
+Time(us):7021299
+Time(us):7026321
+Time(us):7031339
+Time(us):7036357
+Time(us):7041375
+Time(us):7046394
+Time(us):7051415
+Time(us):7056436
+Time(us):7061453
+Time(us):7066471
+Time(us):7071490	S1_Dist(mm):96
+Time(us):7079342	S2_Dist(mm):36
+Time(us):7087363
+Time(us):7092381
+Time(us):7097402
+Time(us):7102423
+Time(us):7107441
+Time(us):7112459
+Time(us):7117477
+Time(us):7122498
+Time(us):7127520
+Time(us):7132540
+Time(us):7137556
+Time(us):7142576
+Time(us):7147598
+Time(us):7152619
+Time(us):7157638
+Time(us):7162657
+Time(us):7167675
+Time(us):7172698	S1_Dist(mm):96	S2_Dist(mm):35
+Time(us):7183551
+Time(us):7188568
+Time(us):7193590
+Time(us):7198612
+Time(us):7203631
+Time(us):7208650
+Time(us):7213669
+Time(us):7218691
+Time(us):7223714
+Time(us):7228734
+Time(us):7233753
+Time(us):7238773
+Time(us):7243792
+Time(us):7248811
+Time(us):7253831
+Time(us):7258850
+Time(us):7263870
+Time(us):7268890	S1_Dist(mm):96
+Time(us):7276741	S2_Dist(mm):35
+Time(us):7284762
+Time(us):7289782
+Time(us):7294801
+Time(us):7299821
+Time(us):7304841
+Time(us):7309860
+Time(us):7314880
+Time(us):7319899
+Time(us):7324922
+Time(us):7329944
+Time(us):7334960
+Time(us):7339977
+Time(us):7344993
+Time(us):7350014
+Time(us):7355034
+Time(us):7360054
+Time(us):7365070
+Time(us):7370086	S1_Dist(mm):95
+Time(us):7377941	S2_Dist(mm):34
+Time(us):7385959
+Time(us):7390975
+Time(us):7395992
+Time(us):7401013
+Time(us):7406034
+Time(us):7411053
+Time(us):7416068
+Time(us):7421083
+Time(us):7426099
+Time(us):7431118
+Time(us):7436139
+Time(us):7441156
+Time(us):7446173
+Time(us):7451189
+Time(us):7456209
+Time(us):7461230
+Time(us):7466248	S1_Dist(mm):94
+Time(us):7474106
+Time(us):7479127	S2_Dist(mm):34
+Time(us):7487149
+Time(us):7492166
+Time(us):7497182
+Time(us):7502202
+Time(us):7507224
+Time(us):7512242
+Time(us):7517258
+Time(us):7522274
+Time(us):7527291
+Time(us):7532307
+Time(us):7537329
+Time(us):7542346
+Time(us):7547364
+Time(us):7552382
+Time(us):7557404
+Time(us):7562424
+Time(us):7567442	S1_Dist(mm):94
+Time(us):7575290
+Time(us):7580310	S2_Dist(mm):33
+Time(us):7588331
+Time(us):7593351
+Time(us):7598370
+Time(us):7603389
+Time(us):7608410
+Time(us):7613431
+Time(us):7618449
+Time(us):7623467
+Time(us):7628486
+Time(us):7633506
+Time(us):7638528
+Time(us):7643545
+Time(us):7648565
+Time(us):7653586
+Time(us):7658609
+Time(us):7663628
+Time(us):7668647	S1_Dist(mm):96
+Time(us):7676499
+Time(us):7681521	S2_Dist(mm):34
+Time(us):7689542
+Time(us):7694558
+Time(us):7699577
+Time(us):7704599
+Time(us):7709621
+Time(us):7714639
+Time(us):7719658
+Time(us):7724678
+Time(us):7729701
+Time(us):7734719
+Time(us):7739737
+Time(us):7744756
+Time(us):7749774
+Time(us):7754792
+Time(us):7759811
+Time(us):7764829	S1_Dist(mm):96
+Time(us):7772678
+Time(us):7777701
+Time(us):7782719	S2_Dist(mm):35
+Time(us):7790738
+Time(us):7795758
+Time(us):7800777
+Time(us):7805797
+Time(us):7810817
+Time(us):7815836
+Time(us):7820856
+Time(us):7825875
+Time(us):7830895
+Time(us):7835917
+Time(us):7840940
+Time(us):7845956
+Time(us):7850973
+Time(us):7855989
+Time(us):7861007
+Time(us):7866028	S1_Dist(mm):102
+Time(us):7873969
+Time(us):7878985
+Time(us):7884002	S2_Dist(mm):34
+Time(us):7892025
+Time(us):7897046
+Time(us):7902061
+Time(us):7907076
+Time(us):7912093
+Time(us):7917114
+Time(us):7922135
+Time(us):7927151
+Time(us):7932167
+Time(us):7937182
+Time(us):7942202
+Time(us):7947224
+Time(us):7952242
+Time(us):7957258
+Time(us):7962274
+Time(us):7967290	S1_Dist(mm):125
+Time(us):7975228
+Time(us):7980245
+Time(us):7985261	S2_Dist(mm):36
+Time(us):7993283
+Time(us):7998299
+Time(us):8003319
+Time(us):8008339
+Time(us):8013358
+Time(us):8018377
+Time(us):8023395
+Time(us):8028417
+Time(us):8033435
+Time(us):8038453
+Time(us):8043472
+Time(us):8048491
+Time(us):8053514
+Time(us):8058537
+Time(us):8063550	S1_Dist(mm):140
+Time(us):8071490
+Time(us):8076512
+Time(us):8081531
+Time(us):8086548	S2_Dist(mm):35
+Time(us):8094571
+Time(us):8099591
+Time(us):8104614
+Time(us):8109632
+Time(us):8114649
+Time(us):8119669
+Time(us):8124691
+Time(us):8129714
+Time(us):8134734
+Time(us):8139754
+Time(us):8144772
+Time(us):8149792
+Time(us):8154811
+Time(us):8159831
+Time(us):8164850	S1_Dist(mm):140
+Time(us):8172790
+Time(us):8177810
+Time(us):8182830
+Time(us):8187850	S2_Dist(mm):35
+Time(us):8195871
+Time(us):8200890
+Time(us):8205910
+Time(us):8210932
+Time(us):8215952
+Time(us):8220969
+Time(us):8225986
+Time(us):8231002
+Time(us):8236023
+Time(us):8241043
+Time(us):8246059
+Time(us):8251076
+Time(us):8256092
+Time(us):8261112	S1_Dist(mm):135
+Time(us):8269051
+Time(us):8274066
+Time(us):8279081
+Time(us):8284096
+Time(us):8289116	S2_Dist(mm):33
+Time(us):8297138
+Time(us):8302154
+Time(us):8307170
+Time(us):8312186
+Time(us):8317207
+Time(us):8322228
+Time(us):8327246
+Time(us):8332262
+Time(us):8337278
+Time(us):8342294
+Time(us):8347315
+Time(us):8352336
+Time(us):8357354
+Time(us):8362373	S1_Dist(mm):134
+Time(us):8370307
+Time(us):8375328
+Time(us):8380345
+Time(us):8385363
+Time(us):8390382	S2_Dist(mm):34
+Time(us):8398405
+Time(us):8403429
+Time(us):8408447
+Time(us):8413465
+Time(us):8418484
+Time(us):8423506
+Time(us):8428528
+Time(us):8433542
+Time(us):8438562
+Time(us):8443581
+Time(us):8448602
+Time(us):8453624
+Time(us):8458643
+Time(us):8463661	S1_Dist(mm):133
+Time(us):8471604
+Time(us):8476623
+Time(us):8481642
+Time(us):8486661
+Time(us):8491684	S2_Dist(mm):32
+Time(us):8499708
+Time(us):8504728
+Time(us):8509747
+Time(us):8514766
+Time(us):8519786
+Time(us):8524805
+Time(us):8529825
+Time(us):8534845
+Time(us):8539863
+Time(us):8544882
+Time(us):8549902
+Time(us):8554924
+Time(us):8559947	S1_Dist(mm):130
+Time(us):8567880
+Time(us):8572899
+Time(us):8577922
+Time(us):8582945
+Time(us):8587961
+Time(us):8592978	S2_Dist(mm):35
+Time(us):8600995
+Time(us):8606016
+Time(us):8611037
+Time(us):8616053
+Time(us):8621068
+Time(us):8626084
+Time(us):8631104
+Time(us):8636125
+Time(us):8641146
+Time(us):8646163
+Time(us):8651179
+Time(us):8656199
+Time(us):8661221	S1_Dist(mm):131
+Time(us):8669160
+Time(us):8674177
+Time(us):8679193
+Time(us):8684213
+Time(us):8689234
+Time(us):8694252	S2_Dist(mm):33
+Time(us):8702273
+Time(us):8707289
+Time(us):8712305
+Time(us):8717326
+Time(us):8722346
+Time(us):8727363
+Time(us):8732382
+Time(us):8737404
+Time(us):8742425
+Time(us):8747443
+Time(us):8752460
+Time(us):8757478	S1_Dist(mm):131
+Time(us):8765421
+Time(us):8770439
+Time(us):8775457
+Time(us):8780476
+Time(us):8785496
+Time(us):8790519
+Time(us):8795542	S2_Dist(mm):32
+Time(us):8803558
+Time(us):8808573
+Time(us):8813596
+Time(us):8818618
+Time(us):8823636
+Time(us):8828655
+Time(us):8833674
+Time(us):8838696
+Time(us):8843719
+Time(us):8848739
+Time(us):8853758
+Time(us):8858778	S1_Dist(mm):129
+Time(us):8866719
+Time(us):8871737
+Time(us):8876755
+Time(us):8881774
+Time(us):8886792
+Time(us):8891811	S2_Dist(mm):32
+Time(us):8899830
+Time(us):8904849
+Time(us):8909869
+Time(us):8914888
+Time(us):8919907
+Time(us):8924929
+Time(us):8929952
+Time(us):8934969
+Time(us):8939985
+Time(us):8945002
+Time(us):8950024
+Time(us):8955044
+Time(us):8960060	S1_Dist(mm):132
+Time(us):8967998
+Time(us):8973019
+Time(us):8978040
+Time(us):8983056
+Time(us):8988071
+Time(us):8993087	S2_Dist(mm):32
+Time(us):9001108
+Time(us):9006129
+Time(us):9011148
+Time(us):9016164
+Time(us):9021180
+Time(us):9026200
+Time(us):9031222
+Time(us):9036243
+Time(us):9041259
+Time(us):9046276
+Time(us):9051292
+Time(us):9056309	S1_Dist(mm):131
+Time(us):9064244
+Time(us):9069261
+Time(us):9074278
+Time(us):9079294
+Time(us):9084316
+Time(us):9089337
+Time(us):9094354	S2_Dist(mm):34
+Time(us):9102376
+Time(us):9107394
+Time(us):9112415
+Time(us):9117436
+Time(us):9122454
+Time(us):9127471
+Time(us):9132492
+Time(us):9137514
+Time(us):9142537
+Time(us):9147550
+Time(us):9152569
+Time(us):9157591	S1_Dist(mm):131
+Time(us):9165541
+Time(us):9170554
+Time(us):9175573
+Time(us):9180595
+Time(us):9185618
+Time(us):9190637
+Time(us):9195656	S2_Dist(mm):33
+Time(us):9203677
+Time(us):9208700
+Time(us):9213718
+Time(us):9218737
+Time(us):9223755
+Time(us):9228774
+Time(us):9233792
+Time(us):9238811
+Time(us):9243829
+Time(us):9248848
+Time(us):9253866	S1_Dist(mm):131
+Time(us):9261802
+Time(us):9266822
+Time(us):9271842
+Time(us):9276861
+Time(us):9281881
+Time(us):9286901
+Time(us):9291923
+Time(us):9296946	S2_Dist(mm):31
+Time(us):9304963
+Time(us):9309979
+Time(us):9314996
+Time(us):9320017
+Time(us):9325038
+Time(us):9330054
+Time(us):9335070
+Time(us):9340085
+Time(us):9345106
+Time(us):9350127
+Time(us):9355149	S1_Dist(mm):134
+Time(us):9363085
+Time(us):9368105
+Time(us):9373126
+Time(us):9378147
+Time(us):9383164
+Time(us):9388180
+Time(us):9393201
+Time(us):9398222	S2_Dist(mm):35
+Time(us):9406244
+Time(us):9411261
+Time(us):9416277
+Time(us):9421294
+Time(us):9426315
+Time(us):9431337
+Time(us):9436355
+Time(us):9441374
+Time(us):9446392
+Time(us):9451414
+Time(us):9456435	S1_Dist(mm):133
+Time(us):9464372
+Time(us):9469391
+Time(us):9474413
+Time(us):9479433
+Time(us):9484451
+Time(us):9489469
+Time(us):9494488
+Time(us):9499509	S2_Dist(mm):32
+Time(us):9507536
+Time(us):9512549
+Time(us):9517568
+Time(us):9522591
+Time(us):9527613
+Time(us):9532632
+Time(us):9537651
+Time(us):9542670
+Time(us):9547692
+Time(us):9552715	S1_Dist(mm):131
+Time(us):9560653
+Time(us):9565672
+Time(us):9570695
+Time(us):9575718
+Time(us):9580738
+Time(us):9585758
+Time(us):9590777
+Time(us):9595797
+Time(us):9600816	S2_Dist(mm):34
+Time(us):9608838
+Time(us):9613858
+Time(us):9618877
+Time(us):9623897
+Time(us):9628920
+Time(us):9633943
+Time(us):9638959
+Time(us):9643977
+Time(us):9648993
+Time(us):9654013	S1_Dist(mm):131
+Time(us):9661954
+Time(us):9666970
+Time(us):9671988
+Time(us):9677004
+Time(us):9682024
+Time(us):9687045
+Time(us):9692062
+Time(us):9697078
+Time(us):9702093	S2_Dist(mm):34
+Time(us):9710115
+Time(us):9715136
+Time(us):9720153
+Time(us):9725169
+Time(us):9730185
+Time(us):9735205
+Time(us):9740227
+Time(us):9745245
+Time(us):9750261	S1_Dist(mm):127
+Time(us):9758200
+Time(us):9763221
+Time(us):9768242
+Time(us):9773258
+Time(us):9778274
+Time(us):9783290
+Time(us):9788307
+Time(us):9793328
+Time(us):9798345
+Time(us):9803363	S2_Dist(mm):35
+Time(us):9811383
+Time(us):9816408
+Time(us):9821429
+Time(us):9826447
+Time(us):9831465
+Time(us):9836483
+Time(us):9841507
+Time(us):9846529
+Time(us):9851546	S1_Dist(mm):111
+Time(us):9859488
+Time(us):9864509
+Time(us):9869536
+Time(us):9874547
+Time(us):9879566
+Time(us):9884588
+Time(us):9889610
+Time(us):9894629
+Time(us):9899648
+Time(us):9904667	S2_Dist(mm):33
+Time(us):9912691
+Time(us):9917714
+Time(us):9922733
+Time(us):9927751
+Time(us):9932769
+Time(us):9937788
+Time(us):9942806
+Time(us):9947825
+Time(us):9952843	S1_Dist(mm):95
+Time(us):9960697
+Time(us):9965720
+Time(us):9970739
+Time(us):9975758
+Time(us):9980778
+Time(us):9985797
+Time(us):9990816
+Time(us):9995836
+Time(us):10000855
+Time(us):10005957	S2_Dist(mm):37
+Time(us):10014063
+Time(us):10019164
+Time(us):10024269
+Time(us):10029374
+Time(us):10034479
+Time(us):10039587
+Time(us):10044694
+Time(us):10049797	S1_Dist(mm):96
+Time(us):10057733
+Time(us):10062837
+Time(us):10067947
+Time(us):10073054
+Time(us):10078157
+Time(us):10083264
+Time(us):10088369
+Time(us):10093474
+Time(us):10098579
+Time(us):10103687	S2_Dist(mm):35
+Time(us):10111797
+Time(us):10116902
+Time(us):10122006
+Time(us):10127112
+Time(us):10132222
+Time(us):10137331
+Time(us):10142435
+Time(us):10147542	S1_Dist(mm):95
+Time(us):10155479
+Time(us):10160587
+Time(us):10165694
+Time(us):10170797
+Time(us):10175901
+Time(us):10181005
+Time(us):10186115
+Time(us):10191223
+Time(us):10196335
+Time(us):10201440
+Time(us):10206544	S2_Dist(mm):32
+Time(us):10214655
+Time(us):10219759
+Time(us):10224864
+Time(us):10229969
+Time(us):10235070
+Time(us):10240174
+Time(us):10245278
+Time(us):10250384	S1_Dist(mm):96
+Time(us):10258324
+Time(us):10263434
+Time(us):10268540
+Time(us):10273643
+Time(us):10278747
+Time(us):10283851
+Time(us):10288956
+Time(us):10294059
+Time(us):10299162
+Time(us):10304266
+Time(us):10309371	S2_Dist(mm):35
+Time(us):10317479
+Time(us):10322581
+Time(us):10327688
+Time(us):10332791
+Time(us):10337896
+Time(us):10342999
+Time(us):10348108	S1_Dist(mm):97
+Time(us):10356045
+Time(us):10361148
+Time(us):10366251
+Time(us):10371356
+Time(us):10376461
+Time(us):10381566
+Time(us):10386672
+Time(us):10391780
+Time(us):10396885
+Time(us):10401987
+Time(us):10407089	S2_Dist(mm):33
+Time(us):10415192
+Time(us):10420299
+Time(us):10425409
+Time(us):10430517
+Time(us):10435622
+Time(us):10440728
+Time(us):10445834	S1_Dist(mm):96
+Time(us):10453773
+Time(us):10458879
+Time(us):10463984
+Time(us):10469088
+Time(us):10474193
+Time(us):10479297
+Time(us):10484407
+Time(us):10489515
+Time(us):10494624
+Time(us):10499728
+Time(us):10504832
+Time(us):10509941	S2_Dist(mm):32
+Time(us):10518051
+Time(us):10523153
+Time(us):10528259
+Time(us):10533365
+Time(us):10538470
+Time(us):10543575
+Time(us):10548685	S1_Dist(mm):96
+Time(us):10556622
+Time(us):10561726
+Time(us):10566830
+Time(us):10571937
+Time(us):10577046
+Time(us):10582147
+Time(us):10587250
+Time(us):10592356
+Time(us):10597461
+Time(us):10602566
+Time(us):10607672	S2_Dist(mm):32
+Time(us):10615786
+Time(us):10620891
+Time(us):10625993
+Time(us):10631095
+Time(us):10636204
+Time(us):10641315
+Time(us):10646425	S1_Dist(mm):97
+Time(us):10654363
+Time(us):10659468
+Time(us):10664573
+Time(us):10669684
+Time(us):10674787
+Time(us):10679891
+Time(us):10684994
+Time(us):10690097
+Time(us):10695206
+Time(us):10700316
+Time(us):10705425
+Time(us):10710531	S2_Dist(mm):31
+Time(us):10718638
+Time(us):10723742
+Time(us):10728848
+Time(us):10733950
+Time(us):10739053
+Time(us):10744156	S1_Dist(mm):96
+Time(us):10752096
+Time(us):10757202
+Time(us):10762309
+Time(us):10767419
+Time(us):10772527
+Time(us):10777632
+Time(us):10782739
+Time(us):10787844
+Time(us):10792951
+Time(us):10798053
+Time(us):10803159
+Time(us):10808263
+Time(us):10813368	S2_Dist(mm):35
+Time(us):10821476
+Time(us):10826575
+Time(us):10831685
+Time(us):10836791
+Time(us):10841896
+Time(us):10847002	S1_Dist(mm):97
+Time(us):10854946
+Time(us):10860053
+Time(us):10865156
+Time(us):10870263
+Time(us):10875368
+Time(us):10880473
+Time(us):10885578
+Time(us):10890685
+Time(us):10895791
+Time(us):10900895
+Time(us):10905999
+Time(us):10911109	S2_Dist(mm):34
+Time(us):10919220
+Time(us):10924329
+Time(us):10929435
+Time(us):10934542
+Time(us):10939645
+Time(us):10944752	S1_Dist(mm):97
+Time(us):10952691
+Time(us):10957796
+Time(us):10962900
+Time(us):10968003
+Time(us):10973112
+Time(us):10978219
+Time(us):10983328
+Time(us):10988435
+Time(us):10993542
+Time(us):10998645
+Time(us):11003749
+Time(us):11008854
+Time(us):11013958	S2_Dist(mm):32
+Time(us):11022060
+Time(us):11027163
+Time(us):11032267
+Time(us):11037372
+Time(us):11042478	S1_Dist(mm):96
+Time(us):11050416
+Time(us):11055524
+Time(us):11060628
+Time(us):11065735
+Time(us):11070840
+Time(us):11075948
+Time(us):11081054
+Time(us):11086159
+Time(us):11091265
+Time(us):11096370
+Time(us):11101476
+Time(us):11106580
+Time(us):11111690
+Time(us):11116796	S2_Dist(mm):33
+Time(us):11124901
+Time(us):11130005
+Time(us):11135113
+Time(us):11140222
+Time(us):11145331	S1_Dist(mm):98
+Time(us):11153272
+Time(us):11158377
+Time(us):11163482
+Time(us):11168590
+Time(us):11173701
+Time(us):11178804
+Time(us):11183908
+Time(us):11189015
+Time(us):11194124
+Time(us):11199234
+Time(us):11204339
+Time(us):11209445
+Time(us):11214548	S2_Dist(mm):35
+Time(us):11222657
+Time(us):11227761
+Time(us):11232866
+Time(us):11237970
+Time(us):11243071	S1_Dist(mm):98
+Time(us):11251011
+Time(us):11256117
+Time(us):11261226
+Time(us):11266335
+Time(us):11271439
+Time(us):11276543
+Time(us):11281649
+Time(us):11286756
+Time(us):11291862
+Time(us):11296964
+Time(us):11302066
+Time(us):11307171
+Time(us):11312278
+Time(us):11317383	S2_Dist(mm):33
+Time(us):11325490
+Time(us):11330597
+Time(us):11335708
+Time(us):11340813	S1_Dist(mm):100
+Time(us):11348841
+Time(us):11353948
+Time(us):11359053
+Time(us):11364159
+Time(us):11369266
+Time(us):11374371
+Time(us):11379476
+Time(us):11384582
+Time(us):11389690
+Time(us):11394793
+Time(us):11399897
+Time(us):11405003
+Time(us):11410113
+Time(us):11415220
+Time(us):11420331	S2_Dist(mm):31
+Time(us):11428438
+Time(us):11433541
+Time(us):11438645	S1_Dist(mm):98
+Time(us):11446586
+Time(us):11451693
+Time(us):11456796
+Time(us):11461901
+Time(us):11467004
+Time(us):11472113
+Time(us):11477223
+Time(us):11482334
+Time(us):11487438
+Time(us):11492542
+Time(us):11497648
+Time(us):11502752
+Time(us):11507858
+Time(us):11512960
+Time(us):11518062	S2_Dist(mm):31
+Time(us):11526165
+Time(us):11531272
+Time(us):11536376
+Time(us):11541482	S1_Dist(mm):98
+Time(us):11549425
+Time(us):11554530
+Time(us):11559634
+Time(us):11564741
+Time(us):11569847
+Time(us):11574949
+Time(us):11580052
+Time(us):11585154
+Time(us):11590258
+Time(us):11595362
+Time(us):11600468
+Time(us):11605573
+Time(us):11610683
+Time(us):11615786
+Time(us):11620890	S2_Dist(mm):32
+Time(us):11628995
+Time(us):11634099
+Time(us):11639206	S1_Dist(mm):98
+Time(us):11647144
+Time(us):11652248
+Time(us):11657353
+Time(us):11662459
+Time(us):11667563
+Time(us):11672669
+Time(us):11677776
+Time(us):11682881
+Time(us):11687986
+Time(us):11693088
+Time(us):11698190
+Time(us):11703296
+Time(us):11708406
+Time(us):11713514
+Time(us):11718622	S2_Dist(mm):32
+Time(us):11726730
+Time(us):11731834
+Time(us):11736943	S1_Dist(mm):98
+Time(us):11744883
+Time(us):11749988
+Time(us):11755089
+Time(us):11760193
+Time(us):11765296
+Time(us):11770406
+Time(us):11775514
+Time(us):11780622
+Time(us):11785728
+Time(us):11790833
+Time(us):11795941
+Time(us):11801050
+Time(us):11806152
+Time(us):11811257
+Time(us):11816362
+Time(us):11821468	S2_Dist(mm):33
+Time(us):11829576
+Time(us):11834682
+Time(us):11839789	S1_Dist(mm):98
+Time(us):11847726
+Time(us):11852831
+Time(us):11857938
+Time(us):11863044
+Time(us):11868148
+Time(us):11873253
+Time(us):11878358
+Time(us):11883463
+Time(us):11888568
+Time(us):11893674
+Time(us):11898780
+Time(us):11903886
+Time(us):11908988
+Time(us):11914091
+Time(us):11919200
+Time(us):11924306	S2_Dist(mm):33
+Time(us):11932418
+Time(us):11937528	S1_Dist(mm):99
+Time(us):11945466
+Time(us):11950571
+Time(us):11955677
+Time(us):11960781
+Time(us):11965887
+Time(us):11970989
+Time(us):11976092
+Time(us):11981201
+Time(us):11986309
+Time(us):11991419
+Time(us):11996527
+Time(us):12001631
+Time(us):12006735
+Time(us):12011841
+Time(us):12016947
+Time(us):12022053	S2_Dist(mm):34
+Time(us):12030157
+Time(us):12035263	S1_Dist(mm):98
+Time(us):12043201
+Time(us):12048307
+Time(us):12053417
+Time(us):12058525
+Time(us):12063630
+Time(us):12068734
+Time(us):12073840
+Time(us):12078948
+Time(us):12084053
+Time(us):12089157
+Time(us):12094261
+Time(us):12099366
+Time(us):12104471
+Time(us):12109576
+Time(us):12114683
+Time(us):12119789
+Time(us):12124892	S2_Dist(mm):32
+Time(us):12132998
+Time(us):12138107	S1_Dist(mm):97
+Time(us):12146044
+Time(us):12151148
+Time(us):12156255
+Time(us):12161360
+Time(us):12166465
+Time(us):12171570
+Time(us):12176673
+Time(us):12181777
+Time(us):12186882
+Time(us):12191987
+Time(us):12197090
+Time(us):12202193
+Time(us):12207300
+Time(us):12212410
+Time(us):12217518
+Time(us):12222623
+Time(us):12227729	S2_Dist(mm):32
+Time(us):12235836	S1_Dist(mm):97
+Time(us):12243775
+Time(us):12248879
+Time(us):12253984
+Time(us):12259086
+Time(us):12264191
+Time(us):12269297
+Time(us):12274407
+Time(us):12279515
+Time(us):12284623
+Time(us):12289727
+Time(us):12294832
+Time(us):12299940
+Time(us):12305049
+Time(us):12310152
+Time(us):12315256
+Time(us):12320362
+Time(us):12325468	S2_Dist(mm):33
+Time(us):12333575	S1_Dist(mm):99
+Time(us):12341512
+Time(us):12346620
+Time(us):12351726
+Time(us):12356831
+Time(us):12361940
+Time(us):12367046
+Time(us):12372150
+Time(us):12377256
+Time(us):12382361
+Time(us):12387467
+Time(us):12392571
+Time(us):12397678
+Time(us):12402782
+Time(us):12407887
+Time(us):12412991
+Time(us):12418094
+Time(us):12423203
+Time(us):12428316	S2_Dist(mm):32
+Time(us):12436428	S1_Dist(mm):99
+Time(us):12444364
+Time(us):12449469
+Time(us):12454574
+Time(us):12459678
+Time(us):12464783
+Time(us):12469888
+Time(us):12474992
+Time(us):12480096
+Time(us):12485205
+Time(us):12490308
+Time(us):12495418
+Time(us):12500528
+Time(us):12505630
+Time(us):12510738
+Time(us):12515843
+Time(us):12520951
+Time(us):12526055	S2_Dist(mm):34
+Time(us):12534162	S1_Dist(mm):98
+Time(us):12542104
+Time(us):12547213
+Time(us):12552323
+Time(us):12557432
+Time(us):12562542
+Time(us):12567642
+Time(us):12572746
+Time(us):12577851
+Time(us):12582953
+Time(us):12588056
+Time(us):12593159
+Time(us):12598263
+Time(us):12603368
+Time(us):12608473
+Time(us):12613578
+Time(us):12618685
+Time(us):12623788
+Time(us):12628892	S2_Dist(mm):34
+Time(us):12636998	S1_Dist(mm):98
+Time(us):12644940
+Time(us):12650048
+Time(us):12655151
+Time(us):12660254
+Time(us):12665359
+Time(us):12670465
+Time(us):12675570
+Time(us):12680676
+Time(us):12685780
+Time(us):12690885
+Time(us):12695988
+Time(us):12701089
+Time(us):12706194
+Time(us):12711298
+Time(us):12716407
+Time(us):12721515
+Time(us):12726623
+Time(us):12731727	S1_Dist(mm):100	S2_Dist(mm):33
+Time(us):12742754
+Time(us):12747857
+Time(us):12752959
+Time(us):12758062
+Time(us):12763165
+Time(us):12768268
+Time(us):12773374
+Time(us):12778479
+Time(us):12783586
+Time(us):12788693
+Time(us):12793799
+Time(us):12798904
+Time(us):12804006
+Time(us):12809113
+Time(us):12814223
+Time(us):12819333
+Time(us):12824437
+Time(us):12829541	S1_Dist(mm):97	S2_Dist(mm):32
+Time(us):12840480
+Time(us):12845588
+Time(us):12850695
+Time(us):12855801
+Time(us):12860906
+Time(us):12866012
+Time(us):12871120
+Time(us):12876229
+Time(us):12881339
+Time(us):12886443
+Time(us):12891547
+Time(us):12896653
+Time(us):12901757
+Time(us):12906862
+Time(us):12911964
+Time(us):12917066
+Time(us):12922171
+Time(us):12927277
+Time(us):12932383	S1_Dist(mm):97	S2_Dist(mm):34
+Time(us):12943326
+Time(us):12948433
+Time(us):12953543
+Time(us):12958643
+Time(us):12963750
+Time(us):12968855
+Time(us):12973957
+Time(us):12979059
+Time(us):12984164
+Time(us):12989271
+Time(us):12994376
+Time(us):12999481
+Time(us):13004590
+Time(us):13009696
+Time(us):13014801
+Time(us):13019906
+Time(us):13025013
+Time(us):13030120	S1_Dist(mm):98	S2_Dist(mm):31
+Time(us):13041061
+Time(us):13046164
+Time(us):13051267
+Time(us):13056373
+Time(us):13061478
+Time(us):13066583
+Time(us):13071690
+Time(us):13076796
+Time(us):13081901
+Time(us):13087004
+Time(us):13092114
+Time(us):13097221
+Time(us):13102332
+Time(us):13107436
+Time(us):13112540
+Time(us):13117643
+Time(us):13122747
+Time(us):13127853	S1_Dist(mm):97
+Time(us):13135786	S2_Dist(mm):34
+Time(us):13143893
+Time(us):13148996
+Time(us):13154105
+Time(us):13159214
+Time(us):13164326
+Time(us):13169435
+Time(us):13174542
+Time(us):13179645
+Time(us):13184749
+Time(us):13189854
+Time(us):13194956
+Time(us):13200059
+Time(us):13205165
+Time(us):13210270
+Time(us):13215376
+Time(us):13220481
+Time(us):13225588
+Time(us):13230695	S1_Dist(mm):98	S2_Dist(mm):33
+Time(us):13241636
+Time(us):13246740
+Time(us):13251846
+Time(us):13256951
+Time(us):13262054
+Time(us):13267160
+Time(us):13272265
+Time(us):13277370
+Time(us):13282475
+Time(us):13287580
+Time(us):13292687
+Time(us):13297793
+Time(us):13302897
+Time(us):13308000
+Time(us):13313107
+Time(us):13318218
+Time(us):13323327
+Time(us):13328436	S1_Dist(mm):99
+Time(us):13336373	S2_Dist(mm):32
+Time(us):13344481
+Time(us):13349589
+Time(us):13354699
+Time(us):13359802
+Time(us):13364906
+Time(us):13370013
+Time(us):13375119
+Time(us):13380229
+Time(us):13385339
+Time(us):13390443
+Time(us):13395546
+Time(us):13400652
+Time(us):13405756
+Time(us):13410860
+Time(us):13415964
+Time(us):13421065
+Time(us):13426170	S1_Dist(mm):96
+Time(us):13434114
+Time(us):13439221	S2_Dist(mm):33
+Time(us):13447334
+Time(us):13452436
+Time(us):13457540
+Time(us):13462643
+Time(us):13467751
+Time(us):13472855
+Time(us):13477960
+Time(us):13483062
+Time(us):13488167
+Time(us):13493271
+Time(us):13498376
+Time(us):13503481
+Time(us):13508589
+Time(us):13513696
+Time(us):13518802
+Time(us):13523906	S1_Dist(mm):99
+Time(us):13531843
+Time(us):13536951	S2_Dist(mm):32
+Time(us):13545056
+Time(us):13550158
+Time(us):13555262
+Time(us):13560368
+Time(us):13565473
+Time(us):13570578
+Time(us):13575685
+Time(us):13580791
+Time(us):13585895
+Time(us):13591002
+Time(us):13596109
+Time(us):13601216
+Time(us):13606329
+Time(us):13611435
+Time(us):13616542
+Time(us):13621645
+Time(us):13626752	S1_Dist(mm):99
+Time(us):13634690
+Time(us):13639793	S2_Dist(mm):34
+Time(us):13647898
+Time(us):13653000
+Time(us):13658106
+Time(us):13663213
+Time(us):13668323
+Time(us):13673432
+Time(us):13678541
+Time(us):13683641
+Time(us):13688748
+Time(us):13693852
+Time(us):13698955
+Time(us):13704059
+Time(us):13709165
+Time(us):13714272
+Time(us):13719377
+Time(us):13724482	S1_Dist(mm):96
+Time(us):13732426
+Time(us):13737531	S2_Dist(mm):33
+Time(us):13745637
+Time(us):13750744
+Time(us):13755850
+Time(us):13760955
+Time(us):13766057
+Time(us):13771160
+Time(us):13776267
+Time(us):13781372
+Time(us):13786478
+Time(us):13791582
+Time(us):13796692
+Time(us):13801796
+Time(us):13806901
+Time(us):13812004
+Time(us):13817112
+Time(us):13822221	S1_Dist(mm):98
+Time(us):13830157
+Time(us):13835262
+Time(us):13840367	S2_Dist(mm):34
+Time(us):13848475
+Time(us):13853575
+Time(us):13858682
+Time(us):13863785
+Time(us):13868889
+Time(us):13873992
+Time(us):13879098
+Time(us):13884207
+Time(us):13889317
+Time(us):13894426
+Time(us):13899531
+Time(us):13904636
+Time(us):13909740
+Time(us):13914846
+Time(us):13919951
+Time(us):13925054	S1_Dist(mm):98
+Time(us):13932991
+Time(us):13938092
+Time(us):13943201	S2_Dist(mm):32
+Time(us):13951316
+Time(us):13956423
+Time(us):13961532
+Time(us):13966636
+Time(us):13971743
+Time(us):13976849
+Time(us):13981951
+Time(us):13987054
+Time(us):13992156
+Time(us):13997263
+Time(us):14002368
+Time(us):14007474
+Time(us):14012579
+Time(us):14017689
+Time(us):14022792	S1_Dist(mm):97
+Time(us):14030729
+Time(us):14035835
+Time(us):14040943	S2_Dist(mm):33
+Time(us):14049052
+Time(us):14054156
+Time(us):14059264
+Time(us):14064369
+Time(us):14069475
+Time(us):14074580
+Time(us):14079690
+Time(us):14084796
+Time(us):14089901
+Time(us):14095004
+Time(us):14100114
+Time(us):14105221
+Time(us):14110330
+Time(us):14115437
+Time(us):14120540	S1_Dist(mm):96
+Time(us):14128478
+Time(us):14133583
+Time(us):14138690
+Time(us):14143796	S2_Dist(mm):33
+Time(us):14151902
+Time(us):14157004
+Time(us):14162110
+Time(us):14167220
+Time(us):14172331
+Time(us):14177435
+Time(us):14182541
+Time(us):14187645
+Time(us):14192752
+Time(us):14197857
+Time(us):14202961
+Time(us):14208067
+Time(us):14213172
+Time(us):14218276
+Time(us):14223381	S1_Dist(mm):97
+Time(us):14231321
+Time(us):14236430
+Time(us):14241540
+Time(us):14246640	S2_Dist(mm):33
+Time(us):14254749
+Time(us):14259853
+Time(us):14264955
+Time(us):14270058
+Time(us):14275161
+Time(us):14280266
+Time(us):14285371
+Time(us):14290477
+Time(us):14295582
+Time(us):14300689
+Time(us):14305795
+Time(us):14310900
+Time(us):14316003
+Time(us):14321111	S1_Dist(mm):96
+Time(us):14329048
+Time(us):14334149
+Time(us):14339255
+Time(us):14344359	S2_Dist(mm):31
+Time(us):14352467
+Time(us):14357570
+Time(us):14362677
+Time(us):14367781
+Time(us):14372888
+Time(us):14377990
+Time(us):14383093
+Time(us):14388202
+Time(us):14393307
+Time(us):14398416
+Time(us):14403524
+Time(us):14408629
+Time(us):14413733
+Time(us):14418839	S1_Dist(mm):97
+Time(us):14426778
+Time(us):14431884
+Time(us):14436989
+Time(us):14442092
+Time(us):14447194	S2_Dist(mm):32
+Time(us):14455305
+Time(us):14460416
+Time(us):14465523
+Time(us):14470628
+Time(us):14475736
+Time(us):14480842
+Time(us):14485950
+Time(us):14491056
+Time(us):14496161
+Time(us):14501264
+Time(us):14506370
+Time(us):14511475
+Time(us):14516580
+Time(us):14521688	S1_Dist(mm):95
+Time(us):14529622
+Time(us):14534727
+Time(us):14539833
+Time(us):14544941	S2_Dist(mm):32
+Time(us):14553048
+Time(us):14558150
+Time(us):14563254
+Time(us):14568359
+Time(us):14573464
+Time(us):14578568
+Time(us):14583675
+Time(us):14588779
+Time(us):14593885
+Time(us):14598987
+Time(us):14604088
+Time(us):14609192
+Time(us):14614295
+Time(us):14619405	S1_Dist(mm):96
+Time(us):14627345
+Time(us):14632451
+Time(us):14637554
+Time(us):14642658
+Time(us):14647762	S2_Dist(mm):32
+Time(us):14655869
+Time(us):14660972
+Time(us):14666077
+Time(us):14671179
+Time(us):14676284
+Time(us):14681389
+Time(us):14686496
+Time(us):14691605
+Time(us):14696712
+Time(us):14701818
+Time(us):14706926
+Time(us):14712036
+Time(us):14717142	S1_Dist(mm):96
+Time(us):14725079
+Time(us):14730183
+Time(us):14735287
+Time(us):14740392
+Time(us):14745500
+Time(us):14750608	S2_Dist(mm):33
+Time(us):14758720
+Time(us):14763823
+Time(us):14768931
+Time(us):14774041
+Time(us):14779148
+Time(us):14784250
+Time(us):14789355
+Time(us):14794461
+Time(us):14799566
+Time(us):14804672
+Time(us):14809779
+Time(us):14814884
+Time(us):14819988	S1_Dist(mm):96
+Time(us):14827929
+Time(us):14833039
+Time(us):14838148
+Time(us):14843254
+Time(us):14848359	S2_Dist(mm):33
+Time(us):14856467
+Time(us):14861567
+Time(us):14866671
+Time(us):14871774
+Time(us):14876879
+Time(us):14881984
+Time(us):14887085
+Time(us):14892189
+Time(us):14897296
+Time(us):14902406
+Time(us):14907514
+Time(us):14912622
+Time(us):14917725	S1_Dist(mm):97
+Time(us):14925660
+Time(us):14930764
+Time(us):14935870
+Time(us):14940972
+Time(us):14946073
+Time(us):14951175	S2_Dist(mm):33
+Time(us):14959284
+Time(us):14964389
+Time(us):14969497
+Time(us):14974604
+Time(us):14979712
+Time(us):14984817
+Time(us):14989925
+Time(us):14995034
+Time(us):15000141
+Time(us):15005245
+Time(us):15010350
+Time(us):15015456	S1_Dist(mm):96
+Time(us):15023394
+Time(us):15028503
+Time(us):15033610
+Time(us):15038718
+Time(us):15043822
+Time(us):15048932
+Time(us):15054040	S2_Dist(mm):33
+Time(us):15062148
+Time(us):15067252
+Time(us):15072357
+Time(us):15077462
+Time(us):15082567
+Time(us):15087673
+Time(us):15092777
+Time(us):15097883
+Time(us):15102985
+Time(us):15108088
+Time(us):15113191	S1_Dist(mm):98
+Time(us):15121132
+Time(us):15126243
+Time(us):15131349
+Time(us):15136455
+Time(us):15141559
+Time(us):15146666
+Time(us):15151770	S2_Dist(mm):32
+Time(us):15159877
+Time(us):15164981
+Time(us):15170085
+Time(us):15175190
+Time(us):15180297
+Time(us):15185407
+Time(us):15190515
+Time(us):15195623
+Time(us):15200726
+Time(us):15205830
+Time(us):15210937
+Time(us):15216047	S1_Dist(mm):95
+Time(us):15223985
+Time(us):15229088
+Time(us):15234192
+Time(us):15239297
+Time(us):15244406
+Time(us):15249514
+Time(us):15254622	S2_Dist(mm):32
+Time(us):15262728
+Time(us):15267833
+Time(us):15272941
+Time(us):15278047
+Time(us):15283150
+Time(us):15288258
+Time(us):15293363
+Time(us):15298468
+Time(us):15303573
+Time(us):15308676
+Time(us):15313783	S1_Dist(mm):94
+Time(us):15321720
+Time(us):15326825
+Time(us):15331932
+Time(us):15337039
+Time(us):15342148
+Time(us):15347251
+Time(us):15352356
+Time(us):15357462	S2_Dist(mm):33
+Time(us):15365570
+Time(us):15370673
+Time(us):15375777
+Time(us):15380881
+Time(us):15385984
+Time(us):15391088
+Time(us):15396190
+Time(us):15401297
+Time(us):15406407
+Time(us):15411515	S1_Dist(mm):100
+Time(us):15419546
+Time(us):15424649
+Time(us):15429756
+Time(us):15434861
+Time(us):15439966
+Time(us):15445067
+Time(us):15450171
+Time(us):15455274	S2_Dist(mm):32
+Time(us):15463382
+Time(us):15468485
+Time(us):15473592
+Time(us):15478702
+Time(us):15483806
+Time(us):15488916
+Time(us):15494025
+Time(us):15499132
+Time(us):15504241
+Time(us):15509346
+Time(us):15514450	S1_Dist(mm):108
+Time(us):15522477
+Time(us):15527582
+Time(us):15532692
+Time(us):15537795
+Time(us):15542899
+Time(us):15548004
+Time(us):15553113
+Time(us):15558220	S2_Dist(mm):33
+Time(us):15566331
+Time(us):15571436
+Time(us):15576543
+Time(us):15581646
+Time(us):15586753
+Time(us):15591859
+Time(us):15596964
+Time(us):15602065
+Time(us):15607168
+Time(us):15612275	S1_Dist(mm):100
+Time(us):15620299
+Time(us):15625410
+Time(us):15630518
+Time(us):15635623
+Time(us):15640729
+Time(us):15645834
+Time(us):15650943
+Time(us):15656050	S2_Dist(mm):33
+Time(us):15664153
+Time(us):15669257
+Time(us):15674362
+Time(us):15679468
+Time(us):15684572
+Time(us):15689682
+Time(us):15694788
+Time(us):15699893
+Time(us):15704996
+Time(us):15710106	S1_Dist(mm):96
+Time(us):15718044
+Time(us):15723148
+Time(us):15728255
+Time(us):15733361
+Time(us):15738466
+Time(us):15743571
+Time(us):15748675
+Time(us):15753782
+Time(us):15758888	S2_Dist(mm):31
+Time(us):15766990
+Time(us):15772094
+Time(us):15777201
+Time(us):15782305
+Time(us):15787415
+Time(us):15792523
+Time(us):15797627
+Time(us):15802735
+Time(us):15807840
+Time(us):15812947	S1_Dist(mm):98
+Time(us):15820884
+Time(us):15825990
+Time(us):15831093
+Time(us):15836202
+Time(us):15841307
+Time(us):15846416
+Time(us):15851525
+Time(us):15856629
+Time(us):15861737	S2_Dist(mm):32
+Time(us):15869844
+Time(us):15874948
+Time(us):15880054
+Time(us):15885160
+Time(us):15890267
+Time(us):15895372
+Time(us):15900478
+Time(us):15905582
+Time(us):15910693	S1_Dist(mm):97
+Time(us):15918627
+Time(us):15923732
+Time(us):15928837
+Time(us):15933944
+Time(us):15939052
+Time(us):15944153
+Time(us):15949258
+Time(us):15954364
+Time(us):15959469	S2_Dist(mm):34
+Time(us):15967577
+Time(us):15972684
+Time(us):15977792
+Time(us):15982897
+Time(us):15988002
+Time(us):15993108
+Time(us):15998215
+Time(us):16003325
+Time(us):16008434	S1_Dist(mm):97
+Time(us):16016371
+Time(us):16021476
+Time(us):16026581
+Time(us):16031688
+Time(us):16036791
+Time(us):16041896
+Time(us):16046999
+Time(us):16052108
+Time(us):16057215
+Time(us):16062328	S2_Dist(mm):33
+Time(us):16070440
+Time(us):16075542
+Time(us):16080647
+Time(us):16085751
+Time(us):16090856
+Time(us):16095961
+Time(us):16101065
+Time(us):16106168	S1_Dist(mm):96
+Time(us):16114110
+Time(us):16119218
+Time(us):16124327
+Time(us):16129436
+Time(us):16134540
+Time(us):16139646
+Time(us):16144751
+Time(us):16149856
+Time(us):16154959
+Time(us):16160061	S2_Dist(mm):32
+Time(us):16168164
+Time(us):16173270
+Time(us):16178376
+Time(us):16183481
+Time(us):16188589
+Time(us):16193696
+Time(us):16198799
+Time(us):16203903
+Time(us):16209007	S1_Dist(mm):96
+Time(us):16216949
+Time(us):16222052
+Time(us):16227156
+Time(us):16232260
+Time(us):16237365
+Time(us):16242470
+Time(us):16247575
+Time(us):16252683
+Time(us):16257789
+Time(us):16262893	S2_Dist(mm):33
+Time(us):16271001
+Time(us):16276108
+Time(us):16281215
+Time(us):16286328
+Time(us):16291437
+Time(us):16296541
+Time(us):16301648
+Time(us):16306752	S1_Dist(mm):95
+Time(us):16314694
+Time(us):16319797
+Time(us):16324900
+Time(us):16330003
+Time(us):16335110
+Time(us):16340217
+Time(us):16345328
+Time(us):16350435
+Time(us):16355542
+Time(us):16360646
+Time(us):16365750	S2_Dist(mm):33
+Time(us):16373857
+Time(us):16378961
+Time(us):16384062
+Time(us):16389165
+Time(us):16394272
+Time(us):16399377
+Time(us):16404483	S1_Dist(mm):96
+Time(us):16412426
+Time(us):16417532
+Time(us):16422636
+Time(us):16427740
+Time(us):16432844
+Time(us):16437949
+Time(us):16443052
+Time(us):16448155
+Time(us):16453261
+Time(us):16458367
+Time(us):16463472	S2_Dist(mm):33
+Time(us):16471580
+Time(us):16476687
+Time(us):16481791
+Time(us):16486896
+Time(us):16492002
+Time(us):16497108
+Time(us):16502218
+Time(us):16507330	S1_Dist(mm):95
+Time(us):16515273
+Time(us):16520378
+Time(us):16525483
+Time(us):16530591
+Time(us):16535701
+Time(us):16540807
+Time(us):16545917
+Time(us):16551024
+Time(us):16556131
+Time(us):16561242
+Time(us):16566347	S2_Dist(mm):33
+Time(us):16574454
+Time(us):16579555
+Time(us):16584662
+Time(us):16589767
+Time(us):16594872
+Time(us):16599974
+Time(us):16605076	S1_Dist(mm):97
+Time(us):16613015
+Time(us):16618122
+Time(us):16623231
+Time(us):16628338
+Time(us):16633444
+Time(us):16638548
+Time(us):16643651
+Time(us):16648758
+Time(us):16653863
+Time(us):16658965
+Time(us):16664067
+Time(us):16669169	S2_Dist(mm):33
+Time(us):16677280
+Time(us):16682385
+Time(us):16687490
+Time(us):16692599
+Time(us):16697709
+Time(us):16702815	S1_Dist(mm):95
+Time(us):16710754
+Time(us):16715859
+Time(us):16720961
+Time(us):16726064
+Time(us):16731167
+Time(us):16736274
+Time(us):16741379
+Time(us):16746485
+Time(us):16751593
+Time(us):16756703
+Time(us):16761806
+Time(us):16766910	S2_Dist(mm):32
+Time(us):16775019
+Time(us):16780126
+Time(us):16785236
+Time(us):16790341
+Time(us):16795447
+Time(us):16800550
+Time(us):16805657	S1_Dist(mm):97
+Time(us):16813595
+Time(us):16818703
+Time(us):16823806
+Time(us):16828910
+Time(us):16834018
+Time(us):16839125
+Time(us):16844237
+Time(us):16849342
+Time(us):16854448
+Time(us):16859551
+Time(us):16864658
+Time(us):16869765	S2_Dist(mm):33
+Time(us):16877872
+Time(us):16882974
+Time(us):16888075
+Time(us):16893177
+Time(us):16898281
+Time(us):16903386	S1_Dist(mm):97
+Time(us):16911327
+Time(us):16916437
+Time(us):16921541
+Time(us):16926648
+Time(us):16931755
+Time(us):16936859
+Time(us):16941963
+Time(us):16947065
+Time(us):16952167
+Time(us):16957271
+Time(us):16962376
+Time(us):16967482
+Time(us):16972589	S2_Dist(mm):33
+Time(us):16980698
+Time(us):16985803
+Time(us):16990908
+Time(us):16996016
+Time(us):17001126	S1_Dist(mm):96
+Time(us):17009063
+Time(us):17014165
+Time(us):17019269
+Time(us):17024374
+Time(us):17029479
+Time(us):17034587
+Time(us):17039697
+Time(us):17044801
+Time(us):17049907
+Time(us):17055014
+Time(us):17060121
+Time(us):17065228
+Time(us):17070338	S2_Dist(mm):33
+Time(us):17078445
+Time(us):17083545
+Time(us):17088648
+Time(us):17093755
+Time(us):17098860
+Time(us):17103965	S1_Dist(mm):96
+Time(us):17111904
+Time(us):17117011
+Time(us):17122117
+Time(us):17127224
+Time(us):17132334
+Time(us):17137438
+Time(us):17142542
+Time(us):17147648
+Time(us):17152752
+Time(us):17157858
+Time(us):17162963
+Time(us):17168066
+Time(us):17173169	S2_Dist(mm):32
+Time(us):17181282
+Time(us):17186389
+Time(us):17191497
+Time(us):17196604
+Time(us):17201712	S1_Dist(mm):97
+Time(us):17209646
+Time(us):17214750
+Time(us):17219855
+Time(us):17224957
+Time(us):17230059
+Time(us):17235161
+Time(us):17240267
+Time(us):17245372
+Time(us):17250478
+Time(us):17255583
+Time(us):17260693
+Time(us):17265796
+Time(us):17270901	S2_Dist(mm):33
+Time(us):17279005
+Time(us):17284113
+Time(us):17289220
+Time(us):17294329
+Time(us):17299436	S1_Dist(mm):96
+Time(us):17307373
+Time(us):17312479
+Time(us):17317586
+Time(us):17322696
+Time(us):17327799
+Time(us):17332904
+Time(us):17338011
+Time(us):17343119
+Time(us):17348228
+Time(us):17353338
+Time(us):17358442
+Time(us):17363545
+Time(us):17368652
+Time(us):17373756	S2_Dist(mm):33
+Time(us):17381863
+Time(us):17386967
+Time(us):17392068
+Time(us):17397172
+Time(us):17402275	S1_Dist(mm):97
+Time(us):17410214
+Time(us):17415322
+Time(us):17420432
+Time(us):17425541
+Time(us):17430641
+Time(us):17435745
+Time(us):17440851
+Time(us):17445953
+Time(us):17451056
+Time(us):17456159
+Time(us):17461266
+Time(us):17466371
+Time(us):17471476
+Time(us):17476581	S2_Dist(mm):33
+Time(us):17484691
+Time(us):17489794
+Time(us):17494897
+Time(us):17500000	S1_Dist(mm):95
+Time(us):17507942
+Time(us):17513051
+Time(us):17518153
+Time(us):17523258
+Time(us):17528363
+Time(us):17533469
+Time(us):17538574
+Time(us):17543678
+Time(us):17548781
+Time(us):17553886
+Time(us):17558991
+Time(us):17564092
+Time(us):17569200
+Time(us):17574305	S2_Dist(mm):33
+Time(us):17582417
+Time(us):17587527
+Time(us):17592631
+Time(us):17597735	S1_Dist(mm):95
+Time(us):17605671
+Time(us):17610779
+Time(us):17615885
+Time(us):17620987
+Time(us):17626088
+Time(us):17631193
+Time(us):17636297
+Time(us):17641407
+Time(us):17646515
+Time(us):17651623
+Time(us):17656727
+Time(us):17661832
+Time(us):17666940
+Time(us):17672049
+Time(us):17677150	S2_Dist(mm):34
+Time(us):17685263
+Time(us):17690368
+Time(us):17695474	S1_Dist(mm):97
+Time(us):17703412
+Time(us):17708520
+Time(us):17713625
+Time(us):17718732
+Time(us):17723837
+Time(us):17728945
+Time(us):17734052
+Time(us):17739154
+Time(us):17744258
+Time(us):17749364
+Time(us):17754469
+Time(us):17759574
+Time(us):17764677
+Time(us):17769785
+Time(us):17774890
+Time(us):17779995	S2_Dist(mm):32
+Time(us):17788097
+Time(us):17793204
+Time(us):17798309	S1_Dist(mm):96
+Time(us):17806249
+Time(us):17811354
+Time(us):17816459
+Time(us):17821564
+Time(us):17826671
+Time(us):17831776
+Time(us):17836880
+Time(us):17841982
+Time(us):17847086
+Time(us):17852190
+Time(us):17857294
+Time(us):17862404
+Time(us):17867512
+Time(us):17872619
+Time(us):17877723	S2_Dist(mm):32
+Time(us):17885830
+Time(us):17890937
+Time(us):17896045	S1_Dist(mm):98
+Time(us):17903983
+Time(us):17909087
+Time(us):17914189
+Time(us):17919293
+Time(us):17924402
+Time(us):17929511
+Time(us):17934618
+Time(us):17939725
+Time(us):17944830
+Time(us):17949938
+Time(us):17955046
+Time(us):17960149
+Time(us):17965254
+Time(us):17970359
+Time(us):17975465
+Time(us):17980570	S2_Dist(mm):33
+Time(us):17988675
+Time(us):17993779	S1_Dist(mm):95
+Time(us):18001719
+Time(us):18006823
+Time(us):18011930
+Time(us):18017038
+Time(us):18022148
+Time(us):18027251
+Time(us):18032356
+Time(us):18037461
+Time(us):18042567
+Time(us):18047670
+Time(us):18052774
+Time(us):18057879
+Time(us):18062981
+Time(us):18068083
+Time(us):18073188
+Time(us):18078292	S2_Dist(mm):33
+Time(us):18086404
+Time(us):18091511
+Time(us):18096619	S1_Dist(mm):95
+Time(us):18104558
+Time(us):18109664
+Time(us):18114768
+Time(us):18119873
+Time(us):18124977
+Time(us):18130081
+Time(us):18135184
+Time(us):18140291
+Time(us):18145396
+Time(us):18150504
+Time(us):18155611
+Time(us):18160719
+Time(us):18165823
+Time(us):18170932
+Time(us):18176043
+Time(us):18181148	S2_Dist(mm):35
+Time(us):18189259
+Time(us):18194364	S1_Dist(mm):97
+Time(us):18202303
+Time(us):18207413
+Time(us):18212522
+Time(us):18217627
+Time(us):18222734
+Time(us):18227838
+Time(us):18232946
+Time(us):18238053
+Time(us):18243156
+Time(us):18248263
+Time(us):18253368
+Time(us):18258473
+Time(us):18263578
+Time(us):18268685
+Time(us):18273788
+Time(us):18278892
+Time(us):18283995	S2_Dist(mm):31
+Time(us):18292098	S1_Dist(mm):95
+Time(us):18300035
+Time(us):18305145
+Time(us):18310249
+Time(us):18315355
+Time(us):18320461
+Time(us):18325566
+Time(us):18330672
+Time(us):18335779
+Time(us):18340883
+Time(us):18345988
+Time(us):18351090
+Time(us):18356195
+Time(us):18361301
+Time(us):18366411
+Time(us):18371519
+Time(us):18376624
+Time(us):18381731	S2_Dist(mm):32
+Time(us):18389838
+Time(us):18394944	S1_Dist(mm):96
+Time(us):18402884
+Time(us):18407986
+Time(us):18413087
+Time(us):18418191
+Time(us):18423295
+Time(us):18428405
+Time(us):18433514
+Time(us):18438621
+Time(us):18443725
+Time(us):18448831
+Time(us):18453939
+Time(us):18459048
+Time(us):18464153
+Time(us):18469259
+Time(us):18474364
+Time(us):18479470
+Time(us):18484575	S2_Dist(mm):32
+Time(us):18492686	S1_Dist(mm):96
+Time(us):18500624
+Time(us):18505728
+Time(us):18510834
+Time(us):18515942
+Time(us):18521050
+Time(us):18526151
+Time(us):18531255
+Time(us):18536360
+Time(us):18541466
+Time(us):18546571
+Time(us):18551677
+Time(us):18556782
+Time(us):18561888
+Time(us):18566993
+Time(us):18572094
+Time(us):18577204
+Time(us):18582316
+Time(us):18587426	S2_Dist(mm):32
+Time(us):18595537	S1_Dist(mm):96
+Time(us):18603468
+Time(us):18608573
+Time(us):18613683
+Time(us):18618789
+Time(us):18623893
+Time(us):18628996
+Time(us):18634105
+Time(us):18639213
+Time(us):18644322
+Time(us):18649431
+Time(us):18654541
+Time(us):18659641
+Time(us):18664749
+Time(us):18669855
+Time(us):18674957
+Time(us):18680059
+Time(us):18685161	S2_Dist(mm):34
+Time(us):18693269	S1_Dist(mm):95
+Time(us):18701208
+Time(us):18706317
+Time(us):18711426
+Time(us):18716536
+Time(us):18721636
+Time(us):18726743
+Time(us):18731848
+Time(us):18736950
+Time(us):18742053
+Time(us):18747155
+Time(us):18752263
+Time(us):18757368
+Time(us):18762474
+Time(us):18767579
+Time(us):18772686
+Time(us):18777789
+Time(us):18782893
+Time(us):18787996	S1_Dist(mm):96	S2_Dist(mm):32
+Time(us):18798936
+Time(us):18804046
+Time(us):18809148
+Time(us):18814255
+Time(us):18819360
+Time(us):18824466
+Time(us):18829571
+Time(us):18834677
+Time(us):18839784
+Time(us):18844889
+Time(us):18849991
+Time(us):18855093
+Time(us):18860202
+Time(us):18865309
+Time(us):18870419
+Time(us):18875527
+Time(us):18880631
+Time(us):18885736	S2_Dist(mm):30
+Time(us):18893844	S1_Dist(mm):95
+Time(us):18901782
+Time(us):18906886
+Time(us):18911988
+Time(us):18917089
+Time(us):18922193
+Time(us):18927300
+Time(us):18932409
+Time(us):18937518
+Time(us):18942623
+Time(us):18947728
+Time(us):18952833
+Time(us):18957939
+Time(us):18963047
+Time(us):18968149
+Time(us):18973253
+Time(us):18978358
+Time(us):18983464
+Time(us):18988569	S1_Dist(mm):96	S2_Dist(mm):31
+Time(us):18999514
+Time(us):19004619
+Time(us):19009724
+Time(us):19014830
+Time(us):19019938
+Time(us):19025044
+Time(us):19030149
+Time(us):19035257
+Time(us):19040362
+Time(us):19045468
+Time(us):19050573
+Time(us):19055678
+Time(us):19060783
+Time(us):19065889
+Time(us):19070991
+Time(us):19076092
+Time(us):19081201
+Time(us):19086306	S1_Dist(mm):96	S2_Dist(mm):33
+Time(us):19097248
+Time(us):19102353
+Time(us):19107459
+Time(us):19112564
+Time(us):19117671
+Time(us):19122779
+Time(us):19127885
+Time(us):19132987
+Time(us):19138092
+Time(us):19143194
+Time(us):19148302
+Time(us):19153411
+Time(us):19158519
+Time(us):19163624
+Time(us):19168732
+Time(us):19173839
+Time(us):19178947
+Time(us):19184053
+Time(us):19189154	S1_Dist(mm):96	S2_Dist(mm):32
+Time(us):19200094
+Time(us):19205201
+Time(us):19210309
+Time(us):19215419
+Time(us):19220528
+Time(us):19225632
+Time(us):19230740
+Time(us):19235846
+Time(us):19240950
+Time(us):19246057
+Time(us):19251160
+Time(us):19256265
+Time(us):19261370
+Time(us):19266476
+Time(us):19271581
+Time(us):19276688
+Time(us):19281793
+Time(us):19286897	S1_Dist(mm):97	S2_Dist(mm):32
+Time(us):19297834
+Time(us):19302940
+Time(us):19308047
+Time(us):19313149
+Time(us):19318256
+Time(us):19323361
+Time(us):19328467
+Time(us):19333572
+Time(us):19338678
+Time(us):19343786
+Time(us):19348892
+Time(us):19353996
+Time(us):19359098
+Time(us):19364206
+Time(us):19369318
+Time(us):19374427
+Time(us):19379537
+Time(us):19384637	S1_Dist(mm):97
+Time(us):19392573	S2_Dist(mm):32
+Time(us):19400687
+Time(us):19405791
+Time(us):19410895
+Time(us):19415999
+Time(us):19421107
+Time(us):19426214
+Time(us):19431323
+Time(us):19436433
+Time(us):19441543
+Time(us):19446643
+Time(us):19451750
+Time(us):19456856
+Time(us):19461960
+Time(us):19467063
+Time(us):19472165
+Time(us):19477269
+Time(us):19482374
+Time(us):19487480	S1_Dist(mm):96
+Time(us):19495423	S2_Dist(mm):31
+Time(us):19503536
+Time(us):19508633
+Time(us):19513738
+Time(us):19518843
+Time(us):19523950
+Time(us):19529053
+Time(us):19534156
+Time(us):19539260
+Time(us):19544365
+Time(us):19549471
+Time(us):19554576
+Time(us):19559686
+Time(us):19564789
+Time(us):19569894
+Time(us):19574998
+Time(us):19580105
+Time(us):19585214	S1_Dist(mm):96
+Time(us):19593150	S2_Dist(mm):32
+Time(us):19601260
+Time(us):19606365
+Time(us):19611471
+Time(us):19616576
+Time(us):19621684
+Time(us):19626788
+Time(us):19631892
+Time(us):19636996
+Time(us):19642099
+Time(us):19647205
+Time(us):19652317
+Time(us):19657427
+Time(us):19662537
+Time(us):19667637
+Time(us):19672742
+Time(us):19677848
+Time(us):19682950	S1_Dist(mm):97
+Time(us):19690887
+Time(us):19695989	S2_Dist(mm):32
+Time(us):19704091
+Time(us):19709201
+Time(us):19714306
+Time(us):19719416
+Time(us):19724524
+Time(us):19729630
+Time(us):19734734
+Time(us):19739840
+Time(us):19744948
+Time(us):19750053
+Time(us):19755154
+Time(us):19760258
+Time(us):19765363
+Time(us):19770468
+Time(us):19775573
+Time(us):19780684
+Time(us):19785787	S1_Dist(mm):98
+Time(us):19793722
+Time(us):19798828	S2_Dist(mm):32
+Time(us):19806937
+Time(us):19812044
+Time(us):19817148
+Time(us):19822255
+Time(us):19827360
+Time(us):19832465
+Time(us):19837570
+Time(us):19842673
+Time(us):19847781
+Time(us):19852887
+Time(us):19857992
+Time(us):19863093
+Time(us):19868200
+Time(us):19873308
+Time(us):19878418
+Time(us):19883526	S1_Dist(mm):96
+Time(us):19891465
+Time(us):19896570	S2_Dist(mm):30
+Time(us):19904676
+Time(us):19909781
+Time(us):19914887
+Time(us):19919991
+Time(us):19925094
+Time(us):19930200
+Time(us):19935305
+Time(us):19940415
+Time(us):19945523
+Time(us):19950628
+Time(us):19955732
+Time(us):19960836
+Time(us):19965944
+Time(us):19971050
+Time(us):19976152
+Time(us):19981256	S1_Dist(mm):95
+Time(us):19989191
+Time(us):19994296
+Time(us):19999406	S2_Dist(mm):31
+Time(us):20007515
+Time(us):20012622
+Time(us):20017729
+Time(us):20022834
+Time(us):20027941
+Time(us):20033050
+Time(us):20038154
+Time(us):20043261
+Time(us):20048366
+Time(us):20053472
+Time(us):20058576
+Time(us):20063683
+Time(us):20068786
+Time(us):20073891
+Time(us):20078994	S1_Dist(mm):96
+Time(us):20086936
+Time(us):20092042
+Time(us):20097148	S2_Dist(mm):30
+Time(us):20105260
+Time(us):20110366
+Time(us):20115472
+Time(us):20120577
+Time(us):20125684
+Time(us):20130791
+Time(us):20135895
+Time(us):20140999
+Time(us):20146106
+Time(us):20151217
+Time(us):20156329
+Time(us):20161436
+Time(us):20166542
+Time(us):20171645
+Time(us):20176750
+Time(us):20181855	S1_Dist(mm):95
+Time(us):20189789
+Time(us):20194894
+Time(us):20199999	S2_Dist(mm):29
+Time(us):20208107
+Time(us):20213214
+Time(us):20218325
+Time(us):20223434
+Time(us):20228541
+Time(us):20233644
+Time(us):20238752
+Time(us):20243858
+Time(us):20248960
+Time(us):20254063
+Time(us):20259166
+Time(us):20264271
+Time(us):20269376
+Time(us):20274482
+Time(us):20279591	S1_Dist(mm):95
+Time(us):20287529
+Time(us):20292634
+Time(us):20297739
+Time(us):20302845	S2_Dist(mm):31
+Time(us):20310951
+Time(us):20316054
+Time(us):20321157
+Time(us):20326261
+Time(us):20331366
+Time(us):20336472
+Time(us):20341577
+Time(us):20346684
+Time(us):20351787
+Time(us):20356892
+Time(us):20361995
+Time(us):20367098
+Time(us):20372207
+Time(us):20377317	S1_Dist(mm):97
+Time(us):20385263
+Time(us):20390368
+Time(us):20395473
+Time(us):20400578	S2_Dist(mm):29
+Time(us):20408691
+Time(us):20413794
+Time(us):20418897
+Time(us):20424000
+Time(us):20429109
+Time(us):20434217
+Time(us):20439326
+Time(us):20444435
+Time(us):20449542
+Time(us):20454646
+Time(us):20459750
+Time(us):20464856
+Time(us):20469961
+Time(us):20475062
+Time(us):20480167	S1_Dist(mm):97
+Time(us):20488112
+Time(us):20493219
+Time(us):20498330
+Time(us):20503437	S2_Dist(mm):30
+Time(us):20511543
+Time(us):20516646
+Time(us):20521753
+Time(us):20526859
+Time(us):20531961
+Time(us):20537066
+Time(us):20542167
+Time(us):20547273
+Time(us):20552378
+Time(us):20557484
+Time(us):20562592
+Time(us):20567702
+Time(us):20572807
+Time(us):20577916	S1_Dist(mm):97
+Time(us):20585857
+Time(us):20590959
+Time(us):20596065
+Time(us):20601170
+Time(us):20606274	S2_Dist(mm):32
+Time(us):20614382
+Time(us):20619485
+Time(us):20624593
+Time(us):20629700
+Time(us):20634803
+Time(us):20639908
+Time(us):20645014
+Time(us):20650122
+Time(us):20655232
+Time(us):20660339
+Time(us):20665443
+Time(us):20670547
+Time(us):20675651	S1_Dist(mm):96
+Time(us):20683592
+Time(us):20688701
+Time(us):20693805
+Time(us):20698911
+Time(us):20704019	S2_Dist(mm):32
+Time(us):20712131
+Time(us):20717241
+Time(us):20722346
+Time(us):20727451
+Time(us):20732557
+Time(us):20737663
+Time(us):20742768
+Time(us):20747874
+Time(us):20752976
+Time(us):20758077
+Time(us):20763182
+Time(us):20768287
+Time(us):20773393
+Time(us):20778502	S1_Dist(mm):98
+Time(us):20786445
+Time(us):20791549
+Time(us):20796654
+Time(us):20801761
+Time(us):20806867	S2_Dist(mm):34
+Time(us):20814970
+Time(us):20820074
+Time(us):20825176
+Time(us):20830280
+Time(us):20835385
+Time(us):20840491
+Time(us):20845598
+Time(us):20850709
+Time(us):20855814
+Time(us):20860924
+Time(us):20866034
+Time(us):20871141
+Time(us):20876245	S1_Dist(mm):95
+Time(us):20884180
+Time(us):20889288
+Time(us):20894393
+Time(us):20899501
+Time(us):20904608	S2_Dist(mm):32
+Time(us):20912721
+Time(us):20917826
+Time(us):20922933
+Time(us):20928042
+Time(us):20933148
+Time(us):20938256
+Time(us):20943361
+Time(us):20948467
+Time(us):20953572
+Time(us):20958682
+Time(us):20963788
+Time(us):20968892
+Time(us):20973997	S1_Dist(mm):95
+Time(us):20981940
+Time(us):20987046
+Time(us):20992148
+Time(us):20997254
+Time(us):21002360
+Time(us):21007465	S2_Dist(mm):33
+Time(us):21015572
+Time(us):21020676
+Time(us):21025779
+Time(us):21030884
+Time(us):21035987
+Time(us):21041091
+Time(us):21046193
+Time(us):21051300
+Time(us):21056409
+Time(us):21061518
+Time(us):21066624
+Time(us):21071727
+Time(us):21076831	S1_Dist(mm):96
+Time(us):21084772
+Time(us):21089876
+Time(us):21094980
+Time(us):21100081
+Time(us):21105186
+Time(us):21110290	S2_Dist(mm):33
+Time(us):21118399
+Time(us):21123505
+Time(us):21128614
+Time(us):21133718
+Time(us):21138823
+Time(us):21143932
+Time(us):21149040
+Time(us):21154147
+Time(us):21159251
+Time(us):21164356
+Time(us):21169462
+Time(us):21174567	S1_Dist(mm):96
+Time(us):21182508
+Time(us):21187616
+Time(us):21192720
+Time(us):21197826
+Time(us):21202934
+Time(us):21208043	S2_Dist(mm):32
+Time(us):21216149
+Time(us):21221254
+Time(us):21226359
+Time(us):21231464
+Time(us):21236569
+Time(us):21241672
+Time(us):21246780
+Time(us):21251886
+Time(us):21256988
+Time(us):21262092
+Time(us):21267200
+Time(us):21272308	S1_Dist(mm):96
+Time(us):21280248
+Time(us):21285354
+Time(us):21290460
+Time(us):21295565
+Time(us):21300672
+Time(us):21305777
+Time(us):21310882	S2_Dist(mm):31
+Time(us):21318988
+Time(us):21324090
+Time(us):21329194
+Time(us):21334298
+Time(us):21339408
+Time(us):21344515
+Time(us):21349622
+Time(us):21354730
+Time(us):21359835
+Time(us):21364943
+Time(us):21370049	S1_Dist(mm):95
+Time(us):21377986
+Time(us):21383090
+Time(us):21388194
+Time(us):21393301
+Time(us):21398411
+Time(us):21403520
+Time(us):21408625
+Time(us):21413732	S2_Dist(mm):32
+Time(us):21421839
+Time(us):21426947
+Time(us):21432053
+Time(us):21437155
+Time(us):21442263
+Time(us):21447368
+Time(us):21452473
+Time(us):21457578
+Time(us):21462687
+Time(us):21467790
+Time(us):21472894	S1_Dist(mm):97
+Time(us):21480831
+Time(us):21485939
+Time(us):21491048
+Time(us):21496151
+Time(us):21501254
+Time(us):21506360
+Time(us):21511465	S2_Dist(mm):30
+Time(us):21519573
+Time(us):21524677
+Time(us):21529780
+Time(us):21534884
+Time(us):21539988
+Time(us):21545093
+Time(us):21550203
+Time(us):21555308
+Time(us):21560418
+Time(us):21565526
+Time(us):21570631	S1_Dist(mm):97
+Time(us):21578567
+Time(us):21583670
+Time(us):21588778
+Time(us):21593883
+Time(us):21598989
+Time(us):21604090
+Time(us):21609192
+Time(us):21614296	S2_Dist(mm):31
+Time(us):21622408
+Time(us):21627515
+Time(us):21632623
+Time(us):21637730
+Time(us):21642834
+Time(us):21647942
+Time(us):21653049
+Time(us):21658153
+Time(us):21663258
+Time(us):21668363	S1_Dist(mm):94
+Time(us):21676299
+Time(us):21681409
+Time(us):21686518
+Time(us):21691623
+Time(us):21696731
+Time(us):21701837
+Time(us):21706944
+Time(us):21712051
+Time(us):21717152	S2_Dist(mm):32
+Time(us):21725263
+Time(us):21730368
+Time(us):21735474
+Time(us):21740579
+Time(us):21745689
+Time(us):21750795
+Time(us):21755899
+Time(us):21761003
+Time(us):21766110
+Time(us):21771217	S1_Dist(mm):96
+Time(us):21779156
+Time(us):21784261
+Time(us):21789367
+Time(us):21794472
+Time(us):21799577
+Time(us):21804684
+Time(us):21809790
+Time(us):21814894	S2_Dist(mm):31
+Time(us):21823000
+Time(us):21828107
+Time(us):21833218
+Time(us):21838327
+Time(us):21843436
+Time(us):21848543
+Time(us):21853646
+Time(us):21858750
+Time(us):21863856
+Time(us):21868959	S1_Dist(mm):96
+Time(us):21876896
+Time(us):21881999
+Time(us):21887108
+Time(us):21892215
+Time(us):21897326
+Time(us):21902435
+Time(us):21907542
+Time(us):21912645
+Time(us):21917749	S2_Dist(mm):32
+Time(us):21925856
+Time(us):21930959
+Time(us):21936062
+Time(us):21941165
+Time(us):21946271
+Time(us):21951376
+Time(us):21956481
+Time(us):21961588
+Time(us):21966699	S1_Dist(mm):98
+Time(us):21974634
+Time(us):21979738
+Time(us):21984843
+Time(us):21989951
+Time(us):21995056
+Time(us):22000159
+Time(us):22005262
+Time(us):22010367
+Time(us):22015473	S2_Dist(mm):31
+Time(us):22023579
+Time(us):22028686
+Time(us):22033790
+Time(us):22038896
+Time(us):22043998
+Time(us):22049104
+Time(us):22054213
+Time(us):22059322
+Time(us):22064432
+Time(us):22069542	S1_Dist(mm):96
+Time(us):22077476
+Time(us):22082581
+Time(us):22087690
+Time(us):22092794
+Time(us):22097898
+Time(us):22103003
+Time(us):22108110
+Time(us):22113218
+Time(us):22118330	S2_Dist(mm):32
+Time(us):22126440
+Time(us):22131540
+Time(us):22136646
+Time(us):22141750
+Time(us):22146856
+Time(us):22151958
+Time(us):22157060
+Time(us):22162165
+Time(us):22167269	S1_Dist(mm):96
+Time(us):22175206
+Time(us):22180316
+Time(us):22185426
+Time(us):22190531
+Time(us):22195636
+Time(us):22200741
+Time(us):22205847
+Time(us):22210952
+Time(us):22216056
+Time(us):22221159	S2_Dist(mm):32
+Time(us):22229267
+Time(us):22234372
+Time(us):22239477
+Time(us):22244582
+Time(us):22249690
+Time(us):22254794
+Time(us):22259898
+Time(us):22265005	S1_Dist(mm):96
+Time(us):22272946
+Time(us):22278053
+Time(us):22283156
+Time(us):22288264
+Time(us):22293369
+Time(us):22298475
+Time(us):22303580
+Time(us):22308687
+Time(us):22313790
+Time(us):22318894	S2_Dist(mm):33
+Time(us):22327001
+Time(us):22332107
+Time(us):22337218
+Time(us):22342327
+Time(us):22347437
+Time(us):22352540
+Time(us):22357644
+Time(us):22362750
+Time(us):22367855	S1_Dist(mm):97
+Time(us):22375790
+Time(us):22380893
+Time(us):22385997
+Time(us):22391104
+Time(us):22396212
+Time(us):22401321
+Time(us):22406430
+Time(us):22411540
+Time(us):22416640
+Time(us):22421747	S2_Dist(mm):32
+Time(us):22429854
+Time(us):22434959
+Time(us):22440062
+Time(us):22445164
+Time(us):22450269
+Time(us):22455374
+Time(us):22460480
+Time(us):22465587	S1_Dist(mm):95
+Time(us):22473527
+Time(us):22478632
+Time(us):22483736
+Time(us):22488842
+Time(us):22493950
+Time(us):22499055
+Time(us):22504156
+Time(us):22509262
+Time(us):22514367
+Time(us):22519473
+Time(us):22524578	S2_Dist(mm):32
+Time(us):22532690
+Time(us):22537795
+Time(us):22542899
+Time(us):22548005
+Time(us):22553113
+Time(us):22558222
+Time(us):22563333	S1_Dist(mm):95
+Time(us):22571272
+Time(us):22576377
+Time(us):22581483
+Time(us):22586591
+Time(us):22591698
+Time(us):22596804
+Time(us):22601910
+Time(us):22607017
+Time(us):22612127
+Time(us):22617235
+Time(us):22622343	S2_Dist(mm):31
+Time(us):22630451
+Time(us):22635551
+Time(us):22640655
+Time(us):22645760
+Time(us):22650865
+Time(us):22655969
+Time(us):22661074
+Time(us):22666176	S1_Dist(mm):97
+Time(us):22674119
+Time(us):22679226
+Time(us):22684336
+Time(us):22689440
+Time(us):22694544
+Time(us):22699650
+Time(us):22704758
+Time(us):22709864
+Time(us):22714969
+Time(us):22720070
+Time(us):22725175	S2_Dist(mm):33
+Time(us):22733288
+Time(us):22738391
+Time(us):22743499
+Time(us):22748606
+Time(us):22753717
+Time(us):22758822
+Time(us):22763932	S1_Dist(mm):97
+Time(us):22771874
+Time(us):22776977
+Time(us):22782081
+Time(us):22787186
+Time(us):22792290
+Time(us):22797395
+Time(us):22802504
+Time(us):22807612
+Time(us):22812719
+Time(us):22817825
+Time(us):22822932	S2_Dist(mm):32
+Time(us):22831039
+Time(us):22836148
+Time(us):22841256
+Time(us):22846361
+Time(us):22851466
+Time(us):22856571
+Time(us):22861678	S1_Dist(mm):95
+Time(us):22869617
+Time(us):22874725
+Time(us):22879831
+Time(us):22884939
+Time(us):22890045
+Time(us):22895150
+Time(us):22900254
+Time(us):22905359
+Time(us):22910465
+Time(us):22915570
+Time(us):22920677
+Time(us):22925784	S2_Dist(mm):32
+Time(us):22933891
+Time(us):22938996
+Time(us):22944099
+Time(us):22949207
+Time(us):22954320
+Time(us):22959429	S1_Dist(mm):96
+Time(us):22967366
+Time(us):22972472
+Time(us):22977577
+Time(us):22982684
+Time(us):22987787
+Time(us):22992891
+Time(us):22997997
+Time(us):23003099
+Time(us):23008207
+Time(us):23013318
+Time(us):23018427
+Time(us):23023537
+Time(us):23028637	S2_Dist(mm):32
+Time(us):23036746
+Time(us):23041851
+Time(us):23046955
+Time(us):23052058
+Time(us):23057161
+Time(us):23062268	S1_Dist(mm):97
+Time(us):23070207
+Time(us):23075318
+Time(us):23080427
+Time(us):23085537
+Time(us):23090638
+Time(us):23095744
+Time(us):23100848
+Time(us):23105950
+Time(us):23111053
+Time(us):23116157
+Time(us):23121260
+Time(us):23126366	S2_Dist(mm):31
+Time(us):23134474
+Time(us):23139574
+Time(us):23144684
+Time(us):23149790
+Time(us):23154893
+Time(us):23159997	S1_Dist(mm):95
+Time(us):23167941
+Time(us):23173050
+Time(us):23178155
+Time(us):23183260
+Time(us):23188365
+Time(us):23193471
+Time(us):23198576
+Time(us):23203686
+Time(us):23208792
+Time(us):23213897
+Time(us):23219000
+Time(us):23224107
+Time(us):23229214	S2_Dist(mm):30
+Time(us):23237325
+Time(us):23242433
+Time(us):23247542
+Time(us):23252642
+Time(us):23257749	S1_Dist(mm):95
+Time(us):23265691
+Time(us):23270794
+Time(us):23275898
+Time(us):23281001
+Time(us):23286108
+Time(us):23291216
+Time(us):23296328
+Time(us):23301438
+Time(us):23306542
+Time(us):23311648
+Time(us):23316755
+Time(us):23321861
+Time(us):23326963
+Time(us):23332066	S2_Dist(mm):31
+Time(us):23340173
+Time(us):23345277
+Time(us):23350382
+Time(us):23355487
+Time(us):23360595	S1_Dist(mm):96
+Time(us):23368537
+Time(us):23373637
+Time(us):23378742
+Time(us):23383848
+Time(us):23388951
+Time(us):23394055
+Time(us):23399156
+Time(us):23404264
+Time(us):23409369
+Time(us):23414475
+Time(us):23419580
+Time(us):23424687
+Time(us):23429790	S2_Dist(mm):32
+Time(us):23437895
+Time(us):23442999
+Time(us):23448105
+Time(us):23453213
+Time(us):23458322	S1_Dist(mm):97
+Time(us):23466268
+Time(us):23471374
+Time(us):23476480
+Time(us):23481588
+Time(us):23486695
+Time(us):23491798
+Time(us):23496902
+Time(us):23502006
+Time(us):23507116
+Time(us):23512225
+Time(us):23517335
+Time(us):23522439
+Time(us):23527543
+Time(us):23532649	S2_Dist(mm):33
+Time(us):23540759
+Time(us):23545864
+Time(us):23550968
+Time(us):23556072	S1_Dist(mm):96
+Time(us):23564012
+Time(us):23569118
+Time(us):23574229
+Time(us):23579338
+Time(us):23584443
+Time(us):23589547
+Time(us):23594653
+Time(us):23599757
+Time(us):23604863
+Time(us):23609965
+Time(us):23615069
+Time(us):23620175
+Time(us):23625282
+Time(us):23630387	S2_Dist(mm):31
+Time(us):23638497
+Time(us):23643604
+Time(us):23648713
+Time(us):23653817
+Time(us):23658927	S1_Dist(mm):96
+Time(us):23666868
+Time(us):23671972
+Time(us):23677076
+Time(us):23682180
+Time(us):23687284
+Time(us):23692389
+Time(us):23697497
+Time(us):23702605
+Time(us):23707716
+Time(us):23712820
+Time(us):23717928
+Time(us):23723035
+Time(us):23728141
+Time(us):23733248	S2_Dist(mm):33
+Time(us):23741356
+Time(us):23746458
+Time(us):23751563
+Time(us):23756669	S1_Dist(mm):95
+Time(us):23764610
+Time(us):23769718
+Time(us):23774823
+Time(us):23779932
+Time(us):23785040
+Time(us):23790147
+Time(us):23795251
+Time(us):23800356
+Time(us):23805462
+Time(us):23810566
+Time(us):23815673
+Time(us):23820777
+Time(us):23825883
+Time(us):23830988
+Time(us):23836089	S2_Dist(mm):30
+Time(us):23844195
+Time(us):23849299
+Time(us):23854409	S1_Dist(mm):95
+Time(us):23862350
+Time(us):23867456
+Time(us):23872561
+Time(us):23877667
+Time(us):23882771
+Time(us):23887876
+Time(us):23892980
+Time(us):23898085
+Time(us):23903187
+Time(us):23908291
+Time(us):23913396
+Time(us):23918504
+Time(us):23923612
+Time(us):23928720
+Time(us):23933826	S2_Dist(mm):32
+Time(us):23941934
+Time(us):23947041
+Time(us):23952148
+Time(us):23957253	S1_Dist(mm):96
+Time(us):23965188
+Time(us):23970294
+Time(us):23975404
+Time(us):23980513
+Time(us):23985621
+Time(us):23990728
+Time(us):23995834
+Time(us):24000942
+Time(us):24006050
+Time(us):24011151
+Time(us):24016255
+Time(us):24021361
+Time(us):24026466
+Time(us):24031571
+Time(us):24036675	S2_Dist(mm):31
+Time(us):24044786
+Time(us):24049890
+Time(us):24054995	S1_Dist(mm):97
+Time(us):24062933
+Time(us):24068040
+Time(us):24073146
+Time(us):24078251
+Time(us):24083357
+Time(us):24088463
+Time(us):24093568
+Time(us):24098672
+Time(us):24103776
+Time(us):24108882
+Time(us):24113987
+Time(us):24119088
+Time(us):24124190
+Time(us):24129297
+Time(us):24134407
+Time(us):24139515	S2_Dist(mm):30
+Time(us):24147628
+Time(us):24152734	S1_Dist(mm):97
+Time(us):24160671
+Time(us):24165776
+Time(us):24170882
+Time(us):24175987
+Time(us):24181089
+Time(us):24186191
+Time(us):24191297
+Time(us):24196407
+Time(us):24201515
+Time(us):24206623
+Time(us):24211730
+Time(us):24216835
+Time(us):24221941
+Time(us):24227049
+Time(us):24232153
+Time(us):24237257	S2_Dist(mm):31
+Time(us):24245364
+Time(us):24250466
+Time(us):24255571	S1_Dist(mm):96
+Time(us):24263509
+Time(us):24268616
+Time(us):24273720
+Time(us):24278826
+Time(us):24283935
+Time(us):24289042
+Time(us):24294148
+Time(us):24299251
+Time(us):24304357
+Time(us):24309463
+Time(us):24314568
+Time(us):24319675
+Time(us):24324780
+Time(us):24329884
+Time(us):24334988
+Time(us):24340093	S2_Dist(mm):30
+Time(us):24348195
+Time(us):24353301	S1_Dist(mm):116
+Time(us):24361334
+Time(us):24366439
+Time(us):24371543
+Time(us):24376647
+Time(us):24381751
+Time(us):24386856
+Time(us):24391958
+Time(us):24397062
+Time(us):24402168
+Time(us):24407272
+Time(us):24412378
+Time(us):24417484
+Time(us):24422592
+Time(us):24427700
+Time(us):24432806
+Time(us):24437910	S2_Dist(mm):33
+Time(us):24446019
+Time(us):24451126	S1_Dist(mm):149
+Time(us):24459150
+Time(us):24464258
+Time(us):24469363
+Time(us):24474468
+Time(us):24479573
+Time(us):24484677
+Time(us):24489781
+Time(us):24494887
+Time(us):24499992
+Time(us):24505094
+Time(us):24510203
+Time(us):24515310
+Time(us):24520420
+Time(us):24525528
+Time(us):24530633
+Time(us):24535737
+Time(us):24540843	S2_Dist(mm):29
+Time(us):24548952	S1_Dist(mm):150
+Time(us):24556971
+Time(us):24562073
+Time(us):24567177
+Time(us):24572281
+Time(us):24577386
+Time(us):24582491
+Time(us):24587599
+Time(us):24592706
+Time(us):24597814
+Time(us):24602922
+Time(us):24608028
+Time(us):24613135
+Time(us):24618242
+Time(us):24623346
+Time(us):24628452
+Time(us):24633558
+Time(us):24638663
+Time(us):24643770	S2_Dist(mm):32
+Time(us):24651876	S1_Dist(mm):153
+Time(us):24659899
+Time(us):24665004
+Time(us):24670111
+Time(us):24675221
+Time(us):24680332
+Time(us):24685436
+Time(us):24690542
+Time(us):24695646
+Time(us):24700752
+Time(us):24705858
+Time(us):24710960
+Time(us):24716062
+Time(us):24721167
+Time(us):24726273
+Time(us):24731379
+Time(us):24736485
+Time(us):24741593	S2_Dist(mm):32
+Time(us):24749702	S1_Dist(mm):151
+Time(us):24757728
+Time(us):24762834
+Time(us):24767942
+Time(us):24773052
+Time(us):24778156
+Time(us):24783261
+Time(us):24788366
+Time(us):24793471
+Time(us):24798576
+Time(us):24803683
+Time(us):24808786
+Time(us):24813891
+Time(us):24818997
+Time(us):24824106
+Time(us):24829214
+Time(us):24834323
+Time(us):24839432
+Time(us):24844542	S2_Dist(mm):34
+Time(us):24852647	S1_Dist(mm):152
+Time(us):24860671
+Time(us):24865778
+Time(us):24870885
+Time(us):24875990
+Time(us):24881094
+Time(us):24886201
+Time(us):24891308
+Time(us):24896419
+Time(us):24901527
+Time(us):24906632
+Time(us):24911738
+Time(us):24916844
+Time(us):24921949
+Time(us):24927052
+Time(us):24932156
+Time(us):24937262
+Time(us):24942368
+Time(us):24947474	S1_Dist(mm):155	S2_Dist(mm):29
+Time(us):24958502
+Time(us):24963608
+Time(us):24968718
+Time(us):24973825
+Time(us):24978933
+Time(us):24984042
+Time(us):24989148
+Time(us):24994256
+Time(us):24999361
+Time(us):25004467
+Time(us):25009572
+Time(us):25014678
+Time(us):25019785
+Time(us):25024890
+Time(us):25029993
+Time(us):25035095
+Time(us):25040201
+Time(us):25045306	S2_Dist(mm):33
+Time(us):25053418	S1_Dist(mm):154
+Time(us):25061446
+Time(us):25066549
+Time(us):25071653
+Time(us):25076757
+Time(us):25081863
+Time(us):25086966
+Time(us):25092067
+Time(us):25097169
+Time(us):25102273
+Time(us):25107378
+Time(us):25112484
+Time(us):25117592
+Time(us):25122702
+Time(us):25127807
+Time(us):25132915
+Time(us):25138022
+Time(us):25143130
+Time(us):25148241	S1_Dist(mm):152	S2_Dist(mm):30
+Time(us):25159269
+Time(us):25164374
+Time(us):25169480
+Time(us):25174587
+Time(us):25179697
+Time(us):25184800
+Time(us):25189903
+Time(us):25195007
+Time(us):25200117
+Time(us):25205225
+Time(us):25210335
+Time(us):25215439
+Time(us):25220542
+Time(us):25225646
+Time(us):25230751
+Time(us):25235857
+Time(us):25240959
+Time(us):25246061	S1_Dist(mm):153	S2_Dist(mm):31
+Time(us):25257085
+Time(us):25262190
+Time(us):25267296
+Time(us):25272406
+Time(us):25277514
+Time(us):25282623
+Time(us):25287727
+Time(us):25292832
+Time(us):25297941
+Time(us):25303048
+Time(us):25308150
+Time(us):25313256
+Time(us):25318361
+Time(us):25323466
+Time(us):25328571
+Time(us):25333674
+Time(us):25338782
+Time(us):25343887	S1_Dist(mm):151	S2_Dist(mm):30
+Time(us):25354912
+Time(us):25360019
+Time(us):25365126
+Time(us):25370235
+Time(us):25375340
+Time(us):25380445
+Time(us):25385549
+Time(us):25390652
+Time(us):25395756
+Time(us):25400862
+Time(us):25405964
+Time(us):25411065
+Time(us):25416167
+Time(us):25421273
+Time(us):25426378
+Time(us):25431483
+Time(us):25436591
+Time(us):25441698
+Time(us):25446803	S1_Dist(mm):153	S2_Dist(mm):30
+Time(us):25457829
+Time(us):25462935
+Time(us):25468042
+Time(us):25473148
+Time(us):25478251
+Time(us):25483357
+Time(us):25488462
+Time(us):25493567
+Time(us):25498671
+Time(us):25503775
+Time(us):25508881
+Time(us):25513983
+Time(us):25519086
+Time(us):25524191
+Time(us):25529297
+Time(us):25534407
+Time(us):25539516
+Time(us):25544624	S1_Dist(mm):153
+Time(us):25552648	S2_Dist(mm):30
+Time(us):25560754
+Time(us):25565859
+Time(us):25570961
+Time(us):25576064
+Time(us):25581167
+Time(us):25586272
+Time(us):25591377
+Time(us):25596483
+Time(us):25601591
+Time(us):25606701
+Time(us):25611805
+Time(us):25616911
+Time(us):25622019
+Time(us):25627126
+Time(us):25632234
+Time(us):25637343
+Time(us):25642448	S1_Dist(mm):153
+Time(us):25650472	S2_Dist(mm):30
+Time(us):25658580
+Time(us):25663687
+Time(us):25668792
+Time(us):25673898
+Time(us):25679000
+Time(us):25684106
+Time(us):25689216
+Time(us):25694326
+Time(us):25699435
+Time(us):25704542
+Time(us):25709645
+Time(us):25714752
+Time(us):25719856
+Time(us):25724958
+Time(us):25730060
+Time(us):25735162
+Time(us):25740266
+Time(us):25745371	S1_Dist(mm):152
+Time(us):25753398	S2_Dist(mm):29
+Time(us):25761507
+Time(us):25766614
+Time(us):25771721
+Time(us):25776827
+Time(us):25781935
+Time(us):25787042
+Time(us):25792149
+Time(us):25797253
+Time(us):25802359
+Time(us):25807464
+Time(us):25812569
+Time(us):25817676
+Time(us):25822780
+Time(us):25827886
+Time(us):25832988
+Time(us):25838090
+Time(us):25843200	S1_Dist(mm):156
+Time(us):25851228	S2_Dist(mm):29
+Time(us):25859337
+Time(us):25864441
+Time(us):25869545
+Time(us):25874648
+Time(us):25879756
+Time(us):25884862
+Time(us):25889964
+Time(us):25895065
+Time(us):25900169
+Time(us):25905272
+Time(us):25910377
+Time(us):25915483
+Time(us):25920591
+Time(us):25925697
+Time(us):25930802
+Time(us):25935907
+Time(us):25941014	S1_Dist(mm):147
+Time(us):25949040
+Time(us):25954146	S2_Dist(mm):27
+Time(us):25962255
+Time(us):25967360
+Time(us):25972466
+Time(us):25977571
+Time(us):25982678
+Time(us):25987782
+Time(us):25992886
+Time(us):25997992
+Time(us):26003093
+Time(us):26008199
+Time(us):26013304
+Time(us):26018414
+Time(us):26023522
+Time(us):26028627
+Time(us):26033734
+Time(us):26038839	S1_Dist(mm):153
+Time(us):26046865
+Time(us):26051967
+Time(us):26057070	S2_Dist(mm):29
+Time(us):26065172
+Time(us):26070277
+Time(us):26075382
+Time(us):26080487
+Time(us):26085595

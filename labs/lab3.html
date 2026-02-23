@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Lab 3: Sensors and Parallel Execution - ECE 5160 Fast Robots by Immanuel Varghese Koshy.">
+    <title>Lab 3: Sensors & Parallel Execution | ECE 5160</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .image-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .image-row .image-item {
+            flex: 1;
+            min-width: 220px;
+            max-width: 280px;
+            text-align: center;
+        }
+
+        .image-row img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .image-row img:hover {
+            transform: scale(1.05);
+        }
+
+        .image-row p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: var(--text-primary);
+        }
+
+        table th,
+        table td {
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        table th {
+            background-color: rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+        }
+
+        table tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../index.html" class="logo">Immanuel Koshy</a>
+            <nav class="nav">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+                <a href="https://immanuel-portfolio.netlify.app" target="_blank" rel="noopener noreferrer"
+                    class="btn-primary">
+                    Main Portfolio
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="lab-page">
+        <div class="container">
+            <!-- Back Navigation -->
+            <a href="../index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+                </svg>
+                Back to Home
+            </a>
+
+            <!-- Lab Header -->
+            <header class="lab-header">
+                <h1 class="lab-page-title">Lab 3: Sensors and Parallel Execution</h1>
+                <p class="lab-page-meta">Week 3 | February 2026</p>
+                <p class="lab-page-meta">Collaborators: <a href="https://leslier7.github.io/ece5160-fast-robotics/"
+                        target="_blank" rel="noopener noreferrer">Robbie Leslie</a></p>
+            </header>
+
+            <!-- Lab Content -->
+            <article class="lab-body">
+                <h2>1. Prelab</h2>
+
+                <h3>I2C Sensor Addresses</h3>
+                <p>
+                    Both the VL53L1X Time-of-Flight (ToF) sensors come with a default I2C address of
+                    <strong>0x29</strong>. The ICM-20948 IMU used in the previous lab operates at <strong>0x69</strong>.
+                </p>
+
+                <h3>Dual ToF Strategy</h3>
+                <p>
+                    To use two sensors on the same I2C bus, I utilized the <strong>XSHUT</strong> pin. By soldering the
+                    XSHUT of Sensor 2 to Artemis Pin <strong>A3</strong>, I can hold Sensor 2 in a low-power state
+                    during startup. This allowed me to initialize Sensor 1 and change its address to
+                    <strong>0x30</strong> via software before waking Sensor 2, which then occupies the default 0x29
+                    address without conflict.
+                </p>
+
+                <h3>Sensor Placement & Obstacle Detection</h3>
+                <p>
+                    One ToF sensor is mounted on the front of the robot for wall-following and collision avoidance,
+                    while the second is mounted on the side for 90-degree orientation and maze navigation.
+                </p>
+                <ul>
+                    <li><strong>Scenarios for Missing Obstacles:</strong> Because ToF sensors use a focused laser beam,
+                        they may miss "skinny" obstacles (like table legs) if they fall between the sensor's field of
+                        view, or highly reflective surfaces (mirrors) that deflect the laser away from the receiver.
+                    </li>
+                </ul>
+
+                <h3>Wiring Diagram</h3>
+                <p>
+                    The wiring follows a parallel bus architecture. All devices share the <strong>SDA</strong> and
+                    <strong>SCL</strong> lines via the QWIIC breakout board.
+                </p>
+                <pre style="font-size: 0.8em; line-height: 1.2;"><code>_________________________________________________
+     |                 ARTEMIS NANO                    |
+     |_________________________________________________|
+        |      |      |      |      |      |      |
+      [3.3V] [GND]  [SDA]  [SCL]   [A3]   [TX]   [RX]
+        |      |      |      |      |      |      |
+        |      |      |      |      |      |      |
+   _____|______|______|______|______|______|______|_____
+  |                 QWIIC BREAKOUT BOARD                |
+  |_____________________________________________________|
+     |      |      |      |          |
+     |      |      |      |          | (Manual Wire)
+     |    [SDA]  [SCL]  [3.3V]       |
+     |      |      |      |          |
+     |   ___|______|______|___       |
+     |  |    VL53L1X (S1)     |      |
+     |  | (Address: 0x30)     |      |
+     |  |_____________________|      |
+     |      |      |      |          |
+     |   ___|______|______|___       |      __________
+     |  |    VL53L1X (S2)     |<-----|-----|  XSHUT   |
+     |  | (Address: 0x29)     |            |__________|
+     |  |_____________________|
+     |      |      |      |
+     |   ___|______|______|___
+     |  |      IMU ICM-20948  |
+     |  | (Address: 0x69)     |
+     |  |_____________________|</code></pre>
+                <blockquote>
+                    <p><em>Brief Explanation:</em> The Artemis controls the "enable" state of Sensor 2 via Pin A3,
+                        allowing sequential addressing on the shared I2C bus.</p>
+                </blockquote>
+
+                <h2>2. Lab Tasks</h2>
+
+                <h3>Hardware Implementation</h3>
+                <p>The ToF sensors are connected to the Artemis Nano via the SparkFun QWIIC breakout board.</p>
+
+                <img src="../lab3/lab3assets/hardwarelayout.jpeg" alt="Hardware Layout"
+                    style="width:100%; max-width:400px; border-radius:8px; display:block; margin: 1.5rem auto;">
+                <p style="text-align:center; color:var(--text-secondary); margin-bottom: 2rem;"><em>Figure 1: Hardware
+                        Layout</em></p>
+
+
+                <h3>I2C Scanning</h3>
+                <p>
+                    Upon running the I2C scanner, the Artemis successfully identified the renamed sensor at
+                    <strong>0x30</strong>, the default sensor at <strong>0x29</strong>, and the IMU at
+                    <strong>0x69</strong>. The address matched expectations (0x29, 0x30, 0x69). This confirms the manual
+                    address reassignment was successful, as the default state of both sensors would have caused a
+                    conflict at 0x29.
+                </p>
+
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/me2srrkgttc" title="I2C Scanner Discussion"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <p style="text-align:center; color:var(--text-secondary); margin-bottom: 2rem;"><em>Video 1: I2C Scanner
+                        running on Artemis Nano</em></p>
+
+
+                <h3>ToF Characterization (Short vs. Long Mode)</h3>
+
+                <img src="../lab3/lab3assets/IMG_5287.jpeg" alt="I2C Scan Result / ToF Characterization"
+                    style="width:100%; max-width:600px; border-radius:8px; display:block; margin: 1.5rem auto;">
+                <p style="text-align:center; color:var(--text-secondary); margin-bottom: 2rem;"><em>Figure 2: ToF
+                        Address Configuration Proof</em></p>
+
+                <p>
+                    Collaborating with Robbie Leslie, we compared <strong>Short Mode</strong> (up to 1.3m) and
+                    <strong>Long Mode</strong> (up to 4m). We selected <strong>Short Mode</strong> for the final robot
+                    as it offers higher immunity to ambient light in the lab and faster integration times for
+                    close-quarters navigation.
+                </p>
+
+                <h4>Accuracy Data Table:</h4>
+                <p>Measurements were taken against a physical scale to verify accuracy within the 10mm lab requirement.
+                    Note that the 50-point stationary test confirms that Short Mode has a lower Standard Deviation (σ)
+                    demonstrating higher repeatability than Long Mode at distances under 1 meter.</p>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Actual Distance (mm)</th>
+                                <th>S1 Measured (mm)</th>
+                                <th>S2 Measured (mm)</th>
+                                <th>Short Mode &sigma; (mm)</th>
+                                <th>Long Mode &sigma; (mm)</th>
+                                <th>Performance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>200</td>
+                                <td>204</td>
+                                <td>197</td>
+                                <td>1.2</td>
+                                <td>4.5</td>
+                                <td>Excellent Accuracy</td>
+                            </tr>
+                            <tr>
+                                <td>300</td>
+                                <td>308</td>
+                                <td>294</td>
+                                <td>1.4</td>
+                                <td>4.8</td>
+                                <td>Within 10mm</td>
+                            </tr>
+                            <tr>
+                                <td>500</td>
+                                <td>506</td>
+                                <td>492</td>
+                                <td>1.8</td>
+                                <td>5.5</td>
+                                <td>Stable</td>
+                            </tr>
+                            <tr>
+                                <td>600</td>
+                                <td>610</td>
+                                <td>593</td>
+                                <td>2.0</td>
+                                <td>6.1</td>
+                                <td>Stable</td>
+                            </tr>
+                            <tr>
+                                <td>1200 (1.2m)</td>
+                                <td>1209</td>
+                                <td>1192</td>
+                                <td>11.5</td>
+                                <td>7.2</td>
+                                <td>Near limit of Short Mode</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="image-row">
+                    <div class="image-item">
+                        <img src="../lab3/lab3assets/200mm.png" alt="200mm Test">
+                        <p>200mm Reading</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../lab3/lab3assets/300mm.png" alt="300mm Test">
+                        <p>300mm Reading</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../lab3/lab3assets/600mm.png" alt="600mm Test">
+                        <p>600mm Reading</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../lab3/lab3assets/120cm.jpeg" alt="120cm Test">
+                        <p>1200mm (1.2m) Reading</p>
+                    </div>
+                </div>
+
+                <img src="../lab3/lab3assets/tof_linearity.png" alt="Actual vs Measured Distance"
+                    style="width:100%; max-width:600px; border-radius:8px; display:block; margin: 1.5rem auto;">
+                <p style="text-align:center; color:var(--text-secondary); margin-bottom: 2rem;"><em>Figure 3: Actual vs
+                        Measured Distance Plot demonstrating Linearity (Slope ~ 1.0)</em></p>
+
+                <h2>3. Parallel Execution & Timing</h2>
+
+                <h3>Sensor Speed and Bottlenecks</h3>
+                <p>
+                    To ensure the robot remains responsive, the code is entirely non-blocking. We use the
+                    <code>.checkForDataReady()</code> routine to poll the sensors.
+                </p>
+
+                <p><strong>Code Snippet:</strong></p>
+                <pre><code>if (sensor1.checkForDataReady()) {
+    int dist1 = sensor1.getDistance();
+    sensor1.clearInterrupt();
+    Serial.print("S1:"); Serial.print(dist1);
+}</code></pre>
+
+                <p>
+                    <strong>Discussion:</strong> In my logs, the loop execution time is roughly <strong>5ms</strong>,
+                    while the ToF sensors provide new data approximately every <strong>50ms</strong>. The limiting
+                    factor is the <strong>physical timing budget</strong> of the sensor (the time needed to collect
+                    enough photons), not the Artemis CPU speed. While the Artemis loop executes in approximately 5ms,
+                    the sensor's Timing Budget is set to 50ms. Therefore, the code 'spins' 10 times for every one
+                    physical measurement, proving the bottleneck is the Time-of-Flight integration period, not the
+                    microcontroller's processing speed.
+                </p>
+
+                <p><strong>Log Excerpt (<code>2tof.txt</code>):</strong> Showing the initial address reassignment and
+                    non-blocking arrival of data (sensors triggered at different intervals). Notice how intermediate
+                    loops do not have distance data until the 50ms integration period completes:</p>
+                <pre><code>--- Dual ToF Initialization Start ---
+Sensor 1 found at default 0x29.
+Sensor 1 successfully moved to: 0x30
+Sensor 2 found at default 0x29.
+--- Initialization Complete! Starting Loop ---
+Time(us):576584
+Time(us):581517
+Time(us):586450
+...
+Time(us):616050	S2_Dist(mm):24
+Time(us):623979	S1_Dist(mm):67
+...
+Time(us):715596	S1_Dist(mm):64	S2_Dist(mm):26</code></pre>
+
+                <h3>Data Visualization via BLE</h3>
+                <p>
+                    I implemented a data logging array that captures ToF and IMU data simultaneously and bursts them
+                    over Bluetooth.
+                </p>
+
+                <img src="../lab3/lab3assets/imuandtofvstime.png" alt="Time vs. Distance (showing 2 sensors)"
+                    style="width:100%; max-width:800px; border-radius:8px; display:block; margin: 1.5rem auto;">
+                <p style="text-align:center; color:var(--text-secondary); margin-bottom: 2rem;"><em>Figure 4: Time vs.
+                        Distance (showing 2 sensors)</em></p>
+
+                <img src="../lab3/lab3assets/imuandtofvstime2.png" alt="Time vs. Angle (from IMU data)"
+                    style="width:100%; max-width:800px; border-radius:8px; display:block; margin: 1.5rem auto;">
+                <p style="text-align:center; color:var(--text-secondary); margin-bottom: 2rem;"><em>Figure 5: Time vs.
+                        Angle (IMU data with Pitch and Roll labeled alongside ToF capture)</em></p>
+
+
+                <h2>4. M.Eng Requirements (5000-Level)</h2>
+
+                <h3>Infrared Transmission Sensors</h3>
+                <p>
+                    The VL53L1X is a <strong>Time-of-Flight (ToF)</strong> sensor, which measures the absolute time it
+                    takes for a light pulse to travel to an object and back. This differs from <strong>IR
+                        Triangulation</strong> sensors (like the Sharp GP series), which calculate distance based on the
+                    <em>angle</em> of the reflected light. Furthermore, ToF serves as an excellent middle ground when
+                    compared to other IR technologies:
+                </p>
+                <ul>
+                    <li><strong>Vs. Passive Infrared (PIR):</strong> PIR sensors detect motion via ambient body heat but
+                        provide no actual distance measurement. ToF provides precise centimeter-level distancing.</li>
+                    <li><strong>Vs. Scanning Lidar:</strong> Lidar creates high-resolution spatial maps and spins
+                        constantly to sweep an area. ToF is simpler, much cheaper, and provides rapid 1D distance
+                        readings without moving parts.</li>
+                </ul>
+
+                <h3>Sensitivity to Texture and Color</h3>
+                <p>
+                    We tested the sensors against a matte black surface and a glossy white surface at identical
+                    distances. This confirms that darker textures absorb more of the 940nm IR pulse, reducing the number
+                    of photons returning to the SPAD (Single Photon Avalanche Diode) array, which directly lowers the
+                    Signal Rate and increases jitter.
+                </p>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Surface Material</th>
+                                <th>Observation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>White Wall</strong></td>
+                                <td>High Signal Rate, Low Noise.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Black Felt</strong></td>
+                                <td>Low Signal Rate, Higher Jitter.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-text">© 2026 Immanuel Varghese Koshy. Built for ECE 5160.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
