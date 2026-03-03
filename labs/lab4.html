@@ -289,12 +289,18 @@
                     (650mAh) from the motor power (850mAh) ensures the microcontroller remains stable while the motors
                     draw the amperage they need.
                 </p>
+                <p>
+                    My initial idea was to use slightly longer wires to proper setup the car and then route the cables
+                    underneath the motors but then later realised that we dont need to close the car top and hence could
+                    route the cable via the top itself. The IMU position is still being debated upon.
+                </p>
 
                 <h3>Wiring Diagram</h3>
                 <p>
                     To deliver enough current for the robot to be fast, the two inputs and outputs on each dual motor
                     driver were parallel-coupled. This essentially uses two channels to drive each motor, allowing the
-                    delivery of twice the average current without overheating the chip.
+                    delivery of twice the average current without overheating the chip.(I will mount and clean up the
+                    car better).
                 </p>
 
 
@@ -406,10 +412,18 @@
                     surface had a slight slope towards the end and featured a textured floor, which caused the car to
                     wobble to the left and then back to the right, along with inconsistent rolling resistance.
                 </p>
+
                 <p>
                     The motors were found to be asymmetric. Motor B (Left) required more power to match the RPM of Motor
                     A (Right). Initially, a baseline of <code>Left: 60 / Right: 45</code> was tested, but the final
                     straight-line movement was tuned to <code>Left: 65 / Right: 40</code>.
+                </p>
+                <p>
+                    I understand using delay() results in a blocking operation, and when moving onto future labs I will
+                    use either
+                    millis() or state machines to test driving patterns. (This will become more relevant in the driving
+                    with turns demo, where a time duration is passed as an argument to a function call to perform a
+                    specific manoeuvre.)
                 </p>
 
                 <p><strong>Code Snippet: Calibrated Straight Line (<code>driveForward</code>)</strong></p>
@@ -465,7 +479,7 @@ void driveForward(int duration) {
                 <p>
                     For the final open-loop demonstration, the robot was programmed to execute untethered control with a
                     sequence of straight drives and turns. Due to the textured floor, the static friction during an
-                    on-axis turn was immense.
+                    on-axis turn was higher.
                 </p>
                 <p>
                     To overcome this, a "kickstart" function was implemented. A high-power PWM burst of
@@ -494,7 +508,7 @@ void turnRight(int duration) {
   analogWrite(motorA_In1, turnSustainPWM); 
   analogWrite(motorA_In2, 0);   
   
-  delay(duration - turnPulseMs);
+  delay(duration);
 }</code></pre>
                 </div>
 
