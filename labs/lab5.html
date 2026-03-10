@@ -19,8 +19,8 @@
 
         .image-row .image-item {
             flex: 1;
-            min-width: 280px;
-            max-width: 420px;
+            min-width: 300px;
+            max-width: 560px;
             text-align: center;
         }
 
@@ -48,7 +48,7 @@
 
         .single-image {
             margin: 2rem auto;
-            max-width: 700px;
+            max-width: 860px;
         }
 
         .table-wrapper {
@@ -88,11 +88,44 @@
             overflow-x: auto;
         }
 
+        /* Responsive 16:9 iframe embed */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            padding-bottom: min(56.25%, calc(720px * 0.5625));
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-wrap {
+            max-width: 720px;
+            margin: 1.5rem auto 0;
+        }
+
         .video-grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
             margin: 1.5rem 0;
+        }
+
+        /* in grid the max-width must be unset so columns size naturally */
+        .video-grid-2 .video-container {
+            max-width: none;
+            padding-bottom: 56.25%;
         }
 
         @media (max-width: 700px) {
@@ -105,7 +138,7 @@
             text-align: center;
             color: var(--text-secondary);
             font-size: 0.9rem;
-            margin-top: 0.5rem;
+            margin-top: 0.75rem;
         }
 
         .callout-box {
@@ -335,7 +368,7 @@ p_out = constrain(p_out, -255.0, 255.0);</code></pre>
                             ~100Hz.</em></p>
                 </div>
 
-                <div class="video-container" style="margin: 1.5rem 0;">
+                <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/-yasIZvpzns" title="PD Controller Kp=0.08 Kd=1.5 run"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -379,7 +412,7 @@ p_out = constrain(p_out, -255.0, 255.0);</code></pre>
                     </div>
                 </div>
 
-                <div class="video-container" style="margin: 1.5rem 0;">
+                <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/k5Pj2AF9me8"
                         title="Final PID Controller run — Kp=0.065 Ki=0.005 Kd=1.5" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -395,7 +428,7 @@ p_out = constrain(p_out, -255.0, 255.0);</code></pre>
                     reversing or accelerating — to re-stabilize at 304mm.
                 </p>
 
-                <div class="video-container" style="margin: 1.5rem 0;">
+                <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/GZ7G_kl7dOA" title="PID robustness — perturbation test"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -450,7 +483,7 @@ if (windup_on) {
                     </div>
                 </div>
 
-                <div class="video-container" style="margin: 1.5rem 0;">
+                <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/keKLfoiTpGg"
                         title="Integral wind-up OFF — robot crashes into wall" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
