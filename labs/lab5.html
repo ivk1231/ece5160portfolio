@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Lab 5: Linear PID Control and Interpolation - ECE 5160 Fast Robots by Immanuel Varghese Koshy.">
+    <title>Lab 5: Linear PID Control | ECE 5160</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .image-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .image-row .image-item {
+            flex: 1;
+            min-width: 280px;
+            max-width: 420px;
+            text-align: center;
+        }
+
+        .image-row img,
+        .single-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .image-row img:hover,
+        .single-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .image-row p,
+        .single-image p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .single-image {
+            margin: 2rem auto;
+            max-width: 700px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: var(--text-primary);
+        }
+
+        table th,
+        table td {
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        table th {
+            background-color: rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+        }
+
+        table tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .code-container pre {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow-x: auto;
+        }
+
+        .video-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 700px) {
+            .video-grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .video-caption {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .callout-box {
+            background: rgba(255, 255, 255, 0.04);
+            border-left: 3px solid rgba(99, 179, 237, 0.6);
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .callout-box.warning {
+            border-left-color: rgba(245, 158, 11, 0.7);
+        }
+
+        .callout-box.success {
+            border-left-color: rgba(16, 185, 129, 0.7);
+        }
+
+        .math-inline {
+            font-family: 'Courier New', monospace;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../index.html" class="logo">Immanuel Koshy</a>
+            <nav class="nav">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+                <a href="https://immanuel-portfolio.netlify.app" target="_blank" rel="noopener noreferrer"
+                    class="btn-primary">
+                    Main Portfolio
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="lab-page">
+        <div class="container">
+            <!-- Back Navigation -->
+            <a href="../index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+                </svg>
+                Back to Home
+            </a>
+
+            <!-- Lab Header -->
+            <header class="lab-header">
+                <h1 class="lab-page-title">Lab 5: Linear PID Control and Interpolation</h1>
+                <p class="lab-page-meta">Week 5 | March 2026</p>
+            </header>
+
+            <!-- Lab Content -->
+            <article class="lab-body">
+
+                <h2>1. Objective</h2>
+                <p>
+                    The goal of this lab is to implement a closed-loop linear PID controller that drives the robot to a
+                    target distance of <strong>304mm</strong> from a wall using the front-facing Time-of-Flight (ToF)
+                    sensor as feedback. The implementation progresses from a basic proportional controller through
+                    full PID with derivative kick suppression, sensor extrapolation for faster loop rates, and
+                    integral wind-up protection.
+                </p>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>2. Prelab: BLE &amp; System Architecture</h2>
+
+                <p>
+                    Data transmission over Bluetooth Low Energy (BLE) was optimized to prioritize the control loop's
+                    speed. On the Python side, a helper function packs gain values into a formatted string to update
+                    the controller on the fly without reflashing:
+                </p>
+
+                <div class="code-container">
+                    <pre><code>def set_gains(kp=None, ki=None, kd=None, wu=None):    
+    cmd = "|".join([f"Kp:{kp}", f"Ki:{ki}", f"Kd:{kd}"])
+    ble.send_command(CommandTypes.SET_GAINS, cmd)</code></pre>
+                </div>
+
+                <p>
+                    On the Artemis, <code>handle_command()</code> parses this string via a notification callback. In
+                    the final version, all parameters — including wind-up protection — can be toggled on the fly.
+                    To prevent radio polling from bottlenecking the system during an active run, full
+                    <code>BLE.poll()</code> is disabled. Instead, a lightweight timer checks for disconnects at
+                    <strong>4Hz</strong>, freeing CPU cycles:
+                </p>
+
+                <div class="code-container">
+                    <pre><code>if (is_pid_active) {
+    if (now - last_ble_check >= 250) {  // 4Hz safety check
+        last_ble_check = now;
+        BLEDevice central = BLE.central();
+        if (!central || !central.connected()) stop_motors();
+    }
+} else {
+    BLE.poll();
+}</code></pre>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>3. Control Implementation &amp; Extrapolation</h2>
+
+                <h3>P Controller — Kp Tuning</h3>
+                <p>
+                    Three values were tested for the P-only controller:
+                    <span class="math-inline">Kp = 0.065</span>,
+                    <span class="math-inline">Kp = 0.08</span>, and
+                    <span class="math-inline">Kp = 0.11</span>.
+                    <span class="math-inline">Kp = 0.11</span> produced a faster initial approach but resulted in more
+                    aggressive overshoot and oscillation before settling. <span class="math-inline">Kp = 0.065</span>
+                    gave a cleaner single-overshoot response and was carried forward as the baseline. <span
+                        class="math-inline">Kp = 0.08</span> was also promising, but once Ki and Kd were added into the
+                    mix, <span class="math-inline">Kp = 0.065</span> proved smoother. These are prior to extrapolation.
+                </p>
+
+                <div class="image-row">
+                    <div class="image-item">
+                        <img src="../lab5/fafalab5assets/pic1.png"
+                            alt="P Controller Kp=0.06 distance and motor command plot">
+                        <p><em>Figure 1: P Controller — Kp=0.065 (n=239). Slow approach, overshoots slightly.</em></p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../lab5/fafalab5assets/pic2.png"
+                            alt="P Controller Kp=0.08 distance and motor command plot">
+                        <p><em>Figure 2: P Controller — Kp=0.08 (n=175). Faster convergence, clean single
+                                overshoot.</em></p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../lab5/fafalab5assets/pic3.png"
+                            alt="P Controller Kp=0.11 distance and motor command plot">
+                        <p><em>Figure 3: P Controller — Kp=0.11 (n=266). Faster approach but more aggressive
+                                oscillation.</em></p>
+                    </div>
+                </div>
+
+                <div class="video-grid-2">
+                    <div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/gBaaC3rC7j0" title="P Controller Kp=0.065 run"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <p class="video-caption"><em>Video 1: P Controller (Kp=0.065) — full approach run</em></p>
+                    </div>
+                    <div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/YxKqKjZDXNI"
+                                title="P Controller Kp=0.065 close range run" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <p class="video-caption"><em>Video 2: P Controller (Kp=0.065) — close-range approach</em></p>
+                    </div>
+                </div>
+
+                <h3>Software Braking Zone</h3>
+                <p>
+                    A software braking zone was implemented to progressively limit forward PWM near the setpoint,
+                    while leaving reverse output uncapped for fast overshoot correction:
+                </p>
+                <div class="code-container">
+                    <pre><code>// Graduated braking zones — forward PWM limited near wall, reverse always uncapped
+if (dist_extrap < 1500) p_out = min(p_out, 120.0f);
+if (dist_extrap < 900)  p_out = min(p_out,  80.0f);
+if (dist_extrap < 500)  p_out = min(p_out,  60.0f);
+p_out = constrain(p_out, -255.0, 255.0);</code></pre>
+                </div>
+
+                <h3>Sensor Extrapolation &amp; Speed</h3>
+                <p>
+                    The VL53L1X ToF sensor was configured in Long mode with a 33ms timing budget, yielding
+                    approximately <strong>30Hz</strong> updates reliable up to 4m. To decouple the PID loop from this
+                    slow sensor rate, a linear extrapolator was implemented. The slope between the last two valid
+                    readings estimates current velocity, and position is predicted forward in time, capped at
+                    <strong>50ms</strong> — beyond which the linear velocity assumption breaks down.
+                </p>
+                <p>
+                    This allowed the PID loop to run at approximately <strong>~109Hz</strong> while the ToF sensor
+                    updated at <strong>~30Hz</strong> (both settling around 80–100Hz once all parameters were active).
+                    The maximum linear speed achieved during approach was approximately <strong>1.1 m/s</strong>,
+                    estimated from the steepest slope of the ToF distance vs. time curve
+                    (Δdist = 1100mm, Δt = 1.0s). The controller was validated across starting distances from
+                    <strong>2m to 4m</strong>, settling at 304mm in all cases.
+                </p>
+
+                <div class="single-image">
+                    <img src="../lab5/fafalab5assets/pic5.png"
+                        alt="P Controller with extrapolation — Kp=0.08 showing ToF raw vs extrapolated">
+                    <p><em>Figure 4: P Controller with Extrapolation (Kp=0.08) — orange = ToF raw, blue = extrapolated
+                            estimate.</em></p>
+                </div>
+
+                <h3>PD Controller — Adding Kd</h3>
+                <p>
+                    Adding <span class="math-inline">Kd = 1.5</span> significantly reduced overshoot. The derivative
+                    term opposes rapid changes in error — as the robot approaches quickly, the large negative error
+                    rate produces a braking contribution independent of the braking zones. Derivative kick was not
+                    a concern since the setpoint remains static throughout the run.
+                </p>
+
+                <div class="single-image">
+                    <img src="../lab5/fafalab5assets/pic4.png"
+                        alt="PD Controller Kp=0.08 Kd=1.5 distance and motor command plot">
+                    <p><em>Figure 5: PD Controller — Kp=0.08, Kd=1.5 (n=205). Extrapolated PID loop running at
+                            ~100Hz.</em></p>
+                </div>
+
+                <div class="video-container" style="margin: 1.5rem 0;">
+                    <iframe src="https://www.youtube.com/embed/-yasIZvpzns" title="PD Controller Kp=0.08 Kd=1.5 run"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p style="text-align:center; color:var(--text-secondary); margin-bottom: 2rem;"><em>Video 3: PD
+                        Controller (Kp=0.08, Kd=1.5)</em></p>
+
+                <h3>PID Controller — Adding Ki, Final Tuning</h3>
+                <p>
+                    A small integral term was added to eliminate steady-state error caused by the motor deadband.
+                    With pure P or PD, the robot stops slightly short of 304mm because the output falls below the
+                    deadband threshold before reaching the setpoint. Two combinations were tested:
+                    <span class="math-inline">Ki=0.005</span> with <span class="math-inline">Kp=0.08</span>, and
+                    <span class="math-inline">Ki=0.005</span> with <span class="math-inline">Kp=0.065</span>.
+                </p>
+                <p>
+                    As shown in the first test below, the higher proportional gain (<span
+                        class="math-inline">Kp=0.08</span>)
+                    carried too much momentum into the braking zone, causing the robot to significantly overshoot the
+                    304mm setpoint (dipping down to ~150mm) before the controller had to aggressively reverse to
+                    correct it. To fix this, the combination of <span class="math-inline">Kp=0.065, Ki=0.005,
+                        Kd=1.5</span>
+                    was chosen for the final system. The slightly lower proportional gain reduced the approach speed
+                    just enough to eliminate the large overshoot, giving the integrator room to close the remaining
+                    gap cleanly without oscillation.
+                </p>
+
+                <div class="image-row">
+                    <div class="image-item">
+                        <img src="../lab5/fafalab5assets/pic7.png"
+                            alt="PID Controller Kp=0.08 Ki=0.005 Kd=1.5 — overshoot">
+                        <p><em>Figure 6: PID — Kp=0.08, Ki=0.005, Kd=1.5 (n=213). Excess overshoot; robot dips to
+                                ~150mm.</em></p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../lab5/fafalab5assets/pic6.png"
+                            alt="PID Controller Kp=0.065 Ki=0.005 Kd=1.5 — final tuning">
+                        <p><em>Figure 7: PID — Kp=0.065, Ki=0.005, Kd=1.5 (n=210). Clean approach, minimal overshoot.
+                                Final configuration.</em></p>
+                    </div>
+                </div>
+
+                <div class="video-container" style="margin: 1.5rem 0;">
+                    <iframe src="https://www.youtube.com/embed/k5Pj2AF9me8"
+                        title="Final PID Controller run — Kp=0.065 Ki=0.005 Kd=1.5" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p style="text-align:center; color:var(--text-secondary); margin-bottom: 2rem;"><em>Video 4: Final PID
+                        Controller (Kp=0.065, Ki=0.005, Kd=1.5)</em></p>
+
+                <h3>Robustness to Perturbations</h3>
+                <p>
+                    The system handles external perturbations effectively. Pushing the robot toward or away from the
+                    wall after settling induces a sudden error spike. The PID controller immediately compensates —
+                    reversing or accelerating — to re-stabilize at 304mm.
+                </p>
+
+                <div class="video-container" style="margin: 1.5rem 0;">
+                    <iframe src="https://www.youtube.com/embed/GZ7G_kl7dOA" title="PID robustness — perturbation test"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p style="text-align:center; color:var(--text-secondary); margin-bottom: 2rem;"><em>Video 5:
+                        Perturbation rejection — robot re-stabilises at 304mm after being pushed</em></p>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>4. Integral Wind-Up Protection (5000-Level)</h2>
+
+                <p>
+                    Wind-up protection makes the controller reasonably independent of floor surface. On a
+                    high-friction surface like carpet, wheel stall means the robot never reaches the setpoint.
+                    Without protection, the integral accumulates endlessly; when friction is finally overcome, the
+                    saturated integrator causes a violent uncontrolled lunge into the wall regardless of actual
+                    distance.
+                </p>
+                <p>
+                    To demonstrate this, <span class="math-inline">Ki</span> was temporarily raised to
+                    <strong>0.15</strong> to accelerate integral buildup, and the robot was held stationary for
+                    <strong>3 seconds</strong> before release.
+                </p>
+
+                <div class="code-container">
+                    <pre><code>integral += error * (dt_ms / 1000.0f);
+
+// Clamp integral — prevents unbounded accumulation during stall or hold
+if (windup_on) {
+    integral = constrain(integral, -150.0, 150.0);
+}</code></pre>
+                </div>
+
+                <p>
+                    The limit of <span class="math-inline">±150</span> provides enough sustained output to push
+                    through friction without saturating.
+                </p>
+
+                <div class="image-row">
+                    <div class="image-item">
+                        <img src="../lab5/fafalab5assets/pic9.png"
+                            alt="Wind-Up OFF — integral saturates, motor spikes at release">
+                        <p><em>Figure 8: Wind-Up OFF (WU:0) — Kp=0.07, Ki=0.15, Kd=1.5. Integral saturates and PID
+                                output hits max on release.</em></p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../lab5/fafalab5assets/pic8.png"
+                            alt="Wind-Up ON — integral plateaus, controlled approach">
+                        <p><em>Figure 9: Wind-Up ON (WU:1) — Kp=0.07, Ki=0.15, Kd=1.5. Integral plateaus at ±150; robot
+                                settles cleanly.</em></p>
+                    </div>
+                </div>
+
+                <div class="video-container" style="margin: 1.5rem 0;">
+                    <iframe src="https://www.youtube.com/embed/keKLfoiTpGg"
+                        title="Integral wind-up OFF — robot crashes into wall" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p style="text-align:center; color:var(--text-secondary); margin-bottom: 2rem;"><em>Video 6: Wind-Up OFF
+                        — unsaturated integral causes the robot to crash into the wall on release</em></p>
+
+                <p><strong>The Math Behind the Plots (Hold at ~1100mm)</strong></p>
+
+                <div class="callout-box">
+                    <p><strong>Base P-Term:</strong> Error is 796mm (1100 − 304).<br>
+                        P<sub>term</sub> = 0.07 × 796 ≈ <strong>56</strong></p>
+                </div>
+
+                <div class="callout-box success">
+                    <p><strong>Wind-Up ON (WU:1):</strong> The integral is clamped at 150.<br>
+                        Max I-term = 0.15 × 150 = <strong>22.5</strong><br>
+                        Total Output: 56 + 22.5 = <strong>78.5</strong> (matches the ~80 plateau in the plot)</p>
+                </div>
+
+                <div class="callout-box warning">
+                    <p><strong>Wind-Up OFF (WU:0):</strong> The integral grows without bound. The raw output quickly
+                        exceeds 250 but is caught by the <code>min(p_out, 120)</code> safety governor in the code.<br>
+                        Total Output: <strong>Capped at 120</strong></p>
+                </div>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-text">© 2026 Immanuel Varghese Koshy. Built for ECE 5160.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
