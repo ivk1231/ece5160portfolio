@@ -459,23 +459,18 @@ if (windup_on) {
                 <p style="text-align:center; color:var(--text-secondary); margin-bottom: 2rem;"><em>Video 6: Wind-Up OFF
                         — unsaturated integral causes the robot to crash into the wall on release</em></p>
 
-                <p><strong>The Math Behind the Plots (Hold at ~1100mm)</strong></p>
+                <div class="code-container">
+                    <pre><code>// Math Behind the Plots — Robot held stationary at ~1100mm from wall
 
-                <div class="callout-box">
-                    <p><strong>Base P-Term:</strong> Error is 796mm (1100 − 304).<br>
-                        P<sub>term</sub> = 0.07 × 796 ≈ <strong>56</strong></p>
-                </div>
+// Base P-Term: error = 1100 - 304 = 796mm
+P_term = 0.07 * 796 = 56
 
-                <div class="callout-box success">
-                    <p><strong>Wind-Up ON (WU:1):</strong> The integral is clamped at 150.<br>
-                        Max I-term = 0.15 × 150 = <strong>22.5</strong><br>
-                        Total Output: 56 + 22.5 = <strong>78.5</strong> (matches the ~80 plateau in the plot)</p>
-                </div>
+// Wind-Up ON  (WU:1): integral clamped at ±150
+I_term = 0.15 * 150 = 22.5
+Total  = 56 + 22.5  = 78.5   ← matches ~80 plateau in the plot
 
-                <div class="callout-box warning">
-                    <p><strong>Wind-Up OFF (WU:0):</strong> The integral grows without bound. The raw output quickly
-                        exceeds 250 but is caught by the <code>min(p_out, 120)</code> safety governor in the code.<br>
-                        Total Output: <strong>Capped at 120</strong></p>
+// Wind-Up OFF (WU:0): integral grows unbounded, hits safety governor
+Total  = capped at 120        ← caught by min(p_out, 120) in firmware</code></pre>
                 </div>
 
             </article>
