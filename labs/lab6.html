@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 6: Orientation Control - ECE 5160 Fast Robots by Immanuel Varghese Koshy.">
+    <title>Lab 6: Orientation Control | ECE 5160</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .image-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .image-row .image-item {
+            flex: 1;
+            min-width: 320px;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .image-row-3 .image-item {
+            flex: 1;
+            min-width: 260px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .image-row img,
+        .single-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .image-row img:hover,
+        .single-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .image-row p,
+        .single-image p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .single-image {
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        .code-container pre {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow-x: auto;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        /* Responsive 16:9 iframe embed */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            padding-bottom: min(56.25%, calc(720px * 0.5625));
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-wrap {
+            max-width: 720px;
+            margin: 1.5rem auto 0;
+        }
+
+        .video-caption {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.75rem;
+        }
+
+        .callout-box {
+            background: rgba(255, 255, 255, 0.04);
+            border-left: 3px solid rgba(99, 179, 237, 0.6);
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .callout-box.warning {
+            border-left-color: rgba(245, 158, 11, 0.7);
+        }
+
+        .callout-box.success {
+            border-left-color: rgba(16, 185, 129, 0.7);
+        }
+
+        .math-inline {
+            font-family: 'Courier New', monospace;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../index.html" class="logo">Immanuel Koshy</a>
+            <nav class="nav">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+                <a href="https://immanuel-portfolio.netlify.app" target="_blank" rel="noopener noreferrer"
+                    class="btn-primary">
+                    Main Portfolio
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="lab-page">
+        <div class="container">
+            <!-- Back Navigation -->
+            <a href="../index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+                </svg>
+                Back to Home
+            </a>
+
+            <!-- Lab Header -->
+            <header class="lab-header">
+                <h1 class="lab-page-title">Lab 6: Orientation Control</h1>
+                <p class="lab-page-meta">Week 6 | March 2026</p>
+                <p class="lab-page-meta">Collaborators: <a href="https://leslier7.github.io/ece5160-fast-robotics/"
+                        target="_blank" rel="noopener noreferrer">Robby Leslie</a></p>
+            </header>
+
+            <!-- Lab Content -->
+            <article class="lab-body">
+
+                <h2>1. Objective</h2>
+                <p>
+                    The goal of this lab is to implement a closed-loop PID orientation controller using the
+                    ICM-20948 IMU's onboard Digital Motion Processor (DMP) for yaw feedback. The robot must
+                    hold a target heading against external perturbations, with the implementation progressing
+                    through Kp tuning, derivative kick suppression, low-pass filtering, and integral anti-windup
+                    protection.
+                </p>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>2. Prelab: Bluetooth Architecture &amp; Workflow</h2>
+
+                <p>
+                    To efficiently tune a PID controller, we need the ability to update gains and setpoints
+                    dynamically while the PID was active. To improve our testing workflow, I separated the
+                    "PID Run" command from the "Data Gathering" phase into distinct Jupyter Notebook cells.
+                    This modularity allowed me to initiate the controller, physically interact with the robot,
+                    and then trigger the data pull separately.
+                </p>
+
+                <p>
+                    Below is the Python function used to dynamically pack and transmit the tuning parameters:
+                </p>
+
+                <div class="code-container">
+                    <pre><code>def set_gains(kp=None, ki=None, kd=None, sp=None, wu=None):
+    global Kp, Ki, Kd
+    parts = []
+    if kp is not None: parts.append(f"Kp:{kp}"); Kp = kp
+    if ki is not None: parts.append(f"Ki:{ki}"); Ki = ki
+    if kd is not None: parts.append(f"Kd:{kd}"); Kd = kd
+    if sp is not None: parts.append(f"SP:{sp}")
+    if wu is not None: parts.append(f"WU:{int(wu)}")
+
+    if not parts:
+        print("No gains specified.")
+        return
+
+    cmd = "|".join(parts)
+    ble.send_command(CommandTypes.SET_GAINS, cmd)
+    print(f"Gains set — {cmd}")
+    time.sleep(0.2)
+
+# Example Usage:
+# set_gains(kp=5, ki=1.0, kd=0.4, sp=0)
+# set_gains(wu=1)</code></pre>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>3. Sensor: DMP Yaw via Quaternion Fusion</h2>
+
+                <p>
+                    Rather than manually integrating raw gyroscope data — which accumulates bias drift — the
+                    ICM-20948's onboard <strong>Digital Motion Processor (DMP)</strong> was used. The DMP
+                    fuses sensor data internally to output highly stable quaternions.
+                </p>
+
+                <p>
+                    The gyro range was left at its default <span class="math-inline">±2000°/s</span>. Data
+                    from the tuning plots showed the robot occasionally hitting rotational velocities of
+                    <strong>800°/s</strong> during violent recoveries, meaning this wide range was strictly
+                    necessary to prevent clipping. The main control loop runs at a highly stable average of
+                    <strong>75 Hz~</strong>.
+                </p>
+
+                <p>Below are the C++ helper functions used to initialize and read the DMP:</p>
+
+                <div class="code-container">
+                    <pre><code>bool init_dmp() {
+    myICM.begin(Wire, AD0_VAL);
+    if (myICM.status != ICM_20948_Stat_Ok) return false;
+    bool success = true;
+    success &= (myICM.initializeDMP() == ICM_20948_Stat_Ok);
+    success &= (myICM.enableDMPSensor(INV_ICM20948_SENSOR_GAME_ROTATION_VECTOR) == ICM_20948_Stat_Ok);
+    success &= (myICM.setDMPODRrate(DMP_ODR_Reg_Quat6, 0) == ICM_20948_Stat_Ok);
+    success &= (myICM.enableFIFO() == ICM_20948_Stat_Ok);
+    success &= (myICM.enableDMP() == ICM_20948_Stat_Ok);
+    success &= (myICM.resetDMP() == ICM_20948_Stat_Ok);
+    success &= (myICM.resetFIFO() == ICM_20948_Stat_Ok);
+    return success;
+}
+
+bool read_dmp_yaw() {
+    icm_20948_DMP_data_t data;
+    bool got_data = false;
+    do {
+        myICM.readDMPdataFromFIFO(&data);
+        if (myICM.status == ICM_20948_Stat_Ok || myICM.status == ICM_20948_Stat_FIFOMoreDataAvail) {
+            if ((data.header & DMP_header_bitmap_Quat6) > 0) {
+                double q1 = ((double)data.Quat6.Data.Q1) / 1073741824.0;
+                double q2 = ((double)data.Quat6.Data.Q2) / 1073741824.0;
+                double q3 = ((double)data.Quat6.Data.Q3) / 1073741824.0;
+                double q0 = sqrt(max(0.0, 1.0 - q1*q1 - q2*q2 - q3*q3));
+                double raw_yaw = atan2(2.0*(q0*q3 + q1*q2), 1.0 - 2.0*(q2*q2 + q3*q3));
+                yaw_dmp = -(float)(raw_yaw * 180.0 / M_PI);
+                got_data = true;
+            }
+        }
+    } while (myICM.status == ICM_20948_Stat_FIFOMoreDataAvail);
+    return got_data;
+}</code></pre>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>4. PID Tuning &amp; Data Visualization</h2>
+
+                <p>
+                    Building upon the foundation from the previous lab, I ported our initial PID control
+                    structure and adapted it for orientation control. The tuning goal was a critically damped
+                    system with fast response times and zero steady-state error. To accurately debug the
+                    system, the telemetry graphs plot five distinct parameters over time:
+                </p>
+
+                <ul
+                    style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem 0;">
+                    <li style="display:flex; align-items:center; gap:0.75rem;">
+                        <span
+                            style="display:inline-block; width:14px; height:14px; border-radius:3px; background:#4a90d9; flex-shrink:0;"></span>
+                        <span><strong style="color:#6ab0f5;">Measured Yaw (θ):</strong> The physical angle of the
+                            robot.</span>
+                    </li>
+                    <li style="display:flex; align-items:center; gap:0.75rem;">
+                        <span
+                            style="display:inline-block; width:14px; height:14px; border-radius:3px; background:#e05c5c; flex-shrink:0;"></span>
+                        <span><strong style="color:#f08080;">Setpoint:</strong> The target angle (dashed).</span>
+                    </li>
+                    <li style="display:flex; align-items:center; gap:0.75rem;">
+                        <span
+                            style="display:inline-block; width:14px; height:14px; border-radius:3px; background:#aaaaaa; flex-shrink:0;"></span>
+                        <span><strong style="color:#cccccc;">Controller Effort (PWM):</strong> Raw motor command output
+                            (−255 to 255).</span>
+                    </li>
+                    <li style="display:flex; align-items:center; gap:0.75rem;">
+                        <span
+                            style="display:inline-block; width:14px; height:14px; border-radius:3px; background:#3dba6e; flex-shrink:0;"></span>
+                        <span><strong style="color:#5dd88a;">Angular Velocity (ω):</strong> Rotational speed in degrees
+                            per second.</span>
+                    </li>
+                    <li style="display:flex; align-items:center; gap:0.75rem;">
+                        <span
+                            style="display:inline-block; width:14px; height:14px; border-radius:3px; background:#9b59c7; flex-shrink:0;"></span>
+                        <span><strong style="color:#b87fe8;">System Error:</strong> Mathematical difference between
+                            Setpoint and Yaw.</span>
+                    </li>
+                </ul>
+
+                <p>
+                    We iterated through <span class="math-inline">Kp</span> values of 2, 4, and 6. A
+                    <span class="math-inline">Kp</span> of 6 induced aggressive oscillations, so we settled
+                    on <span class="math-inline">Kp = 5.0</span>. To brake the resulting rotational momentum,
+                    a derivative term of <span class="math-inline">Kd = 0.3</span> was introduced. Finally,
+                    a small integral term <span class="math-inline">Ki = 0.15</span> was added to overcome
+                    static floor friction.
+                </p>
+
+                <!-- Video: kicking car demo -->
+                <div class="video-container" style="margin-top: 1.5rem;">
+                    <iframe src="https://www.youtube.com/embed/GubHRGeqNe0"
+                        title="Orientation PID — robot kicked from multiple directions, snapping back to setpoint"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p class="video-caption"><em>Video 1: Robot kicked from multiple directions — aggressively snaps back to
+                        the yaw setpoint</em></p>
+
+                <!-- Row 1: Pics 1, 2, 3 — vertical stack for readability -->
+                <div class="single-image" style="margin-top: 2rem;">
+                    <img src="../lab6/fafalab6assets/1.png"
+                        alt="PID Orientation — Kp=6 tuning plot: yaw, setpoint, PWM, angular velocity, error">
+                    <p><em>Figure 1: Kp=6 — Aggressive oscillations induced; too high. Final value settled at
+                            Kp=5.0.</em></p>
+                </div>
+                <div class="single-image">
+                    <img src="../lab6/fafalab6assets/2.png"
+                        alt="PID Orientation — Kp=2 tuning plot: yaw, setpoint, PWM, angular velocity, error">
+                    <p><em>Figure 2: Kp=2 — Underpowered response, yaw barely converges and holds a large steady-state
+                            error.</em></p>
+                </div>
+                <div class="single-image">
+                    <img src="../lab6/fafalab6assets/3.png"
+                        alt="PID Orientation — Kp=4 tuning plot: yaw, setpoint, PWM, angular velocity, error">
+                    <p><em>Figure 3: Kp=4 — Faster convergence and reduced error. A good midpoint but still
+                            underdamped.</em></p>
+                </div>
+
+                <!-- Row 2: Pics 4 and 5 side by side -->
+                <div class="image-row" style="margin-top: 1rem;">
+                    <div class="image-item">
+                        <img src="../lab6/fafalab6assets/4.png"
+                            alt="PID Kp=5 Kd=0.3 Ki=0.15 with LPF α=0.3 — Angular Velocity vs Time">
+                        <p><em>Figure 4: Kp=5.0, Kd=0.3, Ki=0.15 with LPF (α=0.3) — Angular Velocity vs Time (Green).
+                                Sharp velocity spike during perturbation, fast recovery.</em></p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../lab6/fafalab6assets/5.png"
+                            alt="PID Kp=5 Kd=0.3 Ki=0.15 with LPF α=0.3 — Error vs Time">
+                        <p><em>Figure 5: Kp=5.0, Kd=0.3, Ki=0.15 with LPF (α=0.3) — Error (SP − Yaw) vs Time (Purple).
+                                High initial error resolves cleanly to zero.</em></p>
+                    </div>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>5. Addressing Derivative Kick</h2>
+
+                <p>
+                    If a setpoint is changed mid-run via Bluetooth, the calculated error instantly spikes. If
+                    the D-term is calculated as
+                    <span class="math-inline">d(Error)/dt</span>, this vertical spike causes a mathematically
+                    massive PWM command, jerking the robot violently.
+                </p>
+
+                <p>
+                    To prevent this, the derivative was calculated based on the <em>Measured Yaw</em> rather
+                    than the Error. Because physical objects cannot teleport, the change in yaw is always
+                    smooth. A low-pass filter (<span class="math-inline">α = 0.3</span>) was also applied to
+                    prevent IMU noise from jittering the motors. This weights the newest reading at 30% and
+                    the historical average at 70%.
+                </p>
+
+                <!-- Row 2: Pics 6 and 7 side by side -->
+                <div class="image-row">
+                    <div class="image-item">
+                        <img src="../lab6/fafalab6assets/6.png"
+                            alt="Before: Derivative on Error — spike in PWM on setpoint change">
+                        <p><em>Figure 6: Derivative on Error — Violent PWM spike during setpoint change causes jerky
+                                rotation.</em></p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../lab6/fafalab6assets/7.png"
+                            alt="After: Derivative on Measurement with LPF — smooth PWM across setpoint change">
+                        <p><em>Figure 7: Derivative on Measurement (LPF α=0.3) — Smooth output regardless of setpoint
+                                change. Final configuration.</em></p>
+                    </div>
+                </div>
+
+                <div class="code-container">
+                    <pre><code>// Derivative on Measurement & Angle Wrapping
+float delta_yaw = current_yaw_rel - prev_yaw;
+while (delta_yaw >  180.0f) delta_yaw -= 360.0f;
+while (delta_yaw < -180.0f) delta_yaw += 360.0f;
+
+float raw_d = (dt_s > 0) ? -(delta_yaw) / dt_s : 0.0f;
+
+// Low-Pass Filter
+filtered_d = 0.3f * raw_d + 0.7f * filtered_d;
+float d_term = Kd * filtered_d;</code></pre>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>6. (5000-Level) Integral Anti-Windup</h2>
+
+                <p>
+                    To ensure the controller operates independently of floor surface friction, an anti-windup
+                    clamp was implemented. If the robot's wheels stall, the I-term will build to infinity,
+                    causing a false equilibrium where the wound-up positive memory completely cancels out
+                    the negative P-term brakes upon release.
+                </p>
+
+                <div class="code-container">
+                    <pre><code>// Integral Accumulation & Anti-Windup Clamp
+integral += error * dt_s;
+if (windup_on) {
+    integral = constrain(integral, -WINDUP_LIMIT, WINDUP_LIMIT);
+}</code></pre>
+                </div>
+
+                <p>
+                    This was proven using a hostage test with a highly aggressive
+                    <span class="math-inline">Ki = 1.0</span>:
+                </p>
+
+                <div class="callout-box warning">
+                    <strong>Protection OFF (WU=0):</strong> The integrator accumulated unchecked. When released,
+                    the robot wildly overshot and became permanently stranded 10° away from the target. The
+                    motor effort dropped to zero because the massive positive integrator perfectly canceled
+                    out the negative P-term.
+                </div>
+
+                <!-- WU OFF: 2+1 grid -->
+                <div class="image-row" style="margin-top:1rem;">
+                    <div class="image-item">
+                        <img src="../lab6/fafalab6assets/WU01.png"
+                            alt="Anti-Windup OFF — Yaw and setpoint plot, robot overshoots and stays offset">
+                        <p><em>Figure 8a: WU=0 — Yaw vs Time. Controller unable to return to setpoint after
+                                release.</em></p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../lab6/fafalab6assets/WU02.png" alt="Anti-Windup OFF — Angular velocity and error">
+                        <p><em>Figure 8b: WU=0 — Angular velocity &amp; error during hold. Integrator winds up
+                                unchecked.</em></p>
+                    </div>
+                </div>
+                <div class="single-image" style="max-width:700px;">
+                    <img src="../lab6/fafalab6assets/WU03.png" alt="Anti-Windup OFF — integrator saturates">
+                    <p><em>Figure 8c: WU=0 — Integrator (accumulated error) vs Time.</em></p>
+                </div>
+
+                <div class="callout-box success">
+                    <strong>Protection ON (WU=1):</strong> The integrator hit the dynamic ceiling
+                    (<span class="math-inline">80.0 / Ki</span>) and was mathematically blocked. When released,
+                    the P and D terms easily overpowered the small, clamped I-term, yanking the robot back
+                    to the 90° setpoint perfectly.
+                </div>
+
+                <!-- WU ON: 2+1 grid -->
+                <div class="image-row" style="margin-top:1rem;">
+                    <div class="image-item">
+                        <img src="../lab6/fafalab6assets/WU11.png"
+                            alt="Anti-Windup ON — Yaw returns to setpoint cleanly">
+                        <p><em>Figure 9a: WU=1 — Yaw vs Time. Robot snaps cleanly back to 90° setpoint after
+                                release.</em></p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../lab6/fafalab6assets/WU12.png"
+                            alt="Anti-Windup ON — integrator clamped, angular velocity controlled">
+                        <p><em>Figure 9b: WU=1 — Angular velocity &amp; error under protection. Clamped I-term keeps the
+                                response controlled.</em></p>
+                    </div>
+                </div>
+                <div class="single-image" style="max-width:700px;">
+                    <img src="../lab6/fafalab6assets/WU13.png" alt="Anti-Windup ON — integrator plateaus at ceiling">
+                    <p><em>Figure 9c: WU=1 — Integrator plateaus at the dynamic ceiling (80.0/Ki). P and D terms easily
+                            overpower it; robot recovers perfectly.</em></p>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <p style="color: var(--text-secondary); font-size: 0.85rem;">
+                    <em>AI usage: AI was used to generate this website and solve bugs.</em>
+                </p>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-text">© 2026 Immanuel Varghese Koshy. Built for ECE 5160.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
