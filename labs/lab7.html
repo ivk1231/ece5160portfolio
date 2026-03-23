@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 7: Kalman Filter - ECE 5160 Fast Robots by Immanuel Varghese Koshy.">
+    <title>Lab 7: Kalman Filter | ECE 5160</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .image-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .image-row .image-item {
+            flex: 1;
+            min-width: 320px;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .image-row-3 .image-item {
+            flex: 1;
+            min-width: 260px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .image-row img,
+        .single-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .image-row img:hover,
+        .single-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .image-row p,
+        .single-image p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .single-image {
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        .code-container pre {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow-x: auto;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        /* Responsive 16:9 iframe embed */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            padding-bottom: min(56.25%, calc(720px * 0.5625));
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-wrap {
+            max-width: 720px;
+            margin: 1.5rem auto 0;
+        }
+
+        .video-caption {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.75rem;
+        }
+
+        .callout-box {
+            background: rgba(255, 255, 255, 0.04);
+            border-left: 3px solid rgba(99, 179, 237, 0.6);
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .callout-box.warning {
+            border-left-color: rgba(245, 158, 11, 0.7);
+        }
+
+        .callout-box.success {
+            border-left-color: rgba(16, 185, 129, 0.7);
+        }
+
+        .math-inline {
+            font-family: 'Courier New', monospace;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 0.95em;
+        }
+
+        /* Shorts video container (9:16 vertical) */
+        .video-container-shorts {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
+            padding-bottom: min(177.78%, calc(380px * 1.7778));
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-container-shorts iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../index.html" class="logo">Immanuel Koshy</a>
+            <nav class="nav">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+                <a href="https://immanuel-portfolio.netlify.app" target="_blank" rel="noopener noreferrer"
+                    class="btn-primary">
+                    Main Portfolio
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="lab-page">
+        <div class="container">
+            <!-- Back Navigation -->
+            <a href="../index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+                </svg>
+                Back to Home
+            </a>
+
+            <!-- Lab Header -->
+            <header class="lab-header">
+                <h1 class="lab-page-title">Lab 7: Kalman Filter</h1>
+                <p class="lab-page-meta">Week 7 | March 2026</p>
+                <p class="lab-page-meta">Collaborators: <a href="https://leslier7.github.io/ece5160-fast-robotics/"
+                        target="_blank" rel="noopener noreferrer">Robby Leslie</a></p>
+            </header>
+
+            <!-- Lab Content -->
+            <article class="lab-body">
+
+                <h2>1. Objective</h2>
+                <p>
+                    The goal of this lab was to build a Kalman Filter (KF) for the robot's position estimation and
+                    integrate it into the existing PID position controller from Lab 5. The KF replaces the linear
+                    extrapolation used previously, providing a physically-grounded state estimate that runs at the full
+                    controller loop rate (~204 Hz) rather than being limited to the ToF sensor update rate (~27 Hz).
+                </p>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>2. Step 1: Estimating Drag and Momentum</h2>
+
+                <p>
+                    Before building the KF, the system's physical parameters — drag <span class="math-inline">d</span>
+                    and momentum <span class="math-inline">m</span> — needed to be estimated from real robot data. This
+                    was done using an open-loop step response: the robot was driven toward a wall at a constant
+                    PWM=120 while logging ToF distance at ~27 Hz.
+                </p>
+
+                <p>
+                    Three runs were attempted. Run 1 started ~4m from the wall and was unusable — the ToF sensor
+                    saturated at its long-mode ceiling (~3975mm) for the entire acceleration phase, so no valid speed
+                    data was captured. Run 2 (start ~2.7m) and Run 3 (start ~3.5m) both produced usable data, with
+                    Run 3 being cleaner since the robot had more room to accelerate toward steady state.
+                </p>
+
+                <p>
+                    A key data processing issue was identified: the Arduino loop runs at ~100 Hz but the ToF sensor only
+                    updates at ~27 Hz, so ~75% of logged rows were duplicate distance values. Feeding these into
+                    <span class="math-inline">np.gradient</span> created large artificial speed spikes. The fix was to
+                    deduplicate — computing speed only between rows where distance actually changed — then applying a
+                    5-point median filter and clipping outliers beyond 3×IQR from the median.
+                </p>
+
+                <!-- Three step response plots: t90, 5median, step_response_run3_clean stacked -->
+                <div class="single-image">
+                    <img src="../lab7/lab7fafaassets/t90.png"
+                        alt="Step response Run 3 — 90% rise time annotation showing t90 ≈ 1.25s">
+                    <p><em>Figure 1: Step response Run 3 with 90% rise time annotated (~1.25s). Used to extract
+                            steady-state speed and rise-time for drag/momentum estimation.</em></p>
+                </div>
+                <div class="single-image">
+                    <img src="../lab7/lab7fafaassets/5median.png"
+                        alt="Speed vs time after 5-point median filter — spike removal visible">
+                    <p><em>Figure 2: Computed speed after deduplication and 5-point median filter. Artificial spikes
+                            from duplicate ToF readings are suppressed.</em></p>
+                </div>
+                <div class="single-image">
+                    <img src="../lab7/lab7fafaassets/step_response_run3_clean.png"
+                        alt="Clean step response Run 3 — distance and speed vs time">
+                    <p><em>Figure 3: Clean step response (Run 3). Distance (top) and filtered speed (bottom) vs time.
+                            Steady-state speed ≈ 2529 mm/s.</em></p>
+                </div>
+
+                <p>
+                    From Run 3, steady-state speed was measured as ~2529 mm/s and 90% rise time as ~1.25s. Averaged
+                    across Run 2 and Run 3:
+                </p>
+
+                <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem;">
+                    <thead>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.15);">
+                            <th style="text-align:left; padding: 0.6rem 1rem; color: var(--text-secondary);">Parameter
+                            </th>
+                            <th style="text-align:left; padding: 0.6rem 1rem; color: var(--text-secondary);">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                            <td style="padding: 0.6rem 1rem;"><span class="math-inline">d</span> (drag)</td>
+                            <td style="padding: 0.6rem 1rem;">0.000200</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.6rem 1rem;"><span class="math-inline">m</span> (momentum)</td>
+                            <td style="padding: 0.6rem 1rem;">0.000101</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>3. Step 2: Building and Tuning the KF in Python</h2>
+
+                <p>
+                    With <span class="math-inline">d</span> and <span class="math-inline">m</span> estimated, the
+                    state-space model was constructed and discretised at ΔT = 34ms (matching the ToF update period):
+                </p>
+
+                <div class="code-container">
+                    <pre><code>Delta_T = 0.034   # seconds
+
+A = np.array([[0,      1   ],
+              [0,  -d/m    ]])
+B = np.array([[0    ],
+              [1/m  ]])
+
+Ad = np.eye(2) + Delta_T * A
+Bd = Delta_T * B
+C  = np.array([[-1, 0]])   # measure negative position (distance = -x[0])</code></pre>
+                </div>
+
+                <p>
+                    The state vector is <span class="math-inline">x = [position, velocity]ᵀ</span> where position is
+                    the negative distance from the wall. <span class="math-inline">C = [-1, 0]</span> because the ToF
+                    measures positive distance, which equals <span class="math-inline">-x[0]</span>.
+                </p>
+
+                <p>
+                    Noise covariances were tuned iteratively. The critical discovery during tuning was a unit
+                    inconsistency: <span class="math-inline">d</span> and <span class="math-inline">m</span> were
+                    estimated with <span class="math-inline">u = PWM/255</span> (absolute normalisation), but the KF
+                    was initially being fed <span class="math-inline">u = PWM/STEP_PWM = 1.0</span>, effectively
+                    doubling the modelled thrust and pushing the estimated terminal velocity to ~5000 mm/s. Correcting
+                    to <span class="math-inline">u = PWM/255.0</span> immediately brought the velocity estimate in line
+                    with the measured ~2500 mm/s.
+                </p>
+
+                <p>Final noise parameters:</p>
+
+                <div class="code-container">
+                    <pre><code>sigma_1 = 25.0   # position process noise (mm)
+sigma_2 = 5.0    # velocity process noise (mm/s)
+sigma_3 = 30.0   # ToF sensor noise (mm)</code></pre>
+                </div>
+
+                <!-- KF tuning plots full-width stacked -->
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../lab7/lab7fafaassets/kftuning2.png"
+                        alt="KF Python tuning — position estimate vs raw ToF (zoomed)"
+                        style="width: 100%; max-width: none; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; text-align: center; color: var(--text-secondary);"><em>Figure 4: KF Python tuning — KF distance estimate tracking raw ToF. Velocity estimate
+                            converges to ~1950 mm/s.</em></p>
+                </div>
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../lab7/lab7fafaassets/kftuning.png"
+                        alt="KF Python tuning — full run with velocity estimate overlay"
+                        style="width: 100%; max-width: none; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; text-align: center; color: var(--text-secondary);"><em>Figure 5: Full KF tuning run. KF position (blue) tracks raw ToF cleanly; velocity
+                            estimate (red) is smooth and physically consistent.</em></p>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>4. Step 3: Integrating KF into the Arduino PID Controller</h2>
+
+                <p>
+                    The KF was ported to the Artemis using the <span class="math-inline">BasicLinearAlgebra</span>
+                    library. The linear extrapolation from Lab 5 was removed entirely — the KF predict step handles
+                    inter-reading position estimation, which is more physically principled. The key architectural change
+                    is that the KF runs two modes every loop iteration:
+                </p>
+
+                <ul
+                    style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem 0;">
+                    <li style="display:flex; align-items:center; gap:0.75rem;">
+                        <span
+                            style="display:inline-block; width:14px; height:14px; border-radius:3px; background:#4a90d9; flex-shrink:0;"></span>
+                        <span><strong style="color:#6ab0f5;">Predict-only</strong> (~204 Hz): advances the state using
+                            the physics model and last motor command.</span>
+                    </li>
+                    <li style="display:flex; align-items:center; gap:0.75rem;">
+                        <span
+                            style="display:inline-block; width:14px; height:14px; border-radius:3px; background:#3dba6e; flex-shrink:0;"></span>
+                        <span><strong style="color:#5dd88a;">Predict + Update</strong> (~27 Hz): incorporates a fresh
+                            ToF reading when one is available.</span>
+                    </li>
+                </ul>
+
+                <div class="code-container">
+                    <pre><code>// Predict every loop; update only when ToF fires
+kf_step(u_norm, (float)tof_last, tof_updated);
+float dist_kf = kf_distance();   // fed to PID instead of extrapolated distance</code></pre>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>5. Step 4: PID Tuning with KF</h2>
+
+                <p>
+                    Initial runs with the Lab 5 gains (<span class="math-inline">Kp=0.08, Ki=0.002, Kd=1.5</span>)
+                    caused the robot to hit the wall at ~3200 mm/s. The KF's smoother position estimate meant the
+                    D term was no longer damping sensor noise — it was reacting to real velocity, requiring retuning.
+                </p>
+
+                <p>The braking zones were tightened to start acting earlier:</p>
+
+                <div class="code-container">
+                    <pre><code>if (dist_kf &lt; 2000) p_out = min(p_out, 150.0f);
+if (dist_kf &lt; 1200) p_out = min(p_out, 100.0f);
+if (dist_kf &lt;  700) p_out = min(p_out,  50.0f);
+if (dist_kf &lt;  400) p_out = min(p_out,  30.0f);</code></pre>
+                </div>
+
+                <p>
+                    Final tuned gains: <span class="math-inline">Kp=0.04, Ki=0.001, Kd=2.5, SP=304mm</span>. The robot
+                    approaches at ~1550 mm/s, decelerates smoothly, and parks at the setpoint with no overshoot.
+                </p>
+
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../lab7/lab7fafaassets/lab7final.png"
+                        alt="Final PID+KF run — distance and KF estimate vs time showing smooth deceleration to setpoint"
+                        style="width: 100%; max-width: none; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; text-align: center; color: var(--text-secondary);"><em>Figure 6: Final PID+KF run. The KF estimate (blue) guides the controller smoothly to the
+                            304mm setpoint with no overshoot.</em></p>
+                </div>
+
+                <!-- YouTube Shorts embed -->
+                <div class="video-container-shorts" style="margin-top: 2rem;">
+                    <iframe src="https://www.youtube.com/embed/i5PDvVtesyI"
+                        title="Lab 7: Robot driving to wall and parking using Kalman Filter PID" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p class="video-caption"><em>Video 1: Robot driving to wall and parking at 304mm setpoint using
+                        Kalman Filter-guided PID.</em></p>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>6. Step 5: Demonstrating KF Runs Faster Than the Sensor</h2>
+
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../lab7/lab7fafaassets/finalprrof.png"
+                        alt="KF vs ToF rate plot — staircase ToF vs smooth KF estimate, zoomed 200ms window below"
+                        style="width: 100%; max-width: none; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; text-align: center; color: var(--text-secondary);"><em>Figure 7: KF vs ToF rate comparison. Top: raw ToF (staircase) vs KF estimate (smooth
+                            continuous line). Bottom: 200ms zoom showing ~7 controller iterations per sensor update,
+                            with predict-only intervals shaded.</em></p>
+                </div>
+
+                <p>
+                    The plot above demonstrates the core KF advantage. The controller loop runs at
+                    <strong>204.4 Hz</strong> while the ToF sensor updates at <strong>28.3 Hz</strong> — a
+                    <strong>7.2× difference</strong>. The top panel shows raw ToF as a staircase (flat between sensor
+                    firings) vs the KF estimate as a smooth continuous line. The bottom panel zooms into a 200ms
+                    window, showing ~7 controller iterations per sensor update with the predict-only intervals shaded.
+                    Without the KF, the PID would use stale position data for up to 37ms between updates. With the KF,
+                    it receives a fresh state estimate every ~5ms.
+                </p>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>7. Results Summary</h2>
+
+                <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem;">
+                    <thead>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.15);">
+                            <th style="text-align:left; padding: 0.6rem 1rem; color: var(--text-secondary);">Parameter
+                            </th>
+                            <th style="text-align:left; padding: 0.6rem 1rem; color: var(--text-secondary);">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                            <td style="padding: 0.6rem 1rem;">Controller loop rate</td>
+                            <td style="padding: 0.6rem 1rem;">204.4 Hz</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                            <td style="padding: 0.6rem 1rem;">ToF sensor rate</td>
+                            <td style="padding: 0.6rem 1rem;">28.3 Hz</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                            <td style="padding: 0.6rem 1rem;">KF speedup factor</td>
+                            <td style="padding: 0.6rem 1rem;">7.2×</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                            <td style="padding: 0.6rem 1rem;">Final gains</td>
+                            <td style="padding: 0.6rem 1rem;"><span class="math-inline">Kp=0.04, Ki=0.001, Kd=2.5</span>
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                            <td style="padding: 0.6rem 1rem;">Setpoint</td>
+                            <td style="padding: 0.6rem 1rem;">304 mm</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                            <td style="padding: 0.6rem 1rem;">Peak approach speed</td>
+                            <td style="padding: 0.6rem 1rem;">~1550 mm/s</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.6rem 1rem;">Steady-state error</td>
+                            <td style="padding: 0.6rem 1rem;">~0 mm</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <p style="color: var(--text-secondary); font-size: 0.85rem;">
+                    <em>AI Usage: AI was used in this lab for cross-checking calculations, comparing CSV data across
+                        runs, and tuning the filter. Speed was essential.</em>
+                </p>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-text">© 2026 Immanuel Varghese Koshy. Built for ECE 5160.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
