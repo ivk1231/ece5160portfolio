@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 8: Stunts — ECE 5160 Fast Robots by Immanuel Varghese Koshy.">
+    <title>Lab 8: Stunts | ECE 5160</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .image-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .image-row .image-item {
+            flex: 1;
+            min-width: 320px;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .image-row img,
+        .single-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .image-row img:hover,
+        .single-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .image-row p,
+        .single-image p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .single-image {
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        .code-container pre {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow-x: auto;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        /* Responsive 16:9 iframe embed */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            padding-bottom: min(56.25%, calc(720px * 0.5625));
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-wrap {
+            max-width: 720px;
+            margin: 1.5rem auto 0;
+        }
+
+        .video-caption {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.75rem;
+        }
+
+        /* Shorts video container (9:16 vertical) */
+        .video-container-shorts {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
+            padding-bottom: min(177.78%, calc(380px * 1.7778));
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-container-shorts iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Side-by-side shorts layout */
+        .videos-row {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .video-item {
+            flex: 1;
+            min-width: 300px;
+            max-width: 380px;
+            text-align: center;
+        }
+
+        .callout-box {
+            background: rgba(255, 255, 255, 0.04);
+            border-left: 3px solid rgba(99, 179, 237, 0.6);
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .callout-box.success {
+            border-left-color: rgba(16, 185, 129, 0.7);
+        }
+
+        .math-inline {
+            font-family: 'Courier New', monospace;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../index.html" class="logo">Immanuel Koshy</a>
+            <nav class="nav">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+                <a href="https://immanuel-portfolio.netlify.app" target="_blank" rel="noopener noreferrer"
+                    class="btn-primary">
+                    Main Portfolio
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="lab-page">
+        <div class="container">
+            <!-- Back Navigation -->
+            <a href="../index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+                </svg>
+                Back to Home
+            </a>
+
+            <!-- Lab Header -->
+            <header class="lab-header">
+                <h1 class="lab-page-title">Lab 8: Stunts</h1>
+                <p class="lab-page-meta">Week 8 | April 2026</p>
+
+            </header>
+
+            <!-- Lab Content -->
+            <article class="lab-body">
+
+                <h2>1. Overview</h2>
+                <p>
+                    For this lab I chose <strong>Task B: Drift</strong>. The objective is to start at a designated line
+                    under 4 meters from the wall, drive forward at high speed, and initiate a 180-degree turn when
+                    within 914 mm (3 ft). I chose the drift to use momentum to carry the robot through the turn rather
+                    than risking a collision. I did not apply tape to the wheels; instead, I used a programmatic
+                    kick-then-sustain motor pattern to aggressively break the floor's natural friction.
+                </p>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>2. System Architecture: The 4-Phase Hybrid State Machine</h2>
+
+                <p>
+                    My implementation is a hybrid open- and closed-loop system merging my previous labs. From Lab 7, I
+                    carried forward the Kalman Filter (KF) and ToF distance pipeline. From Lab 6, I reused the
+                    ICM-20948 DMP yaw tracking and PID orientation controller.
+                </p>
+                <p>
+                    During initial testing, purely open-loop spinning caused over-rotation past 360° due to inertia,
+                    while pure PID spinning caused the robot to regain traction and arc into the wall. The solution was
+                    a four-phase state machine assigning the optimal control strategy to each phase:
+                </p>
+
+                <div class="code-container">
+                    <pre><code>enum DriftPhase {
+    PHASE_IDLE     = 0,
+    PHASE_APPROACH = 1,  // Closed-loop: KF distance tracking
+    PHASE_DRIFT    = 2,  // Open-loop: aggressive kick/sustain spin
+    PHASE_CORRECT  = 3,  // Closed-loop: Lab 6 PID snaps to 180°
+    PHASE_RETURN   = 4,  // Open-loop: drive back to start
+    PHASE_DONE     = 5
+};</code></pre>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>3. Phase 1: Approach and the Kalman Filter</h2>
+
+                <p>
+                    The robot drives forward at <span class="math-inline">APPROACH_PWM = 220</span>. Since the Arduino
+                    <span class="math-inline">loop()</span> runs much faster than the ToF sensor's 33 ms period, I
+                    compute the elapsed <span class="math-inline">dt</span> each cycle for the KF. This prevents
+                    accumulating phantom distance.
+                </p>
+                <p>
+                    Every loop, the KF predicts using the normalized PWM. Upon ToF firing, the KF updates. This yields
+                    a continuous distance estimate at the loop rate — critical at approach speeds where the robot
+                    travels 100–150 mm between 30 Hz samples. The plots confirm the KF (solid blue) tracks the raw ToF
+                    cleanly, showing no significant lag when the drift triggers.
+                </p>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>4. Phase 2: Open-Loop Drift and Slip Compensation</h2>
+
+                <p>
+                    I set <span class="math-inline">DRIFT_TRIGGER_MM = 1400</span>. Triggering above 914 mm accounts
+                    for forward momentum carrying the robot before the wheels break traction. The spin uses a
+                    kick-then-sustain pattern: 250 PWM for 75 ms to violently break static friction, then 100 PWM.
+                </p>
+                <p>
+                    Instead of targeting 180°, I set <span class="math-inline">YAW_TARGET_DEG = 120°</span> and let
+                    rotational inertia coast the robot the remaining ~60°. In the motor plots, PWM drops near 120°, and
+                    yaw continues climbing under momentum.
+                </p>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>5. Phase 3: Closed-Loop PID Correction</h2>
+
+                <p>
+                    Post-drift, control hands to my Lab 6 PID targeting −180°. <strong>Run 06</strong> used
+                    <span class="math-inline">Kp = 0.04</span>. The yaw settled at −150° — a 30° steady-state error.
+                    Mathematically, a 30° error multiplied by <span class="math-inline">Kp = 0.04</span> produces a
+                    raw PID output of 1.2, which the motor deadband entirely absorbed, resulting in zero movement.
+                </p>
+
+                <!-- Run 06 plot -->
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../lab8/assets/run6.png"
+                        alt="Run 06 — baseline: KF tracks ToF, drift triggers at ~1.3s, yaw stalls at −150°"
+                        style="width: 100%; max-width: none; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; text-align: center; color: var(--text-secondary);">
+                        <em>Figure 1 — Run 06 (baseline). The KF tracks the ToF cleanly. Drift triggers at ~1.3 s. The
+                            yaw settles at ~−150° and stalls. The PID correction produces no movement because
+                            Kp = 0.04 generates a command too small to overcome deadband.</em>
+                    </p>
+                </div>
+
+                <p>
+                    To fix this, I raised <span class="math-inline">Kp = 2.0</span> and introduced an integral term
+                    (<span class="math-inline">Ki = 0.05</span>) to accumulate steady-state error and spool up torque
+                    until overcoming friction. <strong>Run 11</strong> shows the result: the PID fires two corrective
+                    motor bursts, snapping the yaw cleanly to −180°.
+                </p>
+
+                <!-- Run 11 plot -->
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../lab8/assets/run11.png"
+                        alt="Run 11 — Ki added: two PWM spikes at ~1.8s and ~2.0s snap yaw to −180°"
+                        style="width: 100%; max-width: none; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; text-align: center; color: var(--text-secondary);">
+                        <em>Figure 2 — Run 11 (Ki added). The two green PWM spikes at ~1.8 s and ~2.0 s are the PID
+                            commands. The yaw trace corrects post-drift and settles perfectly at −180°.</em>
+                    </p>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>6. Phase 4: Return Sprint</h2>
+
+                <p>
+                    Once locked to −180°, the robot sprints back. <strong>Run 12</strong> demonstrates the speed-run
+                    configuration: approach PWM raised, PID stabilization wait reduced, and return PWM maximized to
+                    255. Total run time dropped to ~3.2 seconds from over 5 seconds.
+                </p>
+
+                <!-- Run 12 plot -->
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../lab8/assets/run12.png"
+                        alt="Run 12 — speed run: drift triggers at ~1.0s, yaw corrects by ~2.0s, 255 PWM return sprint"
+                        style="width: 100%; max-width: none; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; text-align: center; color: var(--text-secondary);">
+                        <em>Figure 3 — Run 12 (speed run). Drift triggers at ~1.0 s due to higher velocity. Yaw
+                            correction completes by ~2.0 s. The green plateau from ~2.3 s onward is the 255 PWM return
+                            sprint.</em>
+                    </p>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>7. Live BLE Tuning</h2>
+
+                <p>
+                    Every parameter — approach PWM, trigger distance, yaw target, spin profile, PID gains, and return
+                    PWM — is configurable over BLE at runtime via a single Python command. The entire progression from
+                    Run 06 to Run 12 was driven entirely by BLE without recompiling.
+                </p>
+
+                <div class="code-container">
+                    <pre><code># Final speed-run parameters sent via Python BLE
+ble.send_command(CommandTypes.SET_GAINS,
+    "11|AP:220|TR:914|YT:120|TK:250|TS:100|TP:75|Kp:2.0|Ki:0.05|Kd:0.5|RP:255|RT:800")</code></pre>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>8. Videos</h2>
+
+                <!-- Videos: Run 1 and Run 2 side by side, slow-mo below -->
+                <div class="videos-row">
+                    <div class="video-item">
+                        <div class="video-container-shorts">
+                            <iframe src="https://www.youtube.com/embed/KOFY-5bJyWw"
+                                title="Lab 8: Stunt Run 1 — Drift at full speed" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <p class="video-caption"><em>Video 1: Full-speed stunt run — approach, drift, and return.</em>
+                        </p>
+                    </div>
+                    <div class="video-item">
+                        <div class="video-container-shorts">
+                            <iframe src="https://www.youtube.com/embed/tCP3szUhaW0"
+                                title="Lab 8: Stunt Run 2 — speed-run configuration" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <p class="video-caption"><em>Video 2: Speed-run configuration — total time ~3.2 s.</em></p>
+                    </div>
+                </div>
+
+                <!-- Slow-mo video centered -->
+                <div style="margin-top: 2rem;">
+                    <div class="video-container-shorts">
+                        <iframe src="https://www.youtube.com/embed/mL8jDGtgbyo"
+                            title="Lab 8: Slow-motion drift — open-loop traction break" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p class="video-caption"><em>Video 3: Slow-motion capture of the open-loop drift breaking
+                            traction.</em></p>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>9. Summary</h2>
+
+                <p>
+                    Building upon prior labs allowed me to focus purely on stunt logic. The state machine facilitated
+                    isolated phase testing, while BLE tuning enabled rapid iteration. The final architecture —
+                    closed-loop KF for timing, open-loop kick/sustain for drifting, and closed-loop PID for heading
+                    correction — produced a fast, reliable stunt all in one lab.
+                </p>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <p style="color: var(--text-secondary); font-size: 0.85rem;">
+                    <em>AI Usage: AI was used in this lab for cross-checking logic, debugging the state machine
+                        transitions, and iterating on BLE parameter strings.</em>
+                </p>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-text">© 2026 Immanuel Varghese Koshy. Built for ECE 5160.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
