@@ -412,7 +412,7 @@
                 <p>
                     To convert the unified, orthogonal point cloud into a format suitable for the simulator, I needed to
                     extract distinct mathematical line segments from the raw scatter data. Because ToF sensors
-                    inherently capture noise, stray reflections, and "splatter" near edges, a standard linear regression
+                    inherently capture noise, stray reflections, and splatter near edges, a standard linear regression
                     (like least-squares) would be heavily skewed by these outliers.
                 </p>
                 <p>
@@ -448,8 +448,7 @@ y_end   = [-5.500, -5.500, -2.000, -2.000, -4.500, -4.500, 4.830, 4.830, 0.000, 
                         alt="Final global wall map — 12-segment line-based room representation"
                         style="width: 100%; max-width: 800px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
                     <p style="margin-top: 0.5rem; font-size: 0.9rem; text-align: center; color: var(--text-secondary);">
-                        <em>Figure 7 — Global walls without right-side wall distance tweaked. The 12 line segments
-                            faithfully reproduce the room's indented perimeter and internal island obstacle.</em>
+                        <em>Figure 7 — Global walls without right-side wall distance tweaked.</em>
                     </p>
                 </div>
 
