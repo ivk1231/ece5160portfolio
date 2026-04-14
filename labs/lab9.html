@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 9: Mapping — ECE 5160 Fast Robots by Immanuel Varghese Koshy.">
+    <title>Lab 9: Mapping | ECE 5160</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .image-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .image-row .image-item {
+            flex: 1;
+            min-width: 320px;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .image-row img,
+        .single-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .image-row img:hover,
+        .single-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .image-row p,
+        .single-image p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .single-image {
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        .code-container pre {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow-x: auto;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        /* Responsive 16:9 iframe embed */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            padding-bottom: min(56.25%, calc(720px * 0.5625));
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-wrap {
+            max-width: 720px;
+            margin: 1.5rem auto 0;
+        }
+
+        .video-caption {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.75rem;
+        }
+
+        /* Shorts video container (9:16 vertical) */
+        .video-container-shorts {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
+            padding-bottom: min(177.78%, calc(380px * 1.7778));
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-container-shorts iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Side-by-side video layout */
+        .videos-row {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .video-item {
+            flex: 1;
+            min-width: 300px;
+            max-width: 380px;
+            text-align: center;
+        }
+
+        .math-inline {
+            font-family: 'Courier New', monospace;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 0.95em;
+        }
+
+        .callout-box {
+            background: rgba(255, 255, 255, 0.04);
+            border-left: 3px solid rgba(99, 179, 237, 0.6);
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../index.html" class="logo">Immanuel Koshy</a>
+            <nav class="nav">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+                <a href="https://immanuel-portfolio.netlify.app" target="_blank" rel="noopener noreferrer"
+                    class="btn-primary">
+                    Main Portfolio
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="lab-page">
+        <div class="container">
+            <!-- Back Navigation -->
+            <a href="../index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+                </svg>
+                Back to Home
+            </a>
+
+            <!-- Lab Header -->
+            <header class="lab-header">
+                <h1 class="lab-page-title">Lab 9: Mapping</h1>
+                <p class="lab-page-meta">Week 9 | April 2026</p>
+            </header>
+
+            <!-- Lab Content -->
+            <article class="lab-body">
+
+                <h2>1. Objective and Approach</h2>
+                <p>
+                    The objective of this lab was to generate a 2D line-based map of a static room using a ToF sensor.
+                    I approached this using <strong>PID control on orientation</strong> (a "step-and-scan" method). The
+                    robot was placed at 5 marked locations in the room <span class="math-inline">(0,0)</span>,
+                    <span class="math-inline">(0,3)</span>, <span class="math-inline">(5,3)</span>,
+                    <span class="math-inline">(5,-3)</span>, and <span class="math-inline">(-3,-2)</span>. At each
+                    location, the robot rotated in discrete increments (10° for rapid 36-point scans, and 5° for dense
+                    72-point scans), stopping to take averaged ToF readings.
+                </p>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>2. Orientation Control &amp; On-Axis Turning</h2>
+                <p>
+                    To ensure the map was not warped by the robot translating while turning, achieving a almost
+                    zero-radius point-turn was critical. Initially, motor deadband mismatches caused the right wheel to
+                    stall at low PID outputs, causing the robot to pivot like a compass. This occurred because I could
+                    not use the static friction-breaking code from previous labs, meaning the tiny PWM values on the
+                    lower-powered side could never break free from the deadband. To balance the movement, I taped the
+                    wheels on a single side.
+                    {Took me a few tries to get it to not slip :) }
+                </p>
+                <p>
+                    To fix this, I applied a 90% voltage multiplier to the left wheel <em>before</em> mapping the raw
+                    PID speed into the respective hardware deadbands:
+                </p>
+
+                <div class="code-container">
+                    <pre><code>void drive_spin(float pid_out) {
+    int speed = (int)fabsf(pid_out);
+    if (speed &lt; 1) { stop_motors(); return; }
+
+    // Multiplier applied BEFORE deadband mapping to prevent stalling
+    int speed_l = speed;
+    int speed_r = (int)(speed * 0.90f);
+
+    int pwm_l = map(speed_l, 1, 255, DEADBAND_L, 255);
+    int pwm_r = map(speed_r, 1, 255, DEADBAND_R, 255);
+}</code></pre>
+                </div>
+
+                <!-- Videos: 10° scans (Shorts) and 5° scans (standard 16:9) side-by-side -->
+                <div class="videos-row">
+                    <div class="video-item">
+                        <div class="video-container-shorts">
+                            <iframe src="https://www.youtube.com/embed/pXFlugkVBBE"
+                                title="Lab 9: 10-degree on-axis scan" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <p class="video-caption"><em>Video 1: 10° increment scan (36 points).</em></p>
+                    </div>
+                    <div class="video-item">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/KceQZqhgGi4" title="Lab 9: 5-degree on-axis scan"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <p class="video-caption"><em>Video 2: 5° increment scan (72 points).</em></p>
+                    </div>
+                </div>
+
+                <p>
+                    To quantify the PID performance, I logged the actual IMU yaw versus the setpoint during a scan.
+                    As seen in the step-response graph below, the controller is critically damped — it rapidly snaps
+                    to the 5° increments with no overshoot, settling cleanly within the ±1.5° acceptance threshold.
+                </p>
+
+                <!-- PID Step Response -->
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../lab9/assets/pidstepresp.png"
+                        alt="PID staircase step response — actual yaw tracking setpoint increments"
+                        style="width: 100%; max-width: none; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; text-align: center; color: var(--text-secondary);">
+                        <em>Figure 1 — PID staircase step response. The actual yaw (blue) tracks each 5° setpoint
+                            step with no overshoot, confirming critically damped performance within the ±1.5°
+                            threshold.</em>
+                    </p>
+                </div>
+
+                <h3>2.1 Theoretical Error Analysis (4×4 m Room)</h3>
+                <p>
+                    If performing an on-axis turn in the center of a 4×4 m empty room, the maximum distance to the
+                    corners is 2.828 m.
+                </p>
+                <ul>
+                    <li><strong>ToF Error:</strong> At 2.8 m, sensor noise is roughly ±28 mm.</li>
+                    <li><strong>Angular Error:</strong> My code accepts an error of 1.5°. A 1.5° deflection at 2.8 m
+                        causes a lateral shift of 2828 × tan(1.5°) ≈ 74 mm.</li>
+                    <li><strong>Physical Pivot:</strong> Despite deadband calibration, minor floor slip causes the
+                        robot's center to drift by ~15 mm over 360°.</li>
+                    <li><strong>Conclusion:</strong> The worst-case maximum error (in the far corners) is
+                        (4.6 in). The average error along the closer flat walls is ~30–40 mm (1.5 in).</li>
+                </ul>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>3. Reading Distances (State Machine)</h2>
+                <p>
+                    To guarantee clean ToF data, the robot utilized a non-blocking state machine. Once the PID
+                    reached the target angle, the motors killed, and the robot waited
+                    <span class="math-inline">SETTLE_MS</span> (400 ms) for chassis vibrations to dampen. It then
+                    took 5 ToF readings with 30 ms delays and averaged them.
+                </p>
+                <p>
+                    Crucially, the Arduino logged the <em>actual</em> DMP yaw, not the nominal target angle,
+                    ensuring the plotted map reflected reality.
+                </p>
+
+                <div class="code-container">
+                    <pre><code>// Inside run_scan_step()
+} else if (scan_state == SCAN_READING) {
+    float sum = 0; int valid = 0;
+    for (int i = 0; i &lt; 5; i++) {
+        // ... wait for ready ...
+        int d_mm = distSensor.getDistance();
+        if (d_mm &gt; 0 &amp;&amp; d_mm &lt; 4000) { sum += d_mm; valid++; }
+        delay(30);
+    }
+    float avg_dist_m = (sum / valid) / 1000.0f;
+    scan_angle[scan_idx] = current_yaw_rel; // Log ACTUAL IMU angle
+    scan_dist[scan_idx]  = avg_dist_m;
+// ... advance step ...</code></pre>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>4. Transformation Matrices and Merging</h2>
+                <p>
+                    The CSV data was downloaded over BLE and parsed in Python. To convert the distance readings into
+                    the global reference frame, I applied a 2D transformation matrix. The sensor offset (0.08 m) was
+                    added to the ToF distance to represent the vector P<sub>sensor</sub>. The global point
+                    P<sub>world</sub> was calculated by rotating P<sub>sensor</sub> by the actual IMU angle θ and
+                    translating it by the robot's coordinates on the grid.
+                </p>
+
+                <div class="callout-box">
+                    <p style="margin:0; font-family: 'Courier New', monospace; font-size: 0.9rem;">
+                        R(θ) = [[cos θ, −sin θ], [sin θ, cos θ]]<br>
+                        P<sub>world</sub> = [x<sub>robot</sub>, y<sub>robot</sub>]<sup>T</sup> + R(θ) · [dist + 0.08,
+                        0]<sup>T</sup>
+                    </p>
+                </div>
+
+                <!-- Raw polar scans grid -->
+                <div class="image-row">
+                    <div class="image-item">
+                        <img src="../lab9/assets/rawpolarscan1.png"
+                            alt="Raw polar scan set 1 — individual scans from each marked position">
+                        <p><em>Figure 2 — Raw polar scans (set 1) from one of the marked positions.</em></p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../lab9/assets/rawpolarscan2.png"
+                            alt="Raw polar scan set 2 — denser 5° increment scans">
+                        <p><em>Figure 3 — Raw polar scans (set 2) showing the denser 5° increment datasets.</em></p>
+                    </div>
+                </div>
+
+                <!-- Averaged polar plots -->
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../lab9/assets/averagedPolarplots.png"
+                        alt="Averaged polar plots — combined and averaged point clouds per position"
+                        style="width: 100%; max-width: none; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; text-align: center; color: var(--text-secondary);">
+                        <em>Figure 4 — Example of the Averaged polar plots. Multiple scan passes per position are
+                            averaged to
+                            reduce noise.</em>
+                    </p>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>5. Post-Processing &amp; Corrections</h2>
+                <p>
+                    When merging the point clouds, two distinct environmental errors required post-processing
+                    corrections before wall generation:
+                </p>
+                <ol>
+                    <li>
+                        <strong>IMU Mirroring:</strong> The IMU angles increased clockwise, while Python math assumes
+                        counter-clockwise. This mirrored the room layout. I corrected this by applying a
+                        <span class="math-inline">−1.0</span> multiplier to the angles
+                        (<span class="math-inline">IMU_DIRECTION = -1.0</span>).
+                    </li>
+                    <li>
+                        <strong>Physical Wall Deflection:</strong> One of the wooden walls appeared to be measured
+                        closer than reality. My best hypothesis is that the robot spiraled when its wheels caught the
+                        tape on the floor during certain scans, causing it to travel in an oval revolution path rather
+                        than a pure point-turn. This mechanical issue was fixed in later scans, and I manually tweaked
+                        the positional array of this specific cluster in Python to bring it back in line with the
+                        physical measurements of the room.
+                    </li>
+                </ol>
+
+                <!-- Stitched point cloud: with and without position 0 -->
+                <div class="image-row">
+                    <div class="image-item">
+                        <img src="../lab9/assets/worldscanwith0.png"
+                            alt="Stitched world-frame point cloud including position (0,0)">
+                        <p><em>Figure 5 — Stitched point cloud including the (0,0) origin scan.</em></p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../lab9/assets/worldscanwithout0.png"
+                            alt="Stitched world-frame point cloud with origin scan removed">
+                        <p><em>Figure 6 — Stitched point cloud with the (0,0) origin scan removed for clarity.</em></p>
+                    </div>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>6. Conversion to Line-Based Map</h2>
+                <p>
+                    To convert the unified, orthogonal point cloud into a format suitable for the simulator, I needed to
+                    extract distinct mathematical line segments from the raw scatter data. Because ToF sensors
+                    inherently capture noise, stray reflections, and "splatter" near edges, a standard linear regression
+                    (like least-squares) would be heavily skewed by these outliers.
+                </p>
+                <p>
+                    To solve this, I applied the RANSAC (Random Sample Consensus) line-fitting algorithm to the unified
+                    global point cloud. RANSAC is highly robust against outliers because, rather than trying to fit a
+                    line to all data points at once, it repeatedly selects random, small subsets of points to generate a
+                    mathematical line. It then tests the entire point cloud against that line to see how many points
+                    agree with it (falling within a tight distance threshold as inliers).
+
+                    By iteratively running RANSAC over the data and removing the best-fit inliers after each pass, the
+                    algorithm successfully identified the dominant structural walls of the room while mathematically
+                    ignoring the noisy ToF splatter.
+                </p>
+
+                <p>
+                    Once the dominant lines were mathematically fitted, I extracted their physical start and end
+                    coordinates. Using this automated RANSAC approach, I isolated 12 continuous segments representing
+                    the lower perimeter, the top wall, and the internal island obstacle:
+                </p>
+
+                <div class="code-container">
+                    <pre><code>#  global walls (ft) — 12 continuous segments
+
+x_start = [-7.000, -7.000, -0.500, -0.500,  1.500,  1.500,  6.300,  6.020, -3.714, -4.000,  2.283,  1.997]
+y_start = [0.000, -5.500, -5.500, -2.000, -2.000, -4.500, -4.500, 4.830, 4.830, 0.000, -0.184, 2.290]
+x_end   = [-7.000, -0.500, -0.500,  1.500,  1.500,  6.300,  6.020, -3.714, -4.000, -7.000,  1.997,  5.073]
+y_end   = [-5.500, -5.500, -2.000, -2.000, -4.500, -4.500, 4.830, 4.830, 0.000, 0.000, 2.290, 2.437]</code></pre>
+                </div>
+
+                <!-- Global wall map -->
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../lab9/assets/globalwall.png"
+                        alt="Final global wall map — 12-segment line-based room representation"
+                        style="width: 100%; max-width: 800px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; text-align: center; color: var(--text-secondary);">
+                        <em>Figure 7 — Global walls without right-side wall distance tweaked. The 12 line segments
+                            faithfully reproduce the room's indented perimeter and internal island obstacle.</em>
+                    </p>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <p style="color: var(--text-secondary); font-size: 0.85rem;">
+                    <em>AI Usage: AI was used in this lab for cross-checking the transformation matrix logic,
+                        debugging the polar-to-Cartesian conversion, and reviewing the post-processing pipeline.</em>
+                </p>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-text">© 2026 Immanuel Varghese Koshy. Built for ECE 5160.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
