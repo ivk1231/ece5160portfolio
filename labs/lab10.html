@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 10: Grid Localization using Bayes Filter — ECE 5160 Fast Robots by Immanuel Varghese Koshy.">
+    <title>Lab 10: Grid Localization | ECE 5160</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .image-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .image-row .image-item {
+            flex: 1;
+            min-width: 320px;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .image-row img,
+        .single-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .image-row img:hover,
+        .single-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .image-row p,
+        .single-image p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .single-image {
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        .code-container pre {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow-x: auto;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        /* Responsive 16:9 iframe embed */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            padding-bottom: min(56.25%, calc(720px * 0.5625));
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-wrap {
+            max-width: 720px;
+            margin: 1.5rem auto 0;
+        }
+
+        .video-caption {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.75rem;
+        }
+
+        .math-inline {
+            font-family: 'Courier New', monospace;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 0.95em;
+        }
+
+        .callout-box {
+            background: rgba(255, 255, 255, 0.04);
+            border-left: 3px solid rgba(99, 179, 237, 0.6);
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        /* Results table */
+        .results-table-wrapper {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+            font-family: 'Courier New', monospace;
+            min-width: 700px;
+        }
+
+        .results-table th {
+            background: rgba(99, 179, 237, 0.15);
+            color: var(--text-primary);
+            padding: 0.65rem 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(99, 179, 237, 0.3);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .results-table td {
+            padding: 0.5rem 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .results-table tr:hover td {
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+        }
+
+        .results-table td:first-child {
+            color: rgba(99, 179, 237, 0.9);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../index.html" class="logo">Immanuel Koshy</a>
+            <nav class="nav">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+                <a href="https://immanuel-portfolio.netlify.app" target="_blank" rel="noopener noreferrer"
+                    class="btn-primary">
+                    Main Portfolio
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="lab-page">
+        <div class="container">
+            <!-- Back Navigation -->
+            <a href="../index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+                </svg>
+                Back to Home
+            </a>
+
+            <!-- Lab Header -->
+            <header class="lab-header">
+                <h1 class="lab-page-title">Lab 10: Grid Localization using Bayes Filter</h1>
+                <p class="lab-page-meta">Week 10 | April 2026</p>
+            </header>
+
+            <!-- Lab Content -->
+            <article class="lab-body">
+
+                <h2>1. Objective</h2>
+                <p>
+                    The goal of this lab was to implement grid localization using a Bayes Filter on a virtual robot
+                    navigating a known map. The robot's 3D state space
+                    <span class="math-inline">(x, y, θ)</span> was discretized into a
+                    <span class="math-inline">12×9×18</span> grid (1944 cells), and the filter was used to estimate
+                    the robot's most probable pose at each of 16 time steps along a pre-planned trajectory.
+                </p>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>2. Implementation</h2>
+                <p>Four functions were implemented to complete the Bayes Filter:</p>
+
+                <h3>2.1 <span class="math-inline">compute_control(cur_pose, prev_pose)</span></h3>
+                <p>
+                    Computes the relative transformation between two consecutive poses and decomposes it into the
+                    odometry motion parameters
+                    <span class="math-inline">(δrot1, δtrans, δrot2)</span>.
+                    <span class="math-inline">delta_trans</span> is the Euclidean distance between the two positions
+                    (<span class="math-inline">hypot</span>), and
+                    <span class="math-inline">delta_rot_1</span> is the heading toward the new position relative to
+                    <span class="math-inline">prev_pose[2]</span> (via <span class="math-inline">atan2</span>).
+                    Critically, <span class="math-inline">delta_rot_2</span> is computed as
+                    <span class="math-inline">cur_pose[2] − prev_pose[2] − delta_rot_1</span> and then normalized via
+                    <span class="math-inline">normalize_angle()</span> to ensure the "shortest-path" angle is used —
+                    preventing the Gaussian from being evaluated at a numerically distant but geometrically equivalent
+                    angle.
+                </p>
+
+                <h3>2.2 <span class="math-inline">odom_motion_model(cur_pose, prev_pose, u)</span></h3>
+                <p>
+                    Returns the transition probability
+                    <span class="math-inline">p(x_t | u_t, x_{t-1})</span> by computing what control would be needed
+                    to go from <span class="math-inline">prev_pose</span> to
+                    <span class="math-inline">cur_pose</span>, then comparing that to the actual control
+                    <span class="math-inline">u</span> using three independent Gaussians — one each for
+                    <span class="math-inline">δrot1</span>, <span class="math-inline">δtrans</span>, and
+                    <span class="math-inline">δrot2</span> — parameterized by
+                    <span class="math-inline">odom_rot_sigma</span> and
+                    <span class="math-inline">odom_trans_sigma</span>.
+                </p>
+
+                <h3>2.3 <span class="math-inline">prediction_step(cur_odom, prev_odom)</span></h3>
+                <p>
+                    This implements the <strong>Motion Update</strong>. It loops over all possible previous and current
+                    grid cells. To optimize performance, cells with a previous belief &lt;0.0001 are skipped. The
+                    resulting prior belief, <span class="math-inline">loc.bel_bar</span>, is accumulated and normalized
+                    to maintain a valid probability distribution.
+                </p>
+
+                <h3>2.4 <span class="math-inline">sensor_model(obs)</span> + <span class="math-inline">update_step()</span></h3>
+                <p>
+                    The update step is fully vectorized using NumPy. The sensor model computes Gaussian likelihoods
+                    for all 18 readings across all 1944 cells simultaneously by broadcasting
+                    <span class="math-inline">loc.obs_range_data</span> against
+                    <span class="math-inline">mapper.obs_views</span> (shape 12×9×18×18). The product of 18 likelihoods
+                    per cell weights <span class="math-inline">bel_bar</span> to produce the final
+                    <span class="math-inline">bel</span>, which is then normalized.
+                </p>
+
+                <div class="code-container">
+                    <pre><code>def compute_control(cur_pose, prev_pose):
+    delta_trans = math.hypot(cur_pose[1] - prev_pose[1], cur_pose[0] - prev_pose[0])
+    delta_rot_1 = mapper.normalize_angle(
+        math.degrees(math.atan2(cur_pose[1] - prev_pose[1], cur_pose[0] - prev_pose[0]))
+        - prev_pose[2])
+    delta_rot_2 = mapper.normalize_angle(cur_pose[2] - prev_pose[2] - delta_rot_1)
+    return delta_rot_1, delta_trans, delta_rot_2
+
+def odom_motion_model(cur_pose, prev_pose, u):
+    actual_rot_1, actual_trans, actual_rot_2 = compute_control(cur_pose, prev_pose)
+    p_rot_1  = loc.gaussian(mapper.normalize_angle(actual_rot_1 - u[0]), 0, loc.odom_rot_sigma)
+    p_trans  = loc.gaussian(actual_trans - u[1], 0, loc.odom_trans_sigma)
+    p_rot_2  = loc.gaussian(mapper.normalize_angle(actual_rot_2 - u[2]), 0, loc.odom_rot_sigma)
+    return p_rot_1 * p_trans * p_rot_2
+
+def prediction_step(cur_odom, prev_odom):
+    u = compute_control(cur_odom, prev_odom)
+    loc.bel_bar = np.zeros(loc.bel_bar.shape)
+    for px in range(mapper.MAX_CELLS_X):
+        for py in range(mapper.MAX_CELLS_Y):
+            for pa in range(mapper.MAX_CELLS_A):
+                if loc.bel[px, py, pa] &lt; 0.0001:
+                    continue
+                prev_pose = mapper.from_map(px, py, pa)
+                for cx in range(mapper.MAX_CELLS_X):
+                    for cy in range(mapper.MAX_CELLS_Y):
+                        for ca in range(mapper.MAX_CELLS_A):
+                            cur_pose = mapper.from_map(cx, cy, ca)
+                            p = odom_motion_model(cur_pose, prev_pose, u)
+                            loc.bel_bar[cx, cy, ca] += p * loc.bel[px, py, pa]
+    loc.bel_bar /= np.sum(loc.bel_bar)
+
+def sensor_model(obs):
+    return loc.gaussian(loc.obs_range_data.reshape(-1), obs, loc.sensor_sigma)
+
+def update_step():
+    obs_flat = loc.obs_range_data.reshape(-1)
+    likelihoods = loc.gaussian(mapper.obs_views, obs_flat, loc.sensor_sigma)
+    loc.bel = np.prod(likelihoods, axis=3) * loc.bel_bar
+    loc.bel /= np.sum(loc.bel)</code></pre>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>3. Results</h2>
+                <p>
+                    The plotter visualizes odometry (red), ground truth (green), and Bayes Filter belief (blue). The
+                    belief tracks the ground truth closely for the majority of the trajectory, while odometry drifts
+                    significantly — especially in angle — due to accumulated error.
+                </p>
+
+                <!-- Given Trajectory -->
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../lab10/giventrajtectory.png"
+                        alt="Given pre-planned trajectory for the virtual robot"
+                        style="width: 100%; max-width: 800px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; text-align: center; color: var(--text-secondary);">
+                        <em>Figure 1 — The given pre-planned trajectory the virtual robot follows through the map.</em>
+                    </p>
+                </div>
+
+                <!-- Final result plot -->
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../lab10/finalplot.png"
+                        alt="Full trajectory result — odometry (red), ground truth (green), Bayes Filter belief (blue)"
+                        style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; text-align: center; color: var(--text-secondary);">
+                        <em>Figure 2 — Full 16-step trajectory result. Odometry (red) drifts badly; ground truth
+                            (green) and Bayes Filter belief (blue) remain tightly coupled.</em>
+                    </p>
+                </div>
+
+                <!-- Final simulation run video -->
+                <div class="video-wrap">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/xtVFP9KKiQk"
+                            title="Lab 10: Final Bayes Filter simulation run" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p class="video-caption"><em>Video 1: Final simulation run — Bayes Filter localizing the robot
+                            across all 16 steps.</em></p>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>4. Per-Step Summary</h2>
+                <p>
+                    The table below compares the ground truth pose, the Bayes Filter's most probable belief pose, and
+                    the resulting position/angle error at each of the 16 time steps.
+                </p>
+
+                <div class="results-table-wrapper">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Step</th>
+                                <th>GT Pose (x, y, θ°)</th>
+                                <th>Belief Pose (x, y, θ°)</th>
+                                <th>Belief Prob</th>
+                                <th>Pos Error (x, y, θ°)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0</td>
+                                <td>(0.290, −0.079, 321.9°)</td>
+                                <td>(0.305, 0.000, −50.0°)</td>
+                                <td>0.9999999</td>
+                                <td>(−0.015, −0.079, 11.9°)</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>(0.528, −0.509, 659.0°)</td>
+                                <td>(0.610, −0.610, −50.0°)</td>
+                                <td>~1.0</td>
+                                <td>(−0.082, 0.101, −11.0°)</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>(0.528, −0.509, 996.1°)</td>
+                                <td>(0.305, −0.610, −90.0°)</td>
+                                <td>~1.0</td>
+                                <td>(0.223, 0.101, 6.1°)</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>(0.570, −0.906, 1356.1°)</td>
+                                <td>(0.610, −0.914, −90.0°)</td>
+                                <td>~1.0</td>
+                                <td>(−0.040, 0.008, 6.1°)</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>(0.838, −1.041, 1801.5°)</td>
+                                <td>(0.914, −0.914, 10.0°)</td>
+                                <td>~1.0</td>
+                                <td>(−0.076, −0.127, −8.5°)</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>(1.611, −0.861, 2210.9°)</td>
+                                <td>(1.524, −0.914, 50.0°)</td>
+                                <td>0.9999999</td>
+                                <td>(0.087, 0.053, 0.9°)</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>(1.682, −0.475, 2599.6°)</td>
+                                <td>(1.829, −0.305, 90.0°)</td>
+                                <td>~1.0</td>
+                                <td>(−0.147, −0.170, −10.4°)</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>(1.747, −0.121, 2965.2°)</td>
+                                <td>(1.829, −0.305, 90.0°)</td>
+                                <td>~1.0</td>
+                                <td>(−0.081, 0.184, −4.8°)</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>(1.739, 0.379, 3348.2°)</td>
+                                <td>(1.829, 0.305, 110.0°)</td>
+                                <td>0.9577403</td>
+                                <td>(−0.090, 0.075, −1.8°)</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>(1.733, 0.709, 3747.4°)</td>
+                                <td>(1.829, 0.914, 150.0°)</td>
+                                <td>~1.0</td>
+                                <td>(−0.096, −0.205, −2.6°)</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>(1.312, 0.979, 4118.8°)</td>
+                                <td>(1.524, 0.914, 150.0°)</td>
+                                <td>~1.0</td>
+                                <td>(−0.212, 0.065, 8.8°)</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>(0.404, 0.860, 4576.2°)</td>
+                                <td>(0.610, 0.914, −110.0°)</td>
+                                <td>0.9999999</td>
+                                <td>(−0.205, −0.054, 6.2°)</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>(0.249, 0.229, 4981.3°)</td>
+                                <td>(0.305, 0.305, −70.0°)</td>
+                                <td>~1.0</td>
+                                <td>(−0.055, −0.076, 11.3°)</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>(0.010, −0.083, 5272.5°)</td>
+                                <td>(0.000, −0.305, −130.0°)</td>
+                                <td>~1.0</td>
+                                <td>(0.010, 0.222, 2.5°)</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>(−0.349, −0.243, 5609.6°)</td>
+                                <td>(−0.305, −0.305, −150.0°)</td>
+                                <td>~1.0</td>
+                                <td>(−0.045, 0.062, −0.4°)</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>(−0.749, −0.250, 5946.6°)</td>
+                                <td>(−0.610, −0.305, −170.0°)</td>
+                                <td>0.9946060</td>
+                                <td>(−0.140, 0.055, −3.4°)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>5. Analysis: When It Works and When It Doesn't</h2>
+
+                <h3>5.1 Success Conditions</h3>
+                <p>
+                    The filter excels in geometrically unique regions (corners/alcoves). In steps 3–5 and 14–15,
+                    position errors remained &lt;0.15 m with belief probabilities of ~1.0. The 18-ray sensor model
+                    provides a highly discriminative "signature" that allows the update step to recover even from a
+                    diffuse or inaccurate prior — for instance, in Step 3, the update step successfully corrected
+                    the belief despite <span class="math-inline">bel_bar</span> at the winning cell being only
+                    0.00055.
+                </p>
+
+                <h3>5.2 Failure Modes</h3>
+                <p>
+                    Challenges arose during rapid rotations (Steps 0–2) and when odometry drift was at its peak.
+                    Because the ground truth yaw accumulates unboundedly (reaching 5946° by Step 15) while grid
+                    cells are constrained to [−180°, 180°), the prediction step occasionally placed prior mass in a
+                    non-winning cell. Step 2 exhibited the highest translational error (0.223 m) because the motion
+                    was primarily rotational, making the translation component of the motion model less discriminative.
+                </p>
+                <p>
+                    Most strikingly, Steps 5 and 10 saw <span class="math-inline">bel_bar</span> values of
+                    6.5×10⁻¹⁵ and 3.3×10⁻⁶ at the correct cell — effectively a small-scale
+                    <strong>Kidnapped Robot</strong> scenario where the prediction step considered the true pose
+                    nearly impossible. In both cases, the 18-ray sensor model was strong enough to "rescue" the
+                    filter, assigning ~1.0 probability to the correct cell after the update. This robustness is a
+                    direct result of the richness of the full 360° scan.
+                </p>
+
+                <div class="callout-box">
+                    <p style="margin: 0;">
+                        <strong>Key Inference:</strong> The Bayes Filter successfully dampens odometry noise. While
+                        raw odometry drifted far outside the map boundaries, the sensor-weighted update consistently
+                        snapped the robot back to the correct grid cell, keeping angular error under 12° (within the
+                        20° cell resolution) and translational error under ~0.22 m throughout the entire 16-step
+                        trajectory.
+                    </p>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <p style="color: var(--text-secondary); font-size: 0.85rem;">
+                    <em>AI usage: AI was used to build this site and to help format and structure the lab writeup.</em>
+                </p>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-text">© 2026 Immanuel Varghese Koshy. Built for ECE 5160.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
