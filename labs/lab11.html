@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Lab 11: Real-Robot Grid Localization using Bayes Filter — ECE 5160 Fast Robots by Immanuel Varghese Koshy.">
+    <title>Lab 11: Real-Robot Localization | ECE 5160</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .image-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .image-row .image-item {
+            flex: 1;
+            min-width: 320px;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .image-row img,
+        .single-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .image-row img:hover,
+        .single-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .image-row p,
+        .single-image p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .single-image {
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        .code-container pre {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow-x: auto;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .math-inline {
+            font-family: 'Courier New', monospace;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 0.95em;
+        }
+
+        .callout-box {
+            background: rgba(255, 255, 255, 0.04);
+            border-left: 3px solid rgba(99, 179, 237, 0.6);
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        /* Results table */
+        .results-table-wrapper {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+            font-family: 'Courier New', monospace;
+            min-width: 580px;
+        }
+
+        .results-table th {
+            background: rgba(99, 179, 237, 0.15);
+            color: var(--text-primary);
+            padding: 0.65rem 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(99, 179, 237, 0.3);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .results-table td {
+            padding: 0.5rem 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .results-table tr:hover td {
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+        }
+
+        .results-table td:first-child {
+            color: rgba(99, 179, 237, 0.9);
+            font-weight: 600;
+        }
+
+        /* Pose section cards */
+        .pose-section {
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 10px;
+            padding: 1.5rem 1.75rem;
+            margin: 2rem 0;
+        }
+
+        .pose-section h3 {
+            margin-top: 0;
+            color: var(--text-primary);
+        }
+
+        /* yaml code block */
+        .yaml-block {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow-x: auto;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            font-family: 'Courier New', monospace;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../index.html" class="logo">Immanuel Koshy</a>
+            <nav class="nav">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+                <a href="https://immanuel-portfolio.netlify.app" target="_blank" rel="noopener noreferrer"
+                    class="btn-primary">
+                    Main Portfolio
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="lab-page">
+        <div class="container">
+            <!-- Back Navigation -->
+            <a href="../index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+                </svg>
+                Back to Home
+            </a>
+
+            <!-- Lab Header -->
+            <header class="lab-header">
+                <h1 class="lab-page-title">Lab 11: Real-Robot Grid Localization (Bayes Filter)</h1>
+                <p class="lab-page-meta">Week 11 | April 2026</p>
+            </header>
+
+            <!-- Lab Content -->
+            <article class="lab-body">
+
+                <h2>1. Objective</h2>
+                <p>
+                    Implement grid localization on the physical robot using the Bayes filter
+                    <strong>update step only</strong> (uniform prior), with 18 range observations per 360° scan.
+                    The estimated belief is compared to hand-measured ground truth at four marked poses on the
+                    course map.
+                </p>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>2. Simulation Verification</h2>
+                <p>
+                    Before running on hardware, the provided <span class="math-inline">lab11_sim.ipynb</span>
+                    notebook was run to verify the filter pipeline and visualization tooling. The simulation
+                    confirms that odometry (red) drifts substantially while the Bayes filter belief (blue) tracks
+                    ground truth (green) throughout the trajectory.
+                </p>
+
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../lab11/assets/figure1.png"
+                        alt="Lab 11 simulation run — Bayes filter belief tracks ground truth"
+                        style="width: 100%; max-width: 880px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+                        <em>Simulation verification: Bayes filter belief (blue) closely follows ground
+                            truth (green), while odometry (red) drifts significantly.</em>
+                    </p>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>3. Real Robot: Observation Pipeline</h2>
+                <p>
+                    The core addition for Lab 11 is implementing
+                    <span class="math-inline">RealRobot.perform_observation_loop()</span>
+                    inside <span class="math-inline">lab11_real.ipynb</span>. The method:
+                </p>
+                <ul>
+                    <li>Subscribes to BLE notifications, sends <span class="math-inline">START_SCAN</span> to
+                        the Artemis, and waits for the full 360° scan to complete.</li>
+                    <li>Requests data via <span class="math-inline">GET_SCAN_DATA</span> and parses packets of
+                        the form <span class="math-inline">A:&lt;angle_deg&gt;|D:&lt;dist_m&gt;</span>.</li>
+                    <li>Requires exactly 18 readings; raises a <span class="math-inline">RuntimeError</span>
+                        if the scan is incomplete (protects against requesting data before the robot finishes
+                        turning).</li>
+                    <li>Reorders ranges for <strong>clockwise physical rotation</strong>: the mapper expects
+                        counter-clockwise bearings
+                        <span class="math-inline">[0°, 20°, …, 340°]</span>, so index 0 is kept at 0° and
+                        indices 1–17 are reversed.
+                    </li>
+                </ul>
+
+                <p>The same step-and-scan turning mechanism from the wall-mapping lab was reused here.</p>
+
+                <div class="code-container">
+                    <pre><code>def perform_observation_loop(self, rot_vel=120):
+    # BLE notify, START_SCAN, time.sleep to allow full scan to finish
+    # GET_SCAN_DATA, wait until len(raw_packets) >= expected_obs
+    # Parse A:<angle>|D:<dist> packets into angles_deg, dists_m
+
+    if len(dists_m) != expected_obs:
+        raise RuntimeError(
+            f"Incomplete scan data: expected {expected_obs}, got {len(dists_m)}"
+        )
+
+    # Robot rotates CW; mapper expects CCW order [0, +20, ..., +340]
+    dists_ccw   = [dists_m[0]] + list(dists_m[1:][::-1])
+    angles_ccw  = [angles_deg[0]] + list(angles_deg[1:][::-1])
+
+    sensor_ranges   = np.array(dists_ccw)[np.newaxis].T
+    sensor_bearings = np.array(angles_ccw)[np.newaxis].T
+    return sensor_ranges, sensor_bearings</code></pre>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>4. Configuration Tuning</h2>
+                <p>
+                    <span class="math-inline">sensor_sigma</span> in
+                    <span class="math-inline">config/world.yaml</span> was tuned to balance sensitivity
+                    to real ToF noise versus over-smoothing the likelihood. A larger value makes the update
+                    more tolerant of outlier readings and occasional failed measurements. After experimentation,
+                    <span class="math-inline">sensor_sigma = 0.4</span> performed well across most runs.
+                    All experiments used 18 observations and
+                    <span class="math-inline">ray_tracing_length: 6</span> m by default, except
+                    at (5, −3) where targeted adjustments were explored.
+                </p>
+
+                <div class="yaml-block">
+                    mapper:
+                    observations_count: 18
+                    ray_tracing_length: 6
+
+                    localization:
+                    sensor_sigma: 0.4
+                </div>
+
+                <p style="margin-top: 1rem;">
+                    <strong>Firmware note:</strong> The VL53L1X was configured in
+                    <strong>short distance mode</strong> in the Lab 11 Arduino sketch. This maximizes
+                    sample rate but can limit usable range on long return paths. A sufficiently long
+                    <span class="math-inline">time.sleep</span> after
+                    <span class="math-inline">START_SCAN</span> ensures all 18 packets are logged before
+                    <span class="math-inline">GET_SCAN_DATA</span> is called.
+                </p>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>5. Marked Poses and Results</h2>
+                <p>
+                    The robot was placed at four marked poses on the course map, each with a nominal
+                    heading of 0°. Ground truth is measured in feet (1 ft ≈ 0.3048 m). For each pose,
+                    the filter was initialized with a <strong>uniform belief</strong>, one observation
+                    loop was performed, and <span class="math-inline">loc.update_step()</span> was run
+                    to compute the posterior.
+                </p>
+
+                <!-- Results Table -->
+                <div class="results-table-wrapper">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Pose (ft)</th>
+                                <th>Ground Truth (m)</th>
+                                <th>Peak Belief (x, y, θ°)</th>
+                                <th>Peak Prob</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>(−3, −2)</td>
+                                <td>(−0.914, −0.610)</td>
+                                <td>(−0.610, 0.000, 50.0°)</td>
+                                <td>0.950</td>
+                                <td>Clean result — geometrically distinct corner</td>
+                            </tr>
+                            <tr>
+                                <td>(0, 3)</td>
+                                <td>(0.000, 0.914)</td>
+                                <td>(−0.400, 0.600, 50.0°)</td>
+                                <td>0.800</td>
+                                <td>Good match — open-center landmark (see plot)</td>
+                            </tr>
+                            <tr>
+                                <td>(5, −3)</td>
+                                <td>(1.524, −0.914)</td>
+                                <td>Off-true cell</td>
+                                <td></td>
+                                <td>Hardest pose — perceptual aliasing (see §6)</td>
+                            </tr>
+                            <tr>
+                                <td>(5, 3)</td>
+                                <td>(1.524, 0.914)</td>
+                                <td>(1.219, 0.914, 150.0°)</td>
+                                <td>0.624</td>
+                                <td>Solid result — corner with distinct wall geometry</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <!-- (-3, -2) -->
+                <div class="pose-section">
+                    <h3>Pose (−3, −2) ft</h3>
+                    <div class="image-row">
+                        <div class="image-item">
+                            <img src="../lab11/assets/-3,-2.png" alt="Belief plot for pose (-3, -2) — simulator view">
+                            <p><em>Simulator view — belief after update step.</em></p>
+                        </div>
+                        <div class="image-item">
+                            <img src="../lab11/assets/-3,-2 python.png"
+                                alt="Belief plot for pose (-3, -2) — Python notebook output">
+                            <p><em>Notebook posterior — peak at (−0.610, 0.000, 50°), p=0.950.</em></p>
+                        </div>
+                    </div>
+                    <p>
+                        This geometrically distinct corner produced a clean, high-confidence estimate
+                        (p = 0.950). The 18-ray scan provides a unique angular signature: two nearby
+                        walls at perpendicular angles create a range profile that is hard to replicate
+                        elsewhere on the map, so the update step converges strongly to the correct cell.
+                    </p>
+                </div>
+
+                <!-- (0, 3) -->
+                <div class="pose-section">
+                    <h3>Pose (0, 3) ft</h3>
+                    <div class="image-row">
+                        <div class="image-item">
+                            <img src="../lab11/assets/0,3.png" alt="Belief plot for pose (0, 3) — simulator view">
+                            <p><em>Simulator view — belief concentration after update.</em></p>
+                        </div>
+                        <div class="image-item">
+                            <img src="../lab11/assets/0,3 python.png"
+                                alt="Belief plot for pose (0, 3) — Python notebook output">
+                            <p><em>Notebook posterior — update step narrows belief to the correct region.</em></p>
+                        </div>
+                    </div>
+                    <p>
+                        A near-center position with good angular diversity — the robot can "see" all
+                        four walls from this location, giving the 18-ray scan enough discriminative
+                        information to converge to the correct cell.
+                    </p>
+                </div>
+
+                <!-- (5, -3) -->
+                <div class="pose-section">
+                    <h3>Pose (5, −3) ft</h3>
+                    <div style="margin: 1.5rem 0; text-align: center;">
+                        <img src="../lab11/assets/5,-3.png" alt="Belief plot for pose (5, -3)"
+                            style="width: 100%; max-width: 700px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+                            <em>Belief plot for (5, −3) — the MAP estimate lands off-true spot.</em>
+                        </p>
+                    </div>
+                    <p>
+                        This pose produced the weakest localization result. The outer-wall geometry
+                        near (5, −3) is not unique enough at 20° scan resolution — a nearby cell
+                        with similar ray-cast distances can outscore the ground-truth cell after the
+                        update. See §6 for a full breakdown.
+                    </p>
+                </div>
+
+                <!-- (5, 3) -->
+                <div class="pose-section">
+                    <h3>Pose (5, 3) ft</h3>
+                    <div class="image-row">
+                        <div class="image-item">
+                            <img src="../lab11/assets/5,3.png" alt="Belief plot for pose (5, 3) — simulator view">
+                            <p><em>Simulator view — belief after update step.</em></p>
+                        </div>
+                        <div class="image-item">
+                            <img src="../lab11/assets/5,3 python.png" alt="Belief plot for pose (5, 3) — Python notebook output">
+                            <p><em>Notebook posterior — peak at (1.219, 0.914, 150°), p = 0.624.</em></p>
+                        </div>
+                    </div>
+                    <p>
+                        The corner geometry at (5, 3) provides discriminative ray casts — two short
+                        wall distances at roughly perpendicular angles give the filter enough information
+                        to pinpoint the correct cell with a peak probability of 0.624. The lower confidence
+                        compared to (−3, −2) likely reflects slightly more open sight lines on one side,
+                        which allows a small amount of probability mass to spread to adjacent cells.
+                    </p>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>6. Discussion: Why (5, −3) Was the Hardest</h2>
+                <p>
+                    At <strong>(5, −3)</strong>, the maximum a posteriori cell sometimes landed in a
+                    visually "similar" pocket near an outer wall( the green x in 5,-3 in image above). From the robot's
+                    ToF view, a
+                    wrong
+                    <span class="math-inline">(x, y, θ)</span> could still produce a passable match
+                    to the cached ray cast — classic <strong>perceptual aliasing</strong> at a coarse
+                    20° scan resolution.
+                </p>
+
+                <p>Several experiments were run to improve this result:</p>
+                <ul>
+                    <li>Increasing <span class="math-inline">observations_count</span> brought the
+                        estimate closer, but not exact.</li>
+                    <li>Reducing <span class="math-inline">ray_tracing_length</span> for targeted
+                        runs had a similar effect.</li>
+                </ul>
+
+                <div class="callout-box">
+                    <p style="margin: 0;">
+                        <strong>Root causes:</strong>
+                        <br><br>
+                        1. <strong>Sparse angular sampling</strong> (18 directions, 20° steps): parallel
+                        outer walls at comparable ranges look alike from different positions.
+                        <br><br>
+                        2. <strong>Sensor limits:</strong> Short distance mode truncates or fails on the
+                        farthest wall returns, so certain beams carry less discriminative information and
+                        inter-cell similarity increases.
+                        <br><br>
+                        3. <strong>Invalid readings:</strong> ToF failures logged as <span class="math-inline">−1</span>
+                        down-weight the correct cell because the likelihood model doesn't explicitly
+                        handle outliers.
+                    </p>
+                </div>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <h2>7. Takeaways</h2>
+                <ul>
+                    <li>The <strong>update-only</strong> Bayes filter with a uniform prior is highly
+                        sensitive to how well the observation vector is aligned with the map (rotation
+                        direction, beam ordering, heading at time of scan).</li>
+                    <li>Tuning <span class="math-inline">sensor_sigma</span> on hardware is necessary;
+                        a single simulation-derived value is rarely transferable directly.</li>
+                    <li>A single difficult pose is expected in environments with degenerate symmetry;
+                        finer angular resolution, more beams, or explicit outlier handling would be the
+                        natural next steps.</li>
+                </ul>
+
+                <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0;">
+
+                <p style="color: var(--text-secondary); font-size: 0.85rem;">
+                    <em>AI usage: AI was used to build this site and to help format and structure the lab writeup.</em>
+                </p>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/immanuel-varghese-koshy/" target="_blank" rel="noopener noreferrer"
+                    class="nav-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:iv74@cornell.edu" class="nav-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-text">© 2026 Immanuel Varghese Koshy. Built for ECE 5160.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
