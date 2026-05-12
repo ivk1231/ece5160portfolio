@@ -448,13 +448,13 @@ case STATE_POP_WAIT:
 
                 <h2>9. Results and demonstration</h2>
                 <p>
-                    <strong>Phase A</strong> — With the car placed upright, the PID loop regularly achieved <strong>roughly 3–8 s</strong> of balance, with good rejection of small bumps. Disturbances <strong>above ~15°</strong> often exceeded what the wheel torque could recover in time, so the vehicle tipped.
+                    <strong>Phase A</strong> — With the car placed upright, the PID loop regularly achieved <strong>8–15 seconds on level ground</strong> of balance, with good rejection of small bumps. Disturbances <strong>above ~15°</strong> often exceeded what the wheel torque could recover in time, so the vehicle tipped.
                 </p>
                 <p>
                     Because there was <strong>no outer position loop</strong>, the car did not stay in one spot: it <strong>crept and turned</strong> on the front wheels while keeping pitch near setpoint—the usual trade for a wheelie without lateral or heading regulation.
                 </p>
                 <p>
-                    <strong>Phase B</strong> — The state machine and handoff logic ran as designed; end-to-end reliability from flat was on the order of <strong>40–60%</strong> per try on our floor, dominated by <strong>traction and repeatability</strong> of the pop impulse rather than by the balance math alone.
+                    <strong>Phase B</strong> — The state machine and handoff logic ran as designed; the open-loop pop sequence reliably lifted the car to about <strong>45 degrees</strong>. Completing the full transition to the balance point was dominated by <strong>traction and repeatability</strong> of the pop impulse on our floor rather than by the balance math alone.
                 </p>
 
                 <h3>9.1 Balanced wheelie photos</h3>
